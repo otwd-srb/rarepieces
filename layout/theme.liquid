@@ -237,7 +237,7 @@
     </script>
   </head>
 
-  <body class="gradient neki-stil">
+  <body class="gradient {% if template == 'index' %} neki-stil {% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
