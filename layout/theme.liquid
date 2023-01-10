@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
@@ -30,6 +31,20 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'bootstrap.bundle.js' | asset_url }}" defer="defer"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+      $('.sub-menu ul').hide();
+      $(".sub-menu a").click(function () {
+        $(this).parent(".sub-menu").children("ul").slideToggle("100");
+        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+      });
+    </script>
+
+
+
     {{ content_for_header }}
 
     {%- liquid
@@ -217,8 +232,10 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'otwd.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.css' | asset_url | stylesheet_tag}}
+    {{ 'main_theme.css' | asset_url | stylesheet_tag}}
 
+    
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -237,7 +254,7 @@
     </script>
   </head>
 
-  <body class="gradient {% if template == 'index' %} neki-stil {% endif %}">
+  <body class="theme-bgd">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -246,13 +263,75 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% section 'announcement-bar' %}
-    {% section 'header' %}
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+    {% comment %} {% section 'announcement-bar' %} {% endcomment %}
 
-    {% section 'footer' %}
+    <!-- OTWD MOBILE MENU START-->
+    <!-- srediti linkove i prilagoditi backend-u za uređivanje -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"> <i class="bi bi-x-lg"></i> </button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="animated bounceInDown main-nav">
+          <ul class="list-unstyled">
+            <li><a href="#">Lookbook</a></li>
+            <li><a href="#">Wholesale</a></li>
+            <li class='sub-menu'><a href="#">Rare pieces <div class='fa fa-caret-down right'></div></a>
+              <ul class="list-unstyled">
+                <li><a href="#">T-shirt three60</a></li>
+                <li><a href="#">Sweater three60</a></li>
+                <li><a href="#">Hoodie three60</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Inspiration</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- OTWD MOBILE MENU END-->
+
+    {{ template }} <!-- OTWD code -->    
+    {% section 'otwd-header' %} <!-- OTWD code -->
+    <section id="" class="main-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <div class="main-nav-container">
+                      <nav class="animated bounceInDown main-nav d-none d-sm-block">
+                          <ul class="list-unstyled">
+                          <li><a href="#">Lookbook</a></li>
+                          <li><a href="#">Wholesale</a></li>
+                          <li class='sub-menu'><a href="#">Rare pieces <div class='fa fa-caret-down right'></div></a>
+                              <ul class="list-unstyled">
+                              <li><a href="#">T-shirt three60</a></li>
+                              <li><a href="#">Sweater three60</a></li>
+                              <li><a href="#">Hoodie three60</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#">Shipping</a></li>
+                          <li><a href="#">Inspiration</a></li>
+                          <li><a href="#">Contact</a></li>
+                          </ul>
+                      </nav>
+                  </div>
+              </div>
+              <div class="col-lg-9">
+                {% comment %} <img src="../assets/Logo-980x1039.png" class="img-fluid hp-logo" alt="" > {% endcomment %}
+                <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
+                <div class="cta-btn-container">
+                  <a href="collection-and-about.html" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
+              </div>
+          </div>
+      </div>
+    </section>
+    
+    {% comment %} <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main> {% endcomment %}
+
+    {% section 'otwd-footer' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
