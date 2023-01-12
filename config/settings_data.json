@@ -226,49 +226,6 @@
         "settings": {
           "button_text": "Shop Now"
         }
-      },
-      "otwd-footer": {
-        "type": "otwd-footer",
-        "blocks": {
-          "otwd-footer-0": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
-            }
-          },
-          "otwd-footer-1": {
-            "type": "text",
-            "settings": {
-              "heading": "otwd",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
-            }
-          },
-          "ae331dbd-1c7f-4315-98c6-6e222c7a46d9": {
-            "type": "text",
-            "settings": {
-              "heading": "Heading",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "otwd-footer-0",
-          "otwd-footer-1",
-          "ae331dbd-1c7f-4315-98c6-6e222c7a46d9"
-        ],
-        "settings": {
-          "color_scheme": "background-1",
-          "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
-          "show_social": false,
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "payment_enable": true,
-          "margin_top": 0,
-          "padding_top": 36,
-          "padding_bottom": 36
-        }
       }
     },
     "content_for_index": [
