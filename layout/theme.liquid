@@ -32,10 +32,6 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
-    
-
-
-
     {{ content_for_header }}
 
     {%- liquid
@@ -365,8 +361,10 @@
                   <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
                 </div> {% endcomment %}
                   {% comment %} {{ content_for_layout }} {% endcomment %}
-                  {% section 'main-page-landing' %}
-
+                  <main role="main">
+                    {% comment %} {% section 'main-page-landing' %} {% endcomment %}
+                    {{ content_for_layout }}
+                  </main>
               
           </div>
       </div>
@@ -376,7 +374,7 @@
       {{ content_for_layout }}
     </main> {% endcomment %}
 
-    {% section 'otwd-footer' %}
+    {% section 'footer-otwd' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
