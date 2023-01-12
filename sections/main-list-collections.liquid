@@ -2,8 +2,9 @@
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
 <div class="page-width">
-  <h1 class="title title--primary">{{ section.settings.title | escape }}</h1>
-  {%- liquid
+  {% comment %} <h1 class="title title--primary">{{ section.settings.title | escape }}</h1> {% endcomment %}
+
+  {% comment %} {%- liquid
     case section.settings.sort
       when 'products_high' or 'products_low'
         assign collections = collections | sort: 'all_products_count'
@@ -20,8 +21,9 @@
     if moduloResult == 0
       assign paginate_by = 28
     endif
-  -%}
-  {%- paginate collections by paginate_by -%}
+  -%} {% endcomment %}
+
+  {% comment %} {%- paginate collections by paginate_by -%}
     <ul class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" role="list">
       {%- for collection in collections -%}
         <li class="collection-list__item grid__item">
@@ -30,8 +32,102 @@
       {%- endfor -%}
     </ul>
     {% render 'pagination', paginate: paginate %}
-  {%- endpaginate -%}
+  {%- endpaginate -%} {% endcomment %}
+  <div class="section-holder">
+    <div class="row">
+
+        {% for collection in collections %}
+        <div class="col-12 col-lg-4 collection-data">
+            <div class="collection-img-container">
+                <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid">
+            </div>
+            <div class="hp-coll-desc text-center mb-5">
+                <p class="collection-name">{{ collection.title | upcase }}</p>
+                <ul class="list-inline">
+                    {% for product in collection.products %}
+                      <li class="list-inline-item active">
+                          {% comment %} {% for collection in collections %} {{- collection.title | link_to: collection.url}} {% endfor %} {% endcomment %}
+                          <a href="{{ product.url }}" class="collection-pg-product-link">{{ product.title | upcase }}</a>
+                      </li>
+                    {% endfor %}
+                    <!--<li class="list-inline-item">
+                        <a href="#" class="collection-pg-product-link" 
+                        onmouseover="document.getElementById('{{ product.image }}').src='../assets/t-shirt_boy_magic_blue.png'">Magic blue</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="collection-pg-product-link" onmouseover="document.getElementById('shirtcollection').src='../assets/t-shirt_boy_magic_blue.png'">Light gray</a>
+                    </li>
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Pure white</a></li>-->
+                </ul>
+            </div>
+            <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+        </div>
+      {% endfor %}
+
+
+
+
+        {% comment %} <div class="col-12 col-lg-4 collection-data">
+          <div class="collection-img-container">
+              <img src="../assets/t-shirt_girl_just_black.png" alt="" id="shirtcollection" class="img-fluid">
+          </div>
+          <div class="hp-coll-desc text-center mb-5">
+              <p class="collection-name">T-shirt three60</p>
+              <ul class="list-inline">
+                  <li class="list-inline-item">
+                      <a href="#" class="collection-pg-product-link active" 
+                      onmouseover="document.getElementById('shirtcollection').src='../assets/t-shirt_girl_just_black.png'">Just black</a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#" class="collection-pg-product-link" 
+                      onmouseover="document.getElementById('shirtcollection').src='../assets/t-shirt_boy_magic_blue.png'">Magic blue</a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#" class="collection-pg-product-link" onmouseover="document.getElementById('shirtcollection').src='../assets/t-shirt_boy_magic_blue.png'">Light gray</a>
+                  </li>
+                  <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Pure white</a></li>
+              </ul>
+          </div>
+          <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+        </div> 
+        <div class="col-12 col-lg-4 collection-data">
+            <div class="collection-img-container">
+                <img src="../assets/hoodie_boy_just_black.png" alt="" class="img-fluid">
+            </div>
+            <div class="hp-coll-desc text-center mb-5">
+                <p class="collection-name">Hoodie three60</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link active">Just black</a></li>
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Magic blue</a></li>
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Light gray</a></li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+        </div>
+        <div class="col-12 col-lg-4 collection-data">
+            <div class="collection-img-container">
+                <img src="../assets/sweater_boy_just_black.png" alt="" class="img-fluid">
+            </div>
+            <div class="hp-coll-desc text-center mb-5">
+                <p class="collection-name">Sweater three60</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link active">Just black</a></li>
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Magic blue</a></li>
+                    <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Light gray</a></li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+        </div> {% endcomment %}
+    </div>
 </div>
+
+
+
+
+
+</div>
+
+
 {% schema %}
 {
   "name": "t:sections.main-list-collections.name",
