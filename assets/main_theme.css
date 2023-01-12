@@ -115,6 +115,7 @@ header h1 {
 .hp-title-link {
   color: #130c0c;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 @media (max-width: 576px) {

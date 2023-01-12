@@ -32,16 +32,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
-    <script src="{{ 'bootstrap.bundle.js' | asset_url }}" defer="defer"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <script>
-      $('.sub-menu ul').hide();
-      $(".sub-menu a").click(function () {
-        $(this).parent(".sub-menu").children("ul").slideToggle("100");
-        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-      });
-    </script>
+    
 
 
 
@@ -70,7 +61,7 @@
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+        /* --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }}; */
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
         --color-base-text: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
@@ -266,7 +257,6 @@
     {% comment %} {% section 'announcement-bar' %} {% endcomment %}
 
     <!-- OTWD MOBILE MENU START-->
-    <!-- srediti linkove i prilagoditi backend-u za uređivanje -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"> <i class="bi bi-x-lg"></i> </button>
@@ -274,55 +264,110 @@
       <div class="offcanvas-body">
         <nav class="animated bounceInDown main-nav">
           <ul class="list-unstyled">
-            <li><a href="#">Lookbook</a></li>
-            <li><a href="#">Wholesale</a></li>
-            <li class='sub-menu'><a href="#">Rare pieces <div class='fa fa-caret-down right'></div></a>
-              <ul class="list-unstyled">
-                <li><a href="#">T-shirt three60</a></li>
-                <li><a href="#">Sweater three60</a></li>
-                <li><a href="#">Hoodie three60</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Contact</a></li>
+            {%- for link in linklists.main-menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- if link.links != blank -%}
+                <li class='sub-menu'>
+                  {% comment %} <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div> 
+                  <span {%- if link.child_active -%} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>{% endcomment %}
+                  <ul class="list-unstyled">
+                    {%- for childlink in link.links -%}
+                      <li>
+                        {%- if childlink.links == blank -%}
+                          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                        {%- else -%}
+
+                        <li class='sub-menu'>
+                          <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div>
+                          <ul class="list-unstyled">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a href="{{ grandchildlink.url }}" >{{ grandchildlink.title | escape }}</a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                          {% comment %} <details id="Details-HeaderSubMenu-{{ forloop.index }}">
+                            <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
+                              <span>{{ childlink.title | escape }}</span>
+                              {% render 'icon-caret' %}
+                            </summary>
+                            <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="header__submenu list-menu motion-reduce">
+                              {%- for grandchildlink in childlink.links -%}
+                                <li>
+                                  <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                                    {{ grandchildlink.title | escape }}
+                                  </a>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </details> {% endcomment %}
+                        {%- endif -%}
+                        </li>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- endif -%}
+              </li>
+            {%- endfor -%}
           </ul>
         </nav>
       </div>
     </div>
     <!-- OTWD MOBILE MENU END-->
 
-    {{ template }} <!-- OTWD code -->    
+    <span style="color: #f00;">{{ template }}</span> <!-- OTWD code -->
     {% section 'otwd-header' %} <!-- OTWD code -->
-    <section id="" class="main-section">
+    <section id="" class="main-section"><!-- OTWD sidebar menu start-->
       <div class="container">
           <div class="row">
               <div class="col-lg-3">
                   <div class="main-nav-container">
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
-                          <ul class="list-unstyled">
-                          <li><a href="#">Lookbook</a></li>
-                          <li><a href="#">Wholesale</a></li>
-                          <li class='sub-menu'><a href="#">Rare pieces <div class='fa fa-caret-down right'></div></a>
-                              <ul class="list-unstyled">
-                              <li><a href="#">T-shirt three60</a></li>
-                              <li><a href="#">Sweater three60</a></li>
-                              <li><a href="#">Hoodie three60</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="#">Shipping</a></li>
-                          <li><a href="#">Inspiration</a></li>
-                          <li><a href="#">Contact</a></li>
-                          </ul>
+                        <ul class="list-unstyled">
+                          {%- for link in linklists.main-menu.links -%}
+                            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {%- if link.links != blank -%}
+                              <li class='sub-menu'>
+                                <ul class="list-unstyled">
+                                  {%- for childlink in link.links -%}
+                                    <li>
+                                      {%- if childlink.links == blank -%}
+                                        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                                      {%- else -%}
+                                      <li class='sub-menu'>
+                                        <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div>
+                                        <ul class="list-unstyled">
+                                          {%- for grandchildlink in childlink.links -%}
+                                            <li>
+                                              <a href="{{ grandchildlink.url }}" >{{ grandchildlink.title | escape }}</a>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      {%- endif -%}
+                                      </li>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              </li>
+                            {%- endif -%}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
                       </nav>
                   </div>
               </div>
-              <div class="col-lg-9">
+            <div class="col-lg-9">
                 {% comment %} <img src="../assets/Logo-980x1039.png" class="img-fluid hp-logo" alt="" > {% endcomment %}
-                <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
+
+                {% comment %} <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
                 <div class="cta-btn-container">
-                  <a href="collection-and-about.html" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
-              </div>
+                  <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
+                </div> {% endcomment %}
+                  {% comment %} {{ content_for_layout }} {% endcomment %}
+                  {% section 'main-page-landing' %}
+
+              
           </div>
       </div>
     </section>
@@ -375,5 +420,24 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <script src="{{ 'bootstrap.bundle.js' | asset_url }}" defer="defer"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      $('.sub-menu ul').hide();
+      $(".sub-menu a").click(function () {
+        $(this).parent(".sub-menu").children("ul").slideToggle("100");
+        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+      });
+    </script>
+
+
+  <!-- Remove body class from index page -->
+    {% if template != 'index' %}
+      <script>
+        document.body.classList.remove("theme-bgd");
+      </script>
+    {% endif %}
+
   </body>
 </html>

@@ -630,10 +630,45 @@
 
 <!-- OTWD HEADER START-->
 <header class="sticky">
-  <h1><a href="./" class="hp-title-link">RARE PIECES</a></h1>
+  <h1><a href="./" class="hp-title-link">{{ shop.name }}</a></h1>
   <div class="log-container">
-      <a href="#" role="button" class="">Log-in</a>
-      <a href="" class=""> <i class="bi bi-bag"></i> </a>
+      {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset">
+          {% comment %} {% render 'icon-account' %} {% endcomment %}
+          Log-in
+          <span class="visually-hidden">
+            {%- liquid
+              if customer
+                echo 'customer.account_fallback' | t
+              else
+                echo 'customer.log_in' | t
+              endif
+            -%}
+          </span>
+        </a>
+      {%- endif -%}
+
+      {% comment %} <a href="" class=""> <i class="bi bi-bag"></i> </a> {% endcomment %}
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart-empty'
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+
   </div>
   <div class="togg-container d-block d-sm-none">
       <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
