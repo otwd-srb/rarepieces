@@ -319,38 +319,66 @@
           <div class="row">
               <div class="col-lg-3">
                   <div class="main-nav-container">
-                      <nav class="animated bounceInDown main-nav d-none d-sm-block">
+                      {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {%- for link in linklists.main-menu.links -%}
-                            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                          <li><a href="{{ link.url }}">{{ link.title }}</a>
                             {%- if link.links != blank -%}
                               <li class='sub-menu'>
                                 <ul class="list-unstyled">
                                   {%- for childlink in link.links -%}
                                     <li>
-                                      {%- if childlink.links == blank -%}
                                         <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                                      {%- else -%}
-                                      <li class='sub-menu'>
-                                        <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div>
-                                        <ul class="list-unstyled">
-                                          {%- for grandchildlink in childlink.links -%}
-                                            <li>
-                                              <a href="{{ grandchildlink.url }}" >{{ grandchildlink.title | escape }}</a>
-                                            </li>
-                                          {%- endfor -%}
-                                        </ul>
-                                      {%- endif -%}
-                                      </li>
                                     </li>
                                   {%- endfor -%}
                                 </ul>
                               </li>
                             {%- endif -%}
-                            </li>
+                          </li>
                           {%- endfor -%}
                         </ul>
+                      </nav> {% endcomment %}
+
+
+
+                      {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
+                        <ul class="list-unstyled">
+                          {% for link in linklists.main-menu.links %}
+                            <li><a href="{{ link.url }}">{{ link.title }}</a>
+                              {% if link.links != blank %}
+                                <ul class="list-unstyled">
+                                  {% for childlink in link.links %}
+                                    <li class='sub-menu'><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                              {% endif %}
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </nav> {% endcomment %}
+
+                      <nav class="main-nav">
+                        <ul class="list-unstyled">
+                          {% for link in linklists.main-menu.links %}
+                            <li>
+                              <a href="{{ link.url }}">{{ link.title }}</a>
+                              
+                              {% if link.links != blank %}
+                                <a href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">{{ link.title }}</a>
+                                <div class="collapse" id="collapseExample">
+                                  <ul class="list-unstyled">
+                                    {% for childlink in link.links %}
+                                      <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                    {% endfor %}
+                                  </ul>
+                                </div>
+                              {% endif %}
+                            </li>
+                          {% endfor %}
+                        </ul>
                       </nav>
+                      
+                      
                   </div>
               </div>
             <div class="col-lg-9">
@@ -422,8 +450,9 @@
 
     <script src="{{ 'bootstrap.bundle.js' | asset_url }}" defer="defer"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <script>
-      $('.sub-menu ul').hide();
+      $(".sub-menu ul").hide();
       $(".sub-menu a").click(function () {
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
