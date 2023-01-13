@@ -181,6 +181,11 @@ header h1 {
 .theme-bgd nav ul li a {
   color: #fff;
 }
+#collapseExample ul.list-unstyled li a {
+  font-size: 0.8rem;
+  left: 1rem;
+  position: relative;
+}
 nav ul li a {
   color: #130c0c;
 }
@@ -277,12 +282,6 @@ nav ul li a:hover {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
-
-
-
-
-
-
 .btn-primary,
 .coll-btn {
   text-transform: uppercase;
@@ -348,9 +347,33 @@ nav ul li a:hover {
 /* .collection-container ul {
   bottom: 5px;
 } */
-
-
-
+.product-grid {
+  display: inline-flex;
+}
+.product-box {
+  padding: 1rem 2rem;
+  position: relative;
+}
+.product-img-container {
+  position: relative;
+  width: auto;
+  margin-bottom: 2rem;
+}
+.product-desc-box {
+  position: relative;
+}
+.product-desc-box h3 {
+  color: black;
+}
+span.price {
+  position: relative;
+  line-height: 3rem;
+}
+.collection-hero__title {
+  text-align: center;
+  position: relative;
+  top: 2rem;
+}
 
 
 

@@ -28,7 +28,7 @@
 
 <div class="section-{{ section.id }}-padding">
   {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
-  {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
+ {% comment %}  {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
     <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
       <form class="facets-vertical-form" id="FacetSortForm">
         <div class="facet-filters sorting caption">
@@ -135,7 +135,31 @@
         {%- endif -%}
       {%- endpaginate -%}
     </div>
-  </div>
+  </div> {% endcomment %}
+
+
+
+
+
+  {%- for product in collection.products -%}
+
+    <div class="div-12 col-xl-6 product-grid">
+      <div class="product-box">
+        <div class="product-img-container">
+          <a href="{{ product.url }}" class="" title="{{ product.title }}">
+
+            <img src="{{ product.featured_image | image_url }}" class="img-fluid" alt="">
+            {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
+          </a>
+        </div>
+        <div class="product-desc-box">
+          <h3>{{ product.title }}</h3>
+          <span class="price"> {{ product.price | money }}</span>
+        </div>
+      </div>
+    </div>
+
+    {%- endfor -%}
 </div>
 
 
