@@ -1,7 +1,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
+
   {% comment %} <h1 class="title title--primary">{{ section.settings.title | escape }}</h1> {% endcomment %}
 
   {% comment %} {%- liquid
@@ -60,7 +60,8 @@
                     <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Pure white</a></li>-->
                 </ul>
             </div>
-            <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+            {% comment %} {{ collection in collections | collection.title | collection.url }} {% endcomment %}
+            <a href="{{ collection.url }}" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
         </div>
       {% endfor %}
 
@@ -119,13 +120,12 @@
             <a href="#" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
         </div> {% endcomment %}
     </div>
-</div>
 
 
 
 
 
-</div>
+
 
 
 {% schema %}
