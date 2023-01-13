@@ -33,7 +33,7 @@ section {
 }
 .section-holder {
   position: relative;
-  margin: auto;
+  margin: 6rem auto;
 }
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
