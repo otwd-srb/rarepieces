@@ -33,7 +33,7 @@ section {
 }
 .section-holder {
   position: relative;
-  margin: 6rem auto;
+  margin: auto;
 }
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
@@ -62,9 +62,6 @@ header {
   top: 0;
   width: 100%;
 }
-
-
-
 .sticky {
   left: 0;
   margin: auto;
@@ -76,15 +73,6 @@ header {
   animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;  
   background: #fff;
 }
-
-
-
-
-
-
-
-
-
 header h1 {
   color: var(--bs-gray-900);
   margin-top: 1rem;
@@ -97,15 +85,6 @@ header h1 {
   right: 1rem;
 }
 
-
-.footer {
-/*   margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  position: absolute;
-  bottom: auto; */
-}
 .footer ul {
   left: 22rem;
 }

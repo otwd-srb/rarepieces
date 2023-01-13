@@ -362,7 +362,7 @@
                           {% for link in linklists.main-menu.links %}
                             <li>
                               <a href="{{ link.url }}">{{ link.title }}</a>
-                              
+
                               {% if link.links != blank %}
                                 <a href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">{{ link.title }}</a>
                                 <div class="collapse" id="collapseExample">
