@@ -182,7 +182,7 @@ header h1 {
   color: #fff;
 }
 #collapseExample ul.list-unstyled li a {
-  font-size: 0.8rem;
+  font-size: 1rem;
   left: 1rem;
   position: relative;
 }
@@ -200,6 +200,7 @@ nav ul li a {
 	text-decoration: none;
   text-align: left;
   font-weight: 700;
+  font-size: 1.4rem;
 	-webkit-transition: 0.2s linear;
 	-moz-transition: 0.2s linear;
 	-ms-transition: 0.2s linear;
@@ -358,16 +359,21 @@ nav ul li a:hover {
   position: relative;
   width: auto;
   margin-bottom: 2rem;
+  max-width: 320px;
 }
 .product-desc-box {
   position: relative;
 }
 .product-desc-box h3 {
   color: black;
+  font-size: 1rem;
+  font-weight: 700;
 }
 span.price {
   position: relative;
   line-height: 3rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 .collection-hero__title {
   text-align: center;
