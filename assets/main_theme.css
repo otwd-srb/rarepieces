@@ -287,7 +287,8 @@ nav ul li a:hover {
   color: var(--bs-gray-600);
 }
 .btn-primary,
-.coll-btn {
+.coll-btn,
+.add-bag-btn {
   text-transform: uppercase;
   padding: 0.5rem;  
   color: var(--bs-gray-900);
@@ -297,6 +298,9 @@ nav ul li a:hover {
 }
 .coll-btn {
   width: 50%;
+}
+.add-bag-btn {
+  width: 100%;
 }
 .btn-primary:hover,
 .btn-primary:focus,
