@@ -11,6 +11,17 @@
   {% render 'product-media-gallery', is_duplicate: true %}
 {% endcomment %}
 
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
 {%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
@@ -42,8 +53,9 @@
     assign id_append = '-duplicate'
   endif
 -%}
+ {% endcomment %}
 
-<media-gallery
+{% comment %} <media-gallery
   id="MediaGallery-{{ section.id }}{{ id_append }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -297,4 +309,38 @@
       </button>
     </slider-component>
   {%- endif -%}
-</media-gallery>
+</media-gallery> {% endcomment %}
+
+
+
+
+
+
+<div class="row">
+  <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner gx-3" role="listbox">
+        {% for image in product.images %}
+          {% unless image == product.featured_image %}
+            <div class="carousel-item">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-img">
+                          <img src="{{ image.src  | image_url }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          {% endunless %}
+        {% endfor %}
+          
+      </div>
+      <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+  </div>
+</div>
+
+

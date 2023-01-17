@@ -3,14 +3,14 @@
   class="page-width section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
 >
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'section-main-product.css' | asset_url | stylesheet_tag }} 
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-rte.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}{% endcomment %}
 
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -53,12 +53,28 @@
     >
   {%- endif -%}
 
+  {% comment %} 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+  {% endcomment %}
+
+
+
+
+
+
+
+
+
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
-      {% render 'product-media-gallery', variant_images: variant_images %}
+
+      {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
+      {% render 'product-media-modal' %} <!-- OTWD Featured img show -->
+
     </div>
+
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div
         id="ProductInfo-{{ section.id }}"
@@ -71,20 +87,20 @@
             {%- when '@app' -%}
               {% render block %}
             {%- when 'text' -%}
-              <p
+              {% comment %} <p
                 class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                 {{ block.shopify_attributes }}
               >
                 {{- block.settings.text -}}
-              </p>
+              </p> {% endcomment %}
             {%- when 'title' -%}
-              <div class="product__title" {{ block.shopify_attributes }}>
-                <h1>{{ product.title | escape }}</h1>
-                <a href="{{ product.url }}" class="product__title">
+              <div class="product-desc-box" {{ block.shopify_attributes }}>
+                <h3>{{ product.title | escape }}</h3>
+                {% comment %} <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
                     {{ product.title | escape }}
                   </h2>
-                </a>
+                </a> {% endcomment %}
               </div>
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -95,6 +111,7 @@
                   price_class: 'price--large'
                 -%}
               </div>
+
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
                 <div class="product__tax caption rte">
                   {%- if shop.taxes_included -%}
@@ -105,6 +122,7 @@
                   {%- endif -%}
                 </div>
               {%- endif -%}
+
               <div {{ block.shopify_attributes }}>
                 {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                 {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -112,6 +130,7 @@
                   {{ form | payment_terms }}
                 {%- endform -%}
               </div>
+
             {%- when 'inventory' -%}
               <p
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -159,6 +178,7 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
+
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -194,7 +214,8 @@
                   </div>
                 </details>
               </div>
-            {%- when 'quantity_selector' -%}
+
+            {% comment %} {%- when 'quantity_selector' -%}
               <div
                 class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                 {{ block.shopify_attributes }}
@@ -227,7 +248,8 @@
                   </button>
                 </quantity-input>
               </div>
-            {%- when 'popup' -%}
+            {%- when 'popup' -%} {% endcomment %}
+
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
                 data-modal="#PopupModal-{{ block.id }}"
@@ -573,9 +595,29 @@
     </div>
     {%- if section.settings.media_position == 'right' -%}
       {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       <div class="grid__item product__media-wrapper small-hide">
-        {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
+        {% comment %} {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %} {% endcomment %}
+        {% render 'product-media-gallery', is_duplicate: true %}
+        <script>
+          $(".carousel-inner > div:first-child").addClass("active");
+        </script>
       </div>
+
     {%- endif -%}
   </div>
 
@@ -607,10 +649,20 @@
     </modal-dialog>
   {%- endfor -%}
 
-  {%- if product.media.size > 0 -%}
+
+
+
+
+
+
+
+{% comment %}   {%- if product.media.size > 0 -%}
     <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
+  {%- endif -%} {% endcomment %}
+
+  <!-- OTWD media link -->
+  <script src="{{ 'index.bundle.min.js' | asset_url}}"></script>
 
   {%- if first_3d_model -%}
     <script type="application/json" id="ProductJSON-{{ product.id }}">
@@ -698,6 +750,7 @@
       ]
     }
   </script>
+
 </section>
 
 {% schema %}

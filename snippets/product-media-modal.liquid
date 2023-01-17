@@ -9,6 +9,10 @@
   {% render 'product-media-modal' %}
 {% endcomment %}
 
+
+
+
+{% comment %} 
 <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
   <div
     class="product-media-modal__dialog"
@@ -54,4 +58,38 @@
       {%- endfor -%}
     </div>
   </div>
-</product-modal>
+</product-modal> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="product-img-container lightbox">
+    {% for image in product.images %}
+      <a href="{{ product.featured_image.src | img_url }}" data-toggle="lightbox">
+        <img src="{{ product.featured_image.src | img_url }}" alt="{{ product.title }}" class="img-fluid">
+      </a>
+      {% break %}
+    {% endfor %}
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
