@@ -139,27 +139,48 @@
 
 
 
+{% assign collections_handles = "t-shirt,sweater,hoodie" | split: "," %}
 
-
+  <div class="row gy-5">
   {%- for product in collection.products -%}
-
-    <div class="div-12 col-xl-6 product-grid">
-      <div class="product-box">
-        <div class="product-img-container">
-          <a href="{{ product.url }}" class="" title="{{ product.title }}">
-
-            <img src="{{ product.featured_image | image_url }}" class="img-fluid" alt="">
-            {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
-          </a>
-        </div>
-        <div class="product-desc-box">
-          <h3>{{ product.title }}</h3>
-          <span class="price"> {{ product.price | money }}</span>
+    {% if collections_handles contains collection.handle %}
+    
+      <div class="div-12 col-xl-6 product-grid">
+        <div class="product-box">
+          <div class="product-img-container">
+            <a href="{{ product.url }}" class="" title="{{ product.title }}">
+              <img src="{{ product.featured_image | image_url }}" class="img-fluid" alt="">
+              {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
+            </a>
+          </div>
+          <div class="product-desc-box">
+            <h3 class="all-product-title">{{ product.title }}</h3>
+            <span class="all-product-price"> {{ product.price | money }}</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    {%- endfor -%}
+    {% elsif collection.handle == 'all' %}
+    
+      <div class="div-12 col-xl-4 product-grid">
+        <div class="product-box">
+          <div class="product-img-container-all">
+            <a href="{{ product.url }}" class="" title="{{ product.title }}">
+              <img src="{{ product.featured_image | image_url }}" class="img-fluid img-all-products" alt="">
+              {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
+            </a>
+          </div>
+          <div class="product-desc-box">
+            <h3 class="all-product-title">{{ product.title }}</h3>
+            <span class="all-product-price"> {{ product.price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+    {% endif %}
+  {%- endfor -%}
+</div>
+
 </div>
 
 

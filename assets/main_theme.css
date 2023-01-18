@@ -367,8 +367,27 @@ nav ul li a:hover {
   width: auto;
   margin-bottom: 2rem;
 }
+.product-img-container-all {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 260px;
+  height: 260px;
+  overflow: hidden;
+}
+.product-img-container img {
+  max-width: 320px;
+}
+.img-all-products {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
 .product-desc-box {
   position: relative;
+}
+h3.all-product-title,
+.all-product-price {
+  font-size: 1rem !important;
 }
 .product-desc-box h3 {
   font-size: 1.5rem;
@@ -482,4 +501,18 @@ transform: translateX(0);
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: var(--bs-gray-600);
+}
+
+
+
+
+
+
+
+
+
+
+
+.cart-notification-wrapper {
+  z-index: 9999;
 }
