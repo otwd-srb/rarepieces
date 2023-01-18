@@ -288,19 +288,26 @@ nav ul li a:hover {
 }
 .btn-primary,
 .coll-btn,
-.add-bag-btn {
-  text-transform: uppercase;
-  padding: 0.5rem;  
-  color: var(--bs-gray-900);
-  border: solid 1px var(--bs-gray-900);
-  background-color: #fff;
-  margin-bottom: 3rem;
+.add-bag-btn,
+.contact-btn {
+  text-transform: uppercase !important;
+  padding: 0.5rem !important;
+  color: var(--bs-gray-900) !important;
+  border: solid 1px var(--bs-gray-900) !important;
+  background-color: #fff !important;
+  margin-bottom: 3rem !important;
 }
 .coll-btn {
   width: 50%;
 }
 .add-bag-btn {
   width: 100%;
+}
+.contact-btn {
+  width: 40%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -515,4 +522,36 @@ transform: translateX(0);
 
 .cart-notification-wrapper {
   z-index: 9999;
+}
+
+
+.login-info {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.login-info a {
+  display: inline !important;
+}
+.txt-link {
+  color: var(--bs-gray-900);
+  text-decoration: underline;
+}
+.txt-link:hover, .txt-link:focus {
+  color: var(--bs-gray-600);
+  text-decoration: none;
+}
+.field__label, .customer .field label {
+  font-size: 1.4rem;
+}
+.field__input, .select__select, .customer .field input, .customer select {
+  height: auto;
+  font-size: 1.4rem;
+}
+.field__input, .customer .field input {
+  padding: 1rem;
+  margin: auto;
+}
+.contact {
+  max-width: 44.8rem;
+  margin: 0 auto;
 }

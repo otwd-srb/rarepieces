@@ -80,6 +80,11 @@
         {{ 'customer.recover_password.success' | t }}
       </h3>
     {%- endif -%}
+
+    <!-- OTWD custome code -->
+    <p class="login-info text-center mb-5">log-in to <a href="#" class="txt-link">wholesale account</a></p>
+    <p class="login-info text-center mb-5">Please enter your<br>email address & password</p>
+
     {%- form 'customer_login', novalidate: 'novalidate' -%}
       {%- if form.errors -%}
         <h2 class="form__message" tabindex="-1" autofocus>
@@ -131,16 +136,16 @@
           </label>
         </div>
 
-        <a href="#recover">
+        <a href="#recover" class="txt-link">
           {{ 'customer.login_page.forgot_password' | t }}
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="btn btn-lg fw-bold add-bag-btn button--primary">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
-      <a href="{{ routes.account_register_url }}">
+      <a href="{{ routes.account_register_url }}" class="txt-link">
         {{ 'customer.login_page.create_account' | t }}
       </a>
       
