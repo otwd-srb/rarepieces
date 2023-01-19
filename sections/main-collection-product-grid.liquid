@@ -145,7 +145,7 @@
   {%- for product in collection.products -%}
     {% if collections_handles contains collection.handle %}
     
-      <div class="div-12 col-xl-6 product-grid">
+      <div class="col-6 col-xl-6 product-grid">
         <div class="product-box">
           <div class="product-img-container">
             <a href="{{ product.url }}" class="" title="{{ product.title }}">
@@ -162,7 +162,7 @@
 
     {% elsif collection.handle == 'all' %}
     
-      <div class="div-12 col-xl-4 product-grid">
+      <div class="col-6 col-xl-4 product-grid">
         <div class="product-box">
           <div class="product-img-container-all">
             <a href="{{ product.url }}" class="" title="{{ product.title }}">

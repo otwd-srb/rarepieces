@@ -260,52 +260,28 @@
       <div class="offcanvas-body">
         <nav class="animated bounceInDown main-nav">
           <ul class="list-unstyled">
-            {%- for link in linklists.main-menu.links -%}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {%- if link.links != blank -%}
-                <li class='sub-menu'>
-                  {% comment %} <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div> 
-                  <span {%- if link.child_active -%} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>{% endcomment %}
-                  <ul class="list-unstyled">
-                    {%- for childlink in link.links -%}
-                      <li>
-                        {%- if childlink.links == blank -%}
-                          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                        {%- else -%}
 
-                        <li class='sub-menu'>
-                          <a href="#"> {{ link.title | escape }} <div class='fa fa-caret-down right'></div>
-                          <ul class="list-unstyled">
-                            {%- for grandchildlink in childlink.links -%}
-                              <li>
-                                <a href="{{ grandchildlink.url }}" >{{ grandchildlink.title | escape }}</a>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                          {% comment %} <details id="Details-HeaderSubMenu-{{ forloop.index }}">
-                            <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
-                              <span>{{ childlink.title | escape }}</span>
-                              {% render 'icon-caret' %}
-                            </summary>
-                            <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="header__submenu list-menu motion-reduce">
-                              {%- for grandchildlink in childlink.links -%}
-                                <li>
-                                  <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
-                                    {{ grandchildlink.title | escape }}
-                                  </a>
-                                </li>
-                              {%- endfor -%}
-                            </ul>
-                          </details> {% endcomment %}
-                        {%- endif -%}
-                        </li>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </li>
-              {%- endif -%}
+            {% for link in linklists.main-menu.links %}
+              {% comment %} <li> <a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
+
+                {% if link.links != blank %}
+                  {% comment %} <li><a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
+                  <li><a href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">{{ link.title }}</a>
+                    <div class="collapse" id="collapseExample">
+                      <ul class="list-unstyled">
+                        {% for childlink in link.links %}
+                          <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </li>
+                  {% else %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a>
+                {% endif %}
+
               </li>
-            {%- endfor -%}
+            {% endfor %}
+
           </ul>
         </nav>
       </div>
@@ -318,7 +294,7 @@
     <section id="" class="main-section"><!-- OTWD sidebar menu start-->
       <div class="container">
           <div class="row">
-              <div class="col-lg-3">
+              <div class="col-lg-2">
                   <div class="main-nav-container">
                       {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
@@ -388,7 +364,7 @@
                       
                   </div>
               </div>
-            <div class="col-lg-9">
+            <div class="col-lg-10">
                 {% comment %} <img src="../assets/Logo-980x1039.png" class="img-fluid hp-logo" alt="" > {% endcomment %}
 
                 {% comment %} <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
@@ -400,6 +376,36 @@
                   <main role="main">
                     {% comment %} {% section 'main-page-landing' %} {% endcomment %}
                     {{ content_for_layout }}
+
+                    {% if template == 'product' %}
+                    <div class="row">
+                      <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner gx-3" role="listbox">
+                            {% for image in product.images %}
+                              {% unless image == product.featured_image %}
+                                <div class="carousel-item">
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <div class="card-img">
+                                              <img src="{{ image.src  | image_url }}" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              {% endunless %}
+                            {% endfor %}
+                              
+                          </div>
+                          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          </a>
+                          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          </a>
+                      </div>
+                    </div>
+                    {% endif %}
+                    
                   </main>
               
             </div>
@@ -410,7 +416,7 @@
       {{ content_for_layout }}
     </main> {% endcomment %}
 
-    {% section 'footer-otwd' %}
+    {% section 'footer-new' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -464,6 +470,37 @@
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
+    </script>
+
+    <script>/* OTWD Show mobil logo on mobile screens*/
+        $( document ).ready(function() {
+          if (window.innerWidth < 576) {
+            var image = document.getElementById("hp_img_001");
+            image.src = "{{ 'mobile-logo-v002.png' | asset_url }}";
+          }
+        });
+    </script>
+
+    <script>
+      let items = document.querySelectorAll('.carousel .carousel-item')
+
+      items.forEach((el) => {
+          const minPerSlide = 4
+          let next = el.nextElementSibling
+          for (var i=1; i<minPerSlide; i++) {
+              if (!next) {
+                  // wrap carousel by using first child
+                  next = items[0]
+              }
+              let cloneChild = next.cloneNode(true)
+              el.appendChild(cloneChild.children[0])
+              next = next.nextElementSibling
+          }
+      })
+
+    </script>
+    <script>
+        $(".carousel-inner > div:first-child").addClass("active");
     </script>
 
 

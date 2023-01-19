@@ -21,7 +21,7 @@
 
 
 
-{% comment %} 
+
 {%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
@@ -53,9 +53,9 @@
     assign id_append = '-duplicate'
   endif
 -%}
- {% endcomment %}
 
-{% comment %} <media-gallery
+
+ <media-gallery
   id="MediaGallery-{{ section.id }}{{ id_append }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -309,14 +309,26 @@
       </button>
     </slider-component>
   {%- endif -%}
-</media-gallery> {% endcomment %}
+</media-gallery> 
 
 
 
 
 
 
-<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="row">
   <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner gx-3" role="listbox">
         {% for image in product.images %}
@@ -341,6 +353,6 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>
   </div>
-</div>
+</div> {% endcomment %}
 
 

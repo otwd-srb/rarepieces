@@ -14,7 +14,7 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-{% comment %} {%- style -%}
+{%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
@@ -34,9 +34,9 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-{%- endstyle -%} {% endcomment %}
+{%- endstyle -%}
 
-{% comment %} <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer class="mt-auto text-white-50 footer bg-dark fixed-bottom d-none d-sm-block">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
     <div class="footer__content-top page-width">
       {%- if section.blocks.size > 0 -%}
@@ -52,50 +52,57 @@
         <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
           {%- for block in section.blocks -%}
             <div class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
+              {% comment %} 
               {%- if block.settings.heading != blank -%}
                 <h2 class="footer-block__heading">{{- block.settings.heading | escape -}}</h2>
               {%- endif -%}
+              {% endcomment %}
 
               {%- case block.type -%}
-                {%- when 'text' -%}
-                  <div class="footer-block__details-content rte">
-                    {{ block.settings.subtext }}
-                  </div>
+                {% comment %}{%- when 'text' -%}
+                    <div class="footer-block__details-content rte">
+                        {{ block.settings.subtext }}
+                    </div>
+                   {% endcomment %}
+                {%- when 'image' -%}
+                  
+                    {% comment %} {%- if block.settings.image != blank -%}
+                      {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
+                      <img
+                        srcset= "{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+                        src="{{ block.settings.image | image_url: width: 100 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        class="logo-footer"
+                      >
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                    {%- endif -%} {% endcomment %}
+                <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
+                  
                 {%- when 'link_list' -%}
                   {%- if block.settings.menu != blank -%}
-                    <ul class="footer-block__details-content list-unstyled">
+                    <ul class="list-inline position-absolute top-50 translate-middle">
                       {%- for link in block.settings.menu.links -%}
-                        <li>
-                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                        <li class="list-inline-item">
+                          <a href="{{ link.url }}"  class="footer-link">
                             {{ link.title }}
                           </a>
                         </li>
                       {%- endfor -%}
                     </ul>
                   {%- endif -%}
-                {%- when 'image' -%}
-                  <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                    {%- if block.settings.image != blank -%}
-                      {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                      <img
-                        srcset= "{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                        src="{{ block.settings.image | image_url: width: 400 }}"
-                        alt="{{ block.settings.image.alt | escape }}"
-                        loading="lazy"
-                        width="{{ block.settings.image.width }}"
-                        height="{{ block.settings.image.height }}"
-                        style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                      >
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%}
-                  </div>
+                
+
                 {%- endcase -%}
             </div>
           {%- endfor -%}
         </div>
       {%- endif -%}
 
+      {% comment %}
       <div class="footer-block--newsletter">
         {%- if section.settings.newsletter_enable -%}
           <div class="footer-block__newsletter">
@@ -221,9 +228,11 @@
           </ul>
         {%- endif -%}
       </div>
+      {% endcomment %}
     </div>
   {%- endif -%}
 
+  {% comment %}
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
@@ -336,37 +345,9 @@
       </div>
     </div>
   </div>
-</footer> {% endcomment %}
-
-
-
-<footer class="mt-auto text-white-50 footer bg-dark fixed-bottom d-none d-sm-block">
-  <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
-  {% comment %} <img src="../assets/rp-logo-footer.png" class="logo-footer" alt="logo footer" > {% endcomment %}
-  {% if block.settings.menu != blank %}
-  <ul class="list-inline position-absolute top-50 translate-middle">
-    {% comment %} <li class="list-inline-item"><a href="#" class="footer-link">shipping</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">payment</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">contact</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">policy</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">imprint</a></li> {% endcomment %}
-
-
-    {% for link in block.settings.menu.links %}
-      <li class="list-inline-item">
-        <a href="{{ link.url }}" class="footer-link">
-          {{ link.title }}
-        </a>
-      </li>
-    {% endfor %}
-
-  </ul>
-{% endif %}
-
+  {% endcomment %}
 
 </footer>
-
-
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {
