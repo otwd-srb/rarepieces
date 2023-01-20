@@ -632,7 +632,7 @@
 <header class="sticky">
   <h1><a href="/" class="hp-title-link">{{ shop.name }}</a></h1>
   <div class="log-container">
-      {% comment %} {% endcomment %}<a href="#" role="button" class="">Log-in</a> 
+      {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login">
           {% comment %} {% render 'icon-account' %} {% endcomment %}
