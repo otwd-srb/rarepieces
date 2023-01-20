@@ -384,7 +384,7 @@
                             {% for image in product.images %}
                               {% unless image == product.featured_image %}
                                 <div class="carousel-item">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-12">
                                         <div class="card">
                                             <div class="card-img">
                                               <img src="{{ image.src  | image_url }}" class="img-fluid" alt="">
@@ -405,7 +405,7 @@
                       </div>
                     </div>
                     {% endif %}
-                    
+
                   </main>
               
             </div>

@@ -196,7 +196,6 @@ fieldset.product-form__input .form__label {
   background-color: rgb(var(--color-background));
   color: rgba(var(--color-foreground));
   border-radius: var(--variant-pills-radius);
-  color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
   padding: 1rem 2rem;
@@ -377,7 +376,7 @@ a.product__text {
 
 .product .price--sold-out .price__badge-sold-out {
   background: transparent;
-  color: rgb(var(--color-base-text));
+  color: var(--bs-red);
   border-color: transparent;
 }
 

@@ -66,7 +66,7 @@
                    {% endcomment %}
                 {%- when 'image' -%}
                   
-                    {% comment %} {%- if block.settings.image != blank -%}
+                     {%- if block.settings.image != blank -%}
                       {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
                       <img
                         srcset= "{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
@@ -79,8 +79,8 @@
                       >
                     {%- else -%}
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%} {% endcomment %}
-                <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
+                    {%- endif -%} 
+                    {% comment %}<img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">{% endcomment %}
                   
                 {%- when 'link_list' -%}
                   {%- if block.settings.menu != blank -%}

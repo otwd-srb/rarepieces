@@ -327,7 +327,7 @@
       </media-gallery>
     </div>
 
-    <!-- OTWD desn strana product info -->
+    <!-- OTWD desna strana product info -->
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == small %} product__info-wrapper--extra-padding{% endif %}">
       <div
         id="ProductInfo-{{ section.id }}"
@@ -353,6 +353,7 @@
                 {% comment %} <h1>{{ product.title | escape }}</h1> {% endcomment %}
                 <h3>{{ product.title | escape }}</h3>
                 {% assign product_collections_handles = product.collections %}<!-- OTWD lista ostale proizvode iz iste kolekcije -->
+                
                 {% for collection in product_collections_handles %}
                   <ul class="list-inline">
                     {% for product in collection.products %}
@@ -360,6 +361,7 @@
                     {% endfor %}
                   </ul>
                 {% endfor %}
+                
               </div>
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

@@ -559,6 +559,9 @@ transform: translateX(0);
 .card-img {
   width: 100px;
   height: 300px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .card-img img {
   object-fit: contain;
@@ -571,7 +574,9 @@ transform: translateX(0);
 }
 
 
-
+slider-component .slider-buttons {
+  display: none;
+}
 
 
 
@@ -633,6 +638,10 @@ table td {
   padding-right: .2rem !important;
   overflow-x: auto;
 }
+.product-media-modal,
+.product-media-modal__toggle {
+  top: 5rem !important;
+}
 
 @media (max-width: 576px) {
   section {
@@ -651,6 +660,10 @@ table td {
   }
   .slider-buttons {
     display: none;
+  }
+  .product__info-wrapper,
+  .page-width {
+    padding: 0 !important;
   }
 }
 
