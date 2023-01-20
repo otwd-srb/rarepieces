@@ -636,7 +636,7 @@
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login">
           {% comment %} {% render 'icon-account' %} {% endcomment %}
-          Hi, {{ customer.name }}
+          {{ customer.name }}
           <span class="visually-hidden">
             {%- liquid
               if customer
