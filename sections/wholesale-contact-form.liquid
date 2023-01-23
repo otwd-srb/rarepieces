@@ -47,7 +47,7 @@
             id="ContactForm-vorname"
             name="contact[Vorname]"
             aria-required="true"
-            style="padding:0;">
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-vorname">Vorname <span aria-hidden="true">*</span></label>
         </div>
 
@@ -58,7 +58,8 @@
             type="text"
             id="ContactForm-nachname"
             name="contact[Nachname]"
-            aria-required="true">
+            aria-required="true"
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-nachname">Nachname <span aria-hidden="true">*</span></label>
         </div>
 
@@ -77,7 +78,8 @@
               aria-invalid="true"
               aria-describedby="ContactForm-email-error"
             {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}">
+            placeholder="E-Mail"
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-email">E-Mail <span aria-hidden="true">*</span></label>
         </div>
       
@@ -88,9 +90,9 @@
           class="field__input"
           autocomplete="Telefonnummer"
           name="contact[Telefonnummer]"
-          pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
           aria-required="true"
-          placeholder="Telefonnummer">
+          placeholder="Telefonnummer"
+          style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-telefonnummer">Telefonnummer <span aria-hidden="true">*</span></label>
         </div>
 
@@ -101,7 +103,8 @@
             type="text"
             id="ContactForm-namemarke"
             name="contact[NameMarke]"
-            aria-required="true">
+            aria-required="true"
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-namemarke">Name (Marke, Merch, Unternehmen) <span aria-hidden="true">*</span></label>
         </div>
 
@@ -112,7 +115,8 @@
             type="text"
             id="ContactForm-website"
             name="contact[Website]"
-            aria-required="true">
+            aria-required="true"
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-website">Website <span aria-hidden="true">*</span></label>
         </div>
 
@@ -122,7 +126,8 @@
             autocomplete="Social"
             type="text"
             id="ContactForm-social"
-            name="contact[Social]">
+            name="contact[Social]"
+            style="padding:1.5rem;">
           <label class="field__label" for="ContactForm-social">Social (Instagram/TikTok) </label>
         </div>
 
