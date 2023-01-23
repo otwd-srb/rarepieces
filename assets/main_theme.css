@@ -101,11 +101,11 @@ header h1 {
   color: var(--bs-gray-600);
 }
 footer ul {
-  left: 30rem;
+  left: 25rem;
 }
 .footer-img-box {
-  /* position: absolute;
-  left: 5%; */
+  position: absolute;
+  left: 5%;
 }
 .footer ul li {
   margin-left: 1rem;
@@ -311,8 +311,6 @@ nav ul li a:hover {
   float: left;
   max-width: 70px;
   padding: 1rem;
-  /* position: absolute; */
-  margin-left: 4rem;
 }
 .footer-link {
   color: #fff;
@@ -323,13 +321,6 @@ nav ul li a:hover {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
-.footer__content-top {
-  display: block;
-  padding: 0 0 0 6% !important;
-}
-
-
-
 .btn-primary,
 .coll-btn,
 .add-bag-btn,
