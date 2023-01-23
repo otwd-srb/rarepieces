@@ -17,7 +17,7 @@
  {% endcomment %}
 
 
-  <div class="contact section-{{ section.id }}-padding">
+<div class="contact section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
     {%- else -%}
@@ -39,39 +39,80 @@
         </ul>
       {%- endif -%}
       
-        	<div class="first-name">
-                <label for="first-name">First name OTWD</label>
-                <input type="text" name="contact[first_name]" id="first-name" />
-            </div>
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="Vorname"
+            type="text"
+            id="ContactForm-vorname"
+            name="contact[Vorname]"
+            aria-required="true">
+          <label class="field__label" for="ContactForm-vorname">Vorname <span aria-hidden="true">*</span></label>
+        </div>
 
-            <div class="last-name">
-                <label for="last-name">Last name</label>
-                <input type="text" name="contact[last_name]" id="last-name" required />
-            </div>
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="Nachname"
+            type="text"
+            id="ContactForm-nachname"
+            name="contact[Nachname]"
+            aria-required="true">
+          <label class="field__label" for="ContactForm-nachname">Nachname <span aria-hidden="true">*</span></label>
+        </div>
 
-            <div class="phone">
-                <label for="phone">Phone</label>
-                <input type="tel" name="contact[phone]" id="phone" required />
-            </div>
+        <div class="field field--with-error">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email' | t }}">
+          <label class="field__label" for="ContactForm-email">E-Mail <span aria-hidden="true">*</span></label>
+        </div>
+      
+        <div class="field">
+          <input
+          type="tel"
+          id="ContactForm-telefonnummer"
+          class="field__input"
+          autocomplete="Telefonnummer"
+          name="contact[Telefonnummer]"
+          pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          aria-required="true"
+          placeholder="Telefonnummer">
+          <label class="field__label" for="ContactForm-telefonnummer">Telefonnummer <span aria-hidden="true">*</span></label>
+        </div>
 
-            <div class="email">
-                <label for="email">Email</label>
-                <input type="email" name="contact[email]" id="email" required />
-            </div>
 
-            <div class="order-number">
-                <label for="order-number">Order number</label>
-                <input type="text" name="contact[order_number]" id="order-number" />
-            </div>
 
-            <div class="message">
-                <label for="message">Message</label>
-                <textarea name="contact[body]" id="message"></textarea>
-            </div>
 
-            <div class="submit">
-                <input type="submit" value="Create" />
-            </div>
+        <div class="field">
+          <textarea
+            rows="10"
+            id="ContactForm-body"
+            class="text-area field__input"
+            aria-required="true"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            placeholder="{{ 'templates.contact.form.comment' | t }}" required>
+            {{- form.body -}}
+          </textarea>
+          <label class="form__label field__label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
+        </div>
+        <div class="contact__button">
+          <button type="submit" class="btn btn-lg fw-bold contact-btn button--primary">
+            {{ 'templates.contact.form.send' | t }}
+          </button>
+        </div>
     {%- endform -%}
   </div>
 
