@@ -93,20 +93,62 @@
           <label class="field__label" for="ContactForm-telefonnummer">Telefonnummer <span aria-hidden="true">*</span></label>
         </div>
 
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="Name Marke"
+            type="text"
+            id="ContactForm-namemarke"
+            name="contact[NameMarke]"
+            aria-required="true">
+          <label class="field__label" for="ContactForm-namemarke">Name (Marke, Merch, Unternehmen) <span aria-hidden="true">*</span></label>
+        </div>
 
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="Website"
+            type="text"
+            id="ContactForm-website"
+            name="contact[Website]"
+            aria-required="true">
+          <label class="field__label" for="ContactForm-website">Website <span aria-hidden="true">*</span></label>
+        </div>
 
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="Social"
+            type="text"
+            id="ContactForm-social"
+            name="contact[Social]">
+          <label class="field__label" for="ContactForm-social">Social (Instagram/TikTok) </label>
+        </div>
 
         <div class="field">
           <textarea
             rows="10"
-            id="ContactForm-body"
+            id="ContactForm-body1"
             class="text-area field__input"
             aria-required="true"
-            name="contact[{{ 'templates.contact.form.comment' | t }}]"
-            placeholder="{{ 'templates.contact.form.comment' | t }}" required>
+            name="contact[Erzähl uns von dir]"
+            placeholder="Erzähl uns von dir" required>
             {{- form.body -}}
           </textarea>
-          <label class="form__label field__label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
+          <label class="form__label field__label" for="ContactForm-body1">{{ 'templates.contact.form.comment' | t }}</label>
+        </div>
+
+        <div class="field">
+          <textarea
+            rows="10"
+            id="ContactForm-body2"
+            class="text-area field__input"
+            aria-required="true"
+            name="contact[Wie hast du von uns gehört?]"
+            placeholder="Wie hast du von uns gehört?" required>
+            {{- form.body -}}
+          </textarea>
+          <label class="form__label field__label" for="ContactForm-body2">{{ 'templates.contact.form.comment' | t }}</label>
         </div>
         <div class="contact__button">
           <button type="submit" class="btn btn-lg fw-bold contact-btn button--primary">
