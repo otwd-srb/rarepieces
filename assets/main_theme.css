@@ -22,6 +22,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+main {
+  padding-top: 5rem;
+}
 h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
   font-family: var(--theme-font);
 }
@@ -80,16 +83,29 @@ header h1 {
   color: var(--bs-gray-900);
   margin-top: 1rem;
   text-align: center;
+  margin-left: 16%;
   /* float: right; */
 }
 .log-container {
   position: absolute;
   top: .5rem;
-  right: 1rem;
+  right: 1rem;  
 }
-
-.footer ul {
-  left: 22rem;
+.link, .customer a {
+  text-transform: uppercase;
+  font-size: 1rem !important;
+  text-decoration: none;
+}
+.log-container .link:hover {
+  text-decoration: underline;
+  color: var(--bs-gray-600);
+}
+footer ul {
+  left: 30rem;
+}
+.footer-img-box {
+  /* position: absolute;
+  left: 5%; */
 }
 .footer ul li {
   margin-left: 1rem;
@@ -179,11 +195,8 @@ header h1 {
 .offcanvas-body nav ul li a {
   padding: 0.5rem 0 0.5rem 1rem !important;
   margin: 0 4rem 0 1rem;
+  color: #fff;
 }
-
-
-
-
 .hp-title-link:hover,
 .hp-title-link:focus {  
   color: var(--bs-gray-600);
@@ -213,6 +226,7 @@ nav ul li a {
 .theme-bgd .main-nav,
 .main-nav {
   width: max-content;
+  text-transform: uppercase;
 }
 .theme-bgd nav ul li a,
 nav ul li a {
@@ -221,7 +235,7 @@ nav ul li a {
 	text-decoration: none;
   text-align: left;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 	-webkit-transition: 0.2s linear;
 	-moz-transition: 0.2s linear;
 	-ms-transition: 0.2s linear;
@@ -290,10 +304,15 @@ nav ul li a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.theme-bgd .footer__content-top {
+  display: none;
+}
 .logo-footer {
   float: left;
   max-width: 70px;
   padding: 1rem;
+  /* position: absolute; */
+  margin-left: 4rem;
 }
 .footer-link {
   color: #fff;
@@ -304,6 +323,13 @@ nav ul li a:hover {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
+.footer__content-top {
+  display: block;
+  padding: 0 0 0 6% !important;
+}
+
+
+
 .btn-primary,
 .coll-btn,
 .add-bag-btn,

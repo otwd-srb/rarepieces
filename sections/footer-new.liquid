@@ -49,7 +49,7 @@
             assign footer_grid_class = 'grid--3-col-tablet'
           endif
         -%}
-        <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
+        <div class="footer__blocks-wrapper grid {{ footer_grid_class }}">
           {%- for block in section.blocks -%}
             <div class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
               {% comment %} 
@@ -65,7 +65,7 @@
                     </div>
                    {% endcomment %}
                 {%- when 'image' -%}
-                  
+                  {% comment %}
                      {%- if block.settings.image != blank -%}
                       {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
                       <img
@@ -79,12 +79,15 @@
                       >
                     {%- else -%}
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%} 
-                    {% comment %}<img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">{% endcomment %}
+                    {%- endif -%} {% endcomment %}
+                    
                   
                 {%- when 'link_list' -%}
+                
+                  <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
+                
                   {%- if block.settings.menu != blank -%}
-                    <ul class="list-inline position-absolute top-50 translate-middle">
+                    <ul class="list-inline position-relative top-50 translate-middle">
                       {%- for link in block.settings.menu.links -%}
                         <li class="list-inline-item">
                           <a href="{{ link.url }}"  class="footer-link">
