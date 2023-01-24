@@ -341,29 +341,26 @@
 
 
 <footer class="mt-auto text-white-50 footer bg-dark fixed-bottom d-none d-sm-block">
-  <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
-  {% comment %} <img src="../assets/rp-logo-footer.png" class="logo-footer" alt="logo footer" > {% endcomment %}
-  {% if block.settings.menu != blank %}
-  <ul class="list-inline position-absolute top-50 translate-middle">
-    {% comment %} <li class="list-inline-item"><a href="#" class="footer-link">shipping</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">payment</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">contact</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">policy</a></li>
-    <li class="list-inline-item"><a href="#" class="footer-link">imprint</a></li> {% endcomment %}
-
-
-    {% for link in block.settings.menu.links %}
-      <li class="list-inline-item">
-        <a href="{{ link.url }}" class="footer-link">
-          {{ link.title }}
-        </a>
-      </li>
-    {% endfor %}
-
-  </ul>
-{% endif %}
-
-
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        {%- for block in section.blocks -%}
+              {%- if block.settings.menu != blank -%}
+              <img src="{{ 'rp-logo-footer.png' | asset_url }}" alt="{{ image.alt }}" class="logo-footer">
+                <ul class="list-inline footer-links">
+                  {%- for link in block.settings.menu.links -%}
+                    <li class="list-inline-item">
+                      <a href="{{ link.url }}"  class="footer-link">
+                        {{ link.title }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
 </footer>
 
 

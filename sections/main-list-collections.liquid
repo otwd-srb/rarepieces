@@ -41,7 +41,7 @@
             <div class="collection-img-container">
                 <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid">
             </div>
-            <div class="hp-coll-desc text-center mb-5">
+            <div class="hp-coll-desc text-center">
                 <p class="collection-name">{{ collection.title | upcase }}</p>
                 <ul class="list-inline">
                     {% for product in collection.products %}
@@ -60,7 +60,7 @@
                     <li class="list-inline-item"><a href="#" class="collection-pg-product-link">Pure white</a></li>-->
                 </ul>
             </div>
-            <a href="{{ collection.url }}" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x position-relative mt-5" role="button" >see all</a>
+            <a href="{{ collection.url }}" class="btn btn-lg fw-bold coll-btn start-50 translate-middle-x" role="button" >see all</a>
         </div>
       {% endfor %}
 

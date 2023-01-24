@@ -378,6 +378,24 @@
                     {{ content_for_layout }}
 
                     {% if template == 'product' %}
+
+                    <div class="modal fade" id="imgContainer" tabindex="-1" aria-labelledby="imgContainerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <img src="{{ media.preview_image | image_url | image_tag: alt: media.preview_image.alt | escape}}" class="img-fluid" >
+
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                       <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner gx-3" role="listbox">
@@ -386,9 +404,11 @@
                                 <div class="carousel-item">
                                     <div class="col-md-3 col-12">
                                         <div class="card">
-                                            <div class="card-img">
-                                              <img src="{{ image.src  | image_url }}" class="img-fluid" alt="">
-                                            </div>
+                                          <div class="card-img">
+                                            <a href="#imgContainer" role="button" data-bs-toggle="modal">
+                                              <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="image.id">
+                                            </a>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -416,7 +436,7 @@
       {{ content_for_layout }}
     </main> {% endcomment %}
 
-    {% section 'footer-new' %}
+    {% section 'footer-otwd' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

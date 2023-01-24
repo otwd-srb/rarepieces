@@ -68,6 +68,11 @@ header {
   top: 0;
   width: 100%;
 }
+.header__icon, .header__icon--cart .icon {
+  height: 3rem;
+  width: 4.4rem;
+  padding: 0;
+}
 .sticky {
   left: 0;
   margin: auto;
@@ -100,7 +105,7 @@ header h1 {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
-footer ul {
+/* footer ul {
   left: 25rem;
 }
 .footer-img-box {
@@ -109,6 +114,11 @@ footer ul {
 }
 .footer ul li {
   margin-left: 1rem;
+} */
+footer ul.footer-links {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .hp-title-link {
   color: #130c0c;
@@ -334,6 +344,9 @@ nav ul li a:hover {
 }
 .coll-btn {
   width: 50%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0 !important;
 }
 .add-bag-btn {
   width: 100%;
@@ -390,6 +403,7 @@ nav ul li a:hover {
   position:relative;
   top: 3rem;
   width: 100%;
+  margin-bottom: 8rem !important;
 }
 .hp-coll-desc ul {
   font-size: 0.8rem;
@@ -481,7 +495,16 @@ h3.all-product-title,
   content: '|';
   margin-left: .5rem;
 }
-.product-desc-box ul li:last-of-type::after {
+.hp-coll-desc .list-inline-item:not(:last-child) {
+  margin-right: 0;
+}
+.hp-coll-desc ul li::after {
+  content: '|';
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+.product-desc-box ul li:last-of-type::after,
+.hp-coll-desc ul li:last-of-type::after {
   display: none;
 }
 span.price {
