@@ -120,6 +120,9 @@ footer ul.footer-links {
   top: 50%;
   transform: translateY(-50%);
 }
+ul.footer-links li.list-inline-item:not(:last-child) {
+  margin-right: 1.5rem;
+}
 .hp-title-link {
   color: #130c0c;
   text-decoration: none;
@@ -321,6 +324,7 @@ nav ul li a:hover {
   float: left;
   max-width: 70px;
   padding: 1rem;
+  margin-right: 1.5rem;
 }
 .footer-link {
   color: #fff;

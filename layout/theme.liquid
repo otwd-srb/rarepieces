@@ -387,8 +387,14 @@
                             </div>
                             <div class="modal-body">
 
-                                <img src="{{ media.preview_image | image_url | image_tag: alt: media.preview_image.alt | escape}}" class="img-fluid" >
+                                {% comment %} <img src="{{ product.images[1] | product_img_url: 'large' | }}" class="img-fluid" > {% endcomment %}
 
+                                {% for image in product.images %}
+                                  {% unless image == product.featured_image %}
+                                    <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="">
+                                  {% endunless %}
+                                {% endfor %}
+                              
                             </div>
                             <div class="modal-footer">
                             </div>
@@ -406,7 +412,7 @@
                                         <div class="card">
                                           <div class="card-img">
                                             <a href="#imgContainer" role="button" data-bs-toggle="modal">
-                                              <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="image.id">
+                                              <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="{{ product.id }}">
                                             </a>
                                           </div>
                                         </div>
