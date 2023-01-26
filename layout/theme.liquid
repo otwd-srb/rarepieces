@@ -386,12 +386,10 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-
-                                {% comment %} <img src="{{ product.images[1] | product_img_url: 'large' | }}" class="img-fluid" > {% endcomment %}
-
+                                
                                 {% for image in product.images %}
                                   {% unless image == product.featured_image %}
-                                    <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="">
+                                    <img src="{{ image | image_url }}" class="img-fluid modal-content" alt="{{ image.alt }}"  id="{{ image.alt }}">
                                   {% endunless %}
                                 {% endfor %}
                               
@@ -412,7 +410,7 @@
                                         <div class="card">
                                           <div class="card-img">
                                             <a href="#imgContainer" role="button" data-bs-toggle="modal">
-                                              <img src="{{ image.src | image_url }}" class="img-fluid" alt="{{ image.alt }}" id="{{ product.id }}">
+                                              <img src="{{ image | img_url: 'medium' }}" data-src="{{ image | img_url: 'large' }}" class="img-fluid modal-img" alt="{{ product.title }}" id="{{ image.alt }}">
                                             </a>
                                           </div>
                                         </div>
@@ -507,6 +505,35 @@
         });
     </script>
 
+
+
+
+
+    <script>
+      var modal = document.getElementById("imgContainer");
+      var images = document.getElementsByClassName("modal-img");
+      var modalImg = document.getElementById("{{ image.alt }}");
+      var closeBtn = document.getElementsByClassName("btn-close")[0];
+
+      for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        img.addEventListener("click", function() {
+          modal.style.display = "block";
+          modalImg.src = this.getAttribute("data-src");
+        });
+      }
+
+      closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+      });
+    </script>
+
+
+
+
+
+
+
     <script>
       let items = document.querySelectorAll('.carousel .carousel-item')
 
@@ -534,6 +561,9 @@
     {% if template != 'index' %}
       <script>
         document.body.classList.remove("theme-bgd");
+
+        let header = document.querySelector("header");
+        header.className = header.className.replace("hp-header", "cp-header"); //replace header class to display H1 title properly
       </script>
     {% endif %}
 

@@ -88,8 +88,8 @@ header h1 {
   color: var(--bs-gray-900);
   margin-top: 1rem;
   text-align: center;
-  margin-left: 16%;
-  /* float: right; */
+  /*margin-left: 16%;
+   float: right; */
 }
 .log-container {
   position: absolute;
@@ -306,8 +306,18 @@ nav ul li a:hover {
 .theme-bgd .main-section {
   padding-top: 6rem;
 }
-.theme-bgd header.sticky {
+body.theme-bgd header.sticky {
   background-color: transparent;
+}
+body.theme-bgd header.hp-header {
+  display: block;
+}
+body.theme-bgd header.cp-header,
+header.hp-header {
+  display: none;
+}
+.cp-header h1 {
+  text-align: center;
 }
 .hp-logo {
   max-width: 300px;
@@ -711,3 +721,14 @@ table td {
   }
 }
 
+
+
+
+
+
+
+
+
+.hide-blck-img {
+  display: none;
+}
