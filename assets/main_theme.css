@@ -216,7 +216,7 @@ ul.footer-links li.list-inline-item:not(:last-child) {
 .cart-count-bubble {
   height: 1.4rem;
   width: 1.4rem;
-  left: 0;
+  left: 0.8rem;
   top: 1.4rem;
   font-size: 0.8rem;
 }
