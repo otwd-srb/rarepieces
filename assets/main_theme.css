@@ -565,6 +565,9 @@ span.price {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
+.card-information .price {
+  font-size: 1rem !important;
+}
 .sizes label {
   border: solid var(--bs-gray-600) 1px;
   background-color: #fff;
