@@ -526,7 +526,8 @@ h3.all-product-title,
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
-.product-desc-box h3 {
+.product-desc-box h3,
+.product-recommendations__heading {
   font-size: 1.5rem;
   color: var(--bs-gray-900);
 }
