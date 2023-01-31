@@ -388,9 +388,9 @@
                             <div class="modal-body">
                                 
                                 {% for image in product.images %}
-                                  {% unless image == product.featured_image %}
+                                  {% if image != product.featured_image %}
                                     <img src="{{ image | image_url }}" class="img-fluid modal-content" alt="{{ image.alt }}"  id="{{ image.alt }}">
-                                  {% endunless %}
+                                  {% endif %}
                                 {% endfor %}
                               
                             </div>
@@ -409,7 +409,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="card">
                                           <div class="card-img">
-                                            <a href="#imgContainer" role="button" data-bs-toggle="modal">
+                                            <a href="#imgContainer" role="button" data-bs-toggle="modal" id="{{ image.alt }}">
                                               <img src="{{ image | img_url: 'medium' }}" data-src="{{ image | img_url: 'large' }}" class="img-fluid modal-img" alt="{{ product.title }}" id="{{ image.alt }}">
                                             </a>
                                           </div>
@@ -561,9 +561,6 @@
     {% if template != 'index' %}
       <script>
         document.body.classList.remove("theme-bgd");
-
-        let header = document.querySelector("header");
-        header.className = header.className.replace("hp-header", "cp-header"); //replace header class to display H1 title properly
       </script>
     {% endif %}
 
