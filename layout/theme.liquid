@@ -381,7 +381,9 @@
                     {% comment %} {% section 'main-page-landing' %} {% endcomment %}
                     {{ content_for_layout }}
 
-                    {% if template == 'product' %}
+
+
+                    {% comment %} {% if template == 'product' %}
 
                     <div class="modal fade" id="imgContainer" tabindex="-1" aria-labelledby="imgContainerLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -432,7 +434,7 @@
                           </a>
                       </div>
                     </div>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
 
                   </main>
               
@@ -511,36 +513,8 @@
 
 
 
-
-
-    <script>
-      var modal = document.getElementById("imgContainer");
-      var images = document.getElementsByClassName("modal-img");
-      var modalImg = document.getElementById("{{ image.alt }}");
-      var closeBtn = document.getElementsByClassName("btn-close")[0];
-
-      for (var i = 0; i < images.length; i++) {
-        var img = images[i];
-        img.addEventListener("click", function() {
-          modal.style.display = "block";
-          modalImg.src = this.getAttribute("data-src");
-        });
-      }
-
-      closeBtn.addEventListener("click", function() {
-        modal.style.display = "none";
-      });
-    </script>
-
-
-
-
-
-
-
-    <script>
+    {% comment %} <script>
       let items = document.querySelectorAll('.carousel .carousel-item')
-
       items.forEach((el) => {
           const minPerSlide = 4
           let next = el.nextElementSibling
@@ -554,11 +528,11 @@
               next = next.nextElementSibling
           }
       })
+    </script> {% endcomment %}
 
-    </script>
-    <script>
+    {% comment %} <script>
         $(".carousel-inner > div:first-child").addClass("active");
-    </script>
+    </script> {% endcomment %}
 
 
   <!-- Remove body class from index page -->
