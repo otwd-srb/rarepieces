@@ -209,6 +209,19 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   margin: 0 4rem 0 1rem;
   color: #fff;
 }
+.mobile-menu-soc {
+  margin-right: 1rem;
+}
+.mobile-menu-soc a {
+  color: #fff;
+  font-weight: bolder !important;
+  font-size: 2rem;
+}
+.mobile-menu-soc a:hover,
+.mobile-menu-soc a:focus {
+  color: var(--bs-gray-600) !important;
+  text-decoration: none;
+}
 .hp-title-link:hover,
 .hp-title-link:focus {  
   color: var(--bs-gray-600);
