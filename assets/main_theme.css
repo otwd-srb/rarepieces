@@ -423,9 +423,16 @@ header.hp-header {
   font-size: 0.8rem;
   text-align: center;
 }
-
-
-
+.about-img {
+  border: none;
+}
+.rte h2,
+.rte h3 {
+  color: var(--bs-gray-900);
+}
+.rte .btn-lg {
+  border-radius: 0;
+}
 /* .collection-container ul {
   bottom: 5px;
 } */
