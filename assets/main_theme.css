@@ -424,7 +424,7 @@ header.hp-header {
   text-align: center;
 }
 .about-img {
-  border: none;
+  border: none !important;
 }
 .rte h2,
 .rte h3 {
