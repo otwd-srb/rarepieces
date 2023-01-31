@@ -744,6 +744,12 @@ table td {
   .page-width {
     padding: 0 !important;
   }
+  .row .collection-data:first-child {
+    padding-top: 0;
+  }
+  .row .collection-data {
+    padding-top: 2rem;
+  }
 }
 
 
