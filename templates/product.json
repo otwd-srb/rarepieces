@@ -207,7 +207,7 @@
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "heading": "Goes well with GOES WELL WITH",
+        "heading": "GOES WELL WITH",
         "heading_size": "h1",
         "products_to_show": 4,
         "columns_desktop": 4,
