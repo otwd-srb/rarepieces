@@ -504,16 +504,9 @@ header.hp-header {
 .product__description tr {
   vertical-align: top;
 }
-
-
-
-
-
-
-
-
-
-
+.text-area {
+  font-family: var(--theme-font);
+}
 
 
 

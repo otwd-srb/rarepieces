@@ -760,9 +760,19 @@ class SlideshowComponent extends SliderComponent {
 customElements.define('slideshow-component', SlideshowComponent);
 
 class VariantSelects extends HTMLElement {
-  constructor() {
+/*   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
+  } */
+  constructor() { //jottin start
+    super();
+    this.initLoad();
+    this.addEventListener('change', this.onVariantChange);
+  }
+  initLoad(){
+    this.updateOptions();
+    this.updateMasterId();
+    this.updateMedia();
   }
 
   onVariantChange() {
@@ -783,7 +793,7 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
-  }
+  } //jotting end
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
@@ -797,7 +807,7 @@ class VariantSelects extends HTMLElement {
     });
   }
 
-  updateMedia() {
+/*   updateMedia() {
     if (!this.currentVariant) return;
     if (!this.currentVariant.featured_media) return;
 
@@ -808,7 +818,36 @@ class VariantSelects extends HTMLElement {
     if (!modalContent) return;
     const newMediaModal = modalContent.querySelector( `[data-media-id="${this.currentVariant.featured_media.id}"]`);
     modalContent.prepend(newMediaModal);
+  } */
+
+ /*OTWD JOTTING SLIDER START */
+  updateMedia() {
+    if (!this.currentVariant) return;
+    if (!this.currentVariant.featured_media) return;
+    var current_media_id = this.currentVariant.featured_media.id;
+    // For product page with flickity
+    if (document.querySelector('.product__image-slider')) {
+      var media_len = document.querySelector('.product__image-slider .flickity-slider').childElementCount;
+      var media_id_array = [];
+      for (let i = 0; i < media_len; i++) {
+        media_id_array.push(parseInt(document.querySelector('.product__image-slider').querySelectorAll("img")[i].getAttribute('data-media-id')));
+      }
+      flkty.select(media_id_array.indexOf(current_media_id));
+    }
+    // For featured products on homepage without flickity
+    else if (document.querySelector('.product__media-list')) {
+      var featured_product_media_len = document.querySelector('.product__media-list').childElementCount;
+      for (let i = 0; i < featured_product_media_len; i++) {
+        var child = document.querySelector('.product__media-list').children[i];
+        if (child.getAttribute('data-media-id').indexOf(current_media_id) > 0) {
+          child.style.display = "block";
+        } else {
+          child.style.display = "none";
+        }
+      }
+    }
   }
+ /*OTWD JOTTING SLIDER END */
 
   updateURL() {
     if (!this.currentVariant || this.dataset.updateUrl === 'false') return;
