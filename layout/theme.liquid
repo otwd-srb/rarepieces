@@ -239,9 +239,20 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
+
+    {{ 'flickity.css' | asset_url | stylesheet_tag }}
+    {{ 'flickity.js' | asset_url | script_tag }}
   </head>
 
+
+
   <body class="theme-bgd">
+    <!-- Remove body class from index page -->
+    {% if template != 'index' %}
+      <script>
+        document.body.classList.remove("theme-bgd");
+      </script>
+    {% endif %}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -534,13 +545,6 @@
         $(".carousel-inner > div:first-child").addClass("active");
     </script> {% endcomment %}
 
-
-  <!-- Remove body class from index page -->
-    {% if template != 'index' %}
-      <script>
-        document.body.classList.remove("theme-bgd");
-      </script>
-    {% endif %}
 
   </body>
 </html>

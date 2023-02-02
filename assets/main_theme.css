@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
   margin-bottom: 1.6rem;
 }
 section {
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   top: 1rem;
   position: relative;
 
@@ -64,7 +64,7 @@ section {
   position: absolute;
   right: 1rem;
 }
-header {  
+header {
   top: 0;
   width: 100%;
 }
@@ -115,6 +115,10 @@ header h1 {
 .footer ul li {
   margin-left: 1rem;
 } */
+
+.theme-bgd footer {
+  display: none !important;
+}
 footer ul.footer-links {
   position: relative;
   top: 50%;
@@ -229,8 +233,8 @@ ul.footer-links li.list-inline-item:not(:last-child) {
 .cart-count-bubble {
   height: 1.4rem;
   width: 1.4rem;
-  left: 1.6rem;
-  top: 1.4rem;
+  left: 1.5rem;
+  top: 1.1rem;
   font-size: 0.8rem;
 }
 /*left main menu*/
@@ -496,6 +500,10 @@ header.hp-header {
   border: none;
 }
 
+
+.product__description tr {
+  vertical-align: top;
+}
 
 
 
@@ -767,7 +775,7 @@ table td {
     height: 1.4rem;
     width: 1.4rem;
     left: .8rem;
-    top: 1.4rem;
+    top: 1.2rem;
     font-size: 0.8rem;
   }
 }

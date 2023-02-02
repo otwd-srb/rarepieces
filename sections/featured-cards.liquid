@@ -1,0 +1,102 @@
+<div class="featured-cards">
+  <div class="carousel">
+      {% for block in section.blocks %}
+      {% assign product = all_products[block.settings.product_item] %}
+      <div class="carousel-cell">
+        <a href="{{ product.url }}">
+          <img data-flickity-lazyload="{{ product.featured_image | img_url: 'master' }}"  border="0" />
+          <h4>{{ product.title }}</h4>
+          <h4>{{ product.price | money }}</h4>
+          <div class="product-btn">Shop Now</div>
+        </a>
+      </div>
+      {% endfor %}
+  </div>
+<!--- Coded by jotting.com --->
+</div>
+{% assign nav_range = section.settings.navigation_amount %}
+{% style %}
+@media only screen and ( min-width: 1201px ) {
+  {% if nav_range == 2 %}
+  .featured-cards .carousel-cell {
+    width: calc(49% - 10px);
+  }
+  {% elsif nav_range == 3 %}
+  .featured-cards .carousel-cell {
+    width: calc(32% - 10px);
+  }
+  {% elsif nav_range == 4 %}
+  .featured-cards .carousel-cell {
+    width: calc(24% - 10px);
+  }
+  {% endif %}
+}
+.flickity-page-dots .dot {
+  background: {{ section.settings.navigation_color }};
+}
+.flickity-button-icon {
+  color: {{ section.settings.navigation_color }};
+}
+{% endstyle %}
+<script>
+  var elem = document.querySelector('.featured-cards .carousel');
+  var flkty = new Flickity( elem, {
+    contain: true,
+    imagesLoaded: true,
+    lazyLoad: 2,
+    wrapAround: true,
+    pageDots: false,
+  });
+  {% if request.design_mode %}
+  document.addEventListener("shopify:section:load", function(event) {
+    var elem = document.querySelector('.featured-cards .carousel');
+    var flkty = new Flickity( elem, {
+    contain: true,
+    imagesLoaded: true,
+    lazyLoad: 2,
+    wrapAround: true,
+    pageDots: false,
+    });
+  });
+  {% endif %}
+</script>
+{% schema %}
+{
+  "name": "Product cards",
+  "settings": [
+  {
+    "type": "range",
+    "id": "navigation_amount",
+    "min": 2,
+    "max": 4,
+    "step": 1,
+    "default": 3,
+    "label": "Change the number of cards in view"
+  },
+  {
+    "type": "color",
+    "id": "navigation_color",
+    "label": "Change color of the pagination|navigation|scrollbar"
+  }
+  ] ,
+  "blocks": [
+  {
+	"type": "card",
+	"name": "Product card",
+	"settings": [
+	  {
+	    "type": "product",
+		"id": "product_item",
+		"label": "Choose the product you want displayed"
+	  }
+      ]
+  }
+  ] ,
+  "presets": [
+  {
+    "name": "Featured cards",
+    "category":"Custom"
+  }
+  ]
+}
+{% endschema %}
