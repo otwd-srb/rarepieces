@@ -605,7 +605,9 @@ span.price {
 .sizes {
   margin-bottom: 2rem;
 }
-
+.form-status.form-status-list.form__message {
+  margin: 0;
+}
 
 
 
