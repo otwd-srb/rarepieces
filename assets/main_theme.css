@@ -171,11 +171,14 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   }
   .footer ul {
     left: 0;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin-top: 1rem;
     transform: none !important;
     top: auto !important;
     position: relative !important;
+  }
+  ul.footer-links li.list-inline-item:not(:last-child) {
+    margin-right: 1rem;
   }
   .header__icon, .header__icon--cart .icon {
   height: 3rem;
@@ -772,6 +775,12 @@ table td {
     left: .8rem;
     top: 1.2rem;
     font-size: 0.8rem;
+  }
+  .field__label, .customer .field label {
+    font-size: 1rem;
+  }
+  .contact {
+    padding-bottom: 6rem;
   }
 }
 
