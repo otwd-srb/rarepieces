@@ -206,7 +206,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "GOES WELL WITH",
         "heading_size": "h1",
