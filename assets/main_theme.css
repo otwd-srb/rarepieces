@@ -784,7 +784,9 @@ table td {
     padding-bottom: 6rem;
   }
 }
-
+.rare-btn {
+  padding: .8rem 2.5rem !important;
+}
 
 .flickity-enabled:focus-visible {
   outline: none !important;
