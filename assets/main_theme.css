@@ -744,6 +744,7 @@ table td {
 @media (max-width: 576px) {
   section {
     margin-bottom: auto;
+    margin-bottom: 4rem;
   }
   h3.all-product-title,
   .all-product-price {
