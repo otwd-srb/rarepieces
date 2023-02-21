@@ -519,6 +519,7 @@ h3.all-product-title,
 }
 .product-desc-box {
   position: relative;
+  text-align: center;
 }
 .product-desc-box ul li a {
   text-decoration: none;
