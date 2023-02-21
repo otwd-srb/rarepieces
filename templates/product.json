@@ -220,12 +220,23 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+
+    "product-goes-well-with": {
+      "type": "product-goes-well-with",
+      "settings": {
+        "heading": "GOES WELL WITH",
+        "heading_size": "h1"
+      }
     }
+
+
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "product-recommendations"
+    "product-recommendations",
+    "product-goes-well-with"
   ]
 }
