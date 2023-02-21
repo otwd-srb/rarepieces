@@ -48,7 +48,7 @@
             "products_per_page": 3,
             "pagination_style": "numbers",
             "image_ratio": "square",
-            "enable_quick_add": true
+            "enable_quick_add": false
           }
         },
         "buy_buttons": {
