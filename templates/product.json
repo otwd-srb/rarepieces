@@ -98,11 +98,25 @@
         },
         "e0bc42ea-76b3-43a4-98a0-12f519c7483e": {
           "type": "related_products",
+          "disabled": true,
           "settings": {
             "heading": "Related Products",
             "heading_font_size": 18,
             "heading_color": "#121212",
             "hover_border_color": "#121212"
+          }
+        },
+        "401d176e-e36a-4986-9f54-8ef6a6b5e3b6": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
           }
         }
       },
@@ -120,7 +134,8 @@
         "collapsible-row-2",
         "collapsible-row-3",
         "share",
-        "e0bc42ea-76b3-43a4-98a0-12f519c7483e"
+        "e0bc42ea-76b3-43a4-98a0-12f519c7483e",
+        "401d176e-e36a-4986-9f54-8ef6a6b5e3b6"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -216,6 +231,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "GOES WELL WITH",
         "heading_size": "h1",
