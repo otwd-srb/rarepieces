@@ -95,29 +95,6 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "e0bc42ea-76b3-43a4-98a0-12f519c7483e": {
-          "type": "related_products",
-          "disabled": true,
-          "settings": {
-            "heading": "Related Products",
-            "heading_font_size": 18,
-            "heading_color": "#121212",
-            "hover_border_color": "#121212"
-          }
-        },
-        "401d176e-e36a-4986-9f54-8ef6a6b5e3b6": {
-          "type": "complementary",
-          "settings": {
-            "block_heading": "Pairs well with",
-            "make_collapsible_row": false,
-            "icon": "price_tag",
-            "product_list_limit": 4,
-            "products_per_page": 3,
-            "pagination_style": "counter",
-            "image_ratio": "square",
-            "enable_quick_add": false
-          }
         }
       },
       "block_order": [
@@ -133,9 +110,7 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
-        "share",
-        "e0bc42ea-76b3-43a4-98a0-12f519c7483e",
-        "401d176e-e36a-4986-9f54-8ef6a6b5e3b6"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -231,7 +206,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "GOES WELL WITH",
         "heading_size": "h1",
@@ -246,46 +220,12 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-
-    "product-goes-well-with": {
-      "type": "product-goes-well-with",
-      "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "default": "Related Products"
-        },
-        {
-            "type": "number",
-            "id": "heading_font_size",
-            "label": "Heading font size (px)",
-            "default": 18
-        },
-        {
-            "type": "color",
-            "id": "heading_color",
-            "label": "Heading color",
-            "default": "#121212"
-        },
-        {
-            "type": "color",
-            "id": "hover_border_color",
-            "label": "Border color (hover)",
-            "default": "#121212",
-            "info": "Make color field blank (transparent) if you don't want a border"
-        }
-      ]
     }
-
-
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "product-recommendations",
-    "product-goes-well-with"
+    "product-recommendations"
   ]
 }
