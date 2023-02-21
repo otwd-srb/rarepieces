@@ -42,13 +42,13 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Pairs well with",
-            "make_collapsible_row": false,
-            "icon": "price_tag",
+            "make_collapsible_row": true,
+            "icon": "none",
             "product_list_limit": 4,
             "products_per_page": 3,
-            "pagination_style": "dots",
+            "pagination_style": "numbers",
             "image_ratio": "square",
-            "enable_quick_add": false
+            "enable_quick_add": true
           }
         },
         "buy_buttons": {
