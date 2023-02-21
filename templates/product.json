@@ -250,10 +250,33 @@
 
     "product-goes-well-with": {
       "type": "product-goes-well-with",
-      "settings": {
-        "heading": "GOES WELL WITH",
-        "heading_size": "h1"
-      }
+      "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Related Products"
+        },
+        {
+            "type": "number",
+            "id": "heading_font_size",
+            "label": "Heading font size (px)",
+            "default": 18
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "#121212"
+        },
+        {
+            "type": "color",
+            "id": "hover_border_color",
+            "label": "Border color (hover)",
+            "default": "#121212",
+            "info": "Make color field blank (transparent) if you don't want a border"
+        }
+      ]
     }
 
 
