@@ -468,6 +468,9 @@ header.hp-header {
   padding: 1rem 2rem;
   position: relative;
 }
+.product-box .product-desc-box {
+  text-align: center;
+}
 .product-img-container {
   position: relative;
   width: auto;
@@ -519,7 +522,6 @@ h3.all-product-title,
 }
 .product-desc-box {
   position: relative;
-  text-align: center;
 }
 .product-desc-box ul li a {
   text-decoration: none;
@@ -744,7 +746,7 @@ table td {
 
 @media (max-width: 576px) {
   section {
-    margin-bottom: auto;
+   /*  margin-bottom: auto; */
     margin-bottom: 4rem;
   }
   h3.all-product-title,
