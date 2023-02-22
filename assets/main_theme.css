@@ -804,3 +804,16 @@ table td {
 .hide-blck-img {
   display: none;
 }
+
+
+
+/*Zoom product img*/
+img.flickity-lazyloaded:hover {
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  transition: 0.7s ease all;
+  -webkit-transition:0.7s ease all;
+  -moz-transition:0.7s ease all;
+  cursor: zoom-in;
+}

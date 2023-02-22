@@ -328,8 +328,8 @@
         {%- endif -%}
       </media-gallery>
     </div> {% endcomment %}
-<div class="grid__item product__media-wrapper">
-{% if product.images != null %}
+      <div class="grid__item product__media-wrapper">
+      {% if product.images != null %}
         <div class="carousel product__image-slider" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0">
           {%- for media in product.media -%}
           <div class="carousel-cell">
@@ -373,7 +373,7 @@
         {% else %}
         {{ 'product-1' | placeholder_svg_tag }}
         {% endif %}
-</div>
+    </div>
 <!-- OTWD JOTTING slider end -->
 
 
