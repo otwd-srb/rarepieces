@@ -808,12 +808,14 @@ table td {
 
 
 /*Zoom product img*/
-img.flickity-lazyloaded:hover {
-  -moz-transform: scale(2);
-  -webkit-transform: scale(2);
-  transform: scale(2);
+img.flickity-lazyloaded {
   transition: 0.7s ease all;
   -webkit-transition:0.7s ease all;
   -moz-transition:0.7s ease all;
+}
+img.flickity-lazyloaded:hover {
+  -moz-transform: scale(2.5);
+  -webkit-transform: scale(2.5);
+  transform: scale(2.5);
   cursor: zoom-in;
 }
