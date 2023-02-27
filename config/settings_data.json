@@ -209,6 +209,7 @@
         "type": "otwd-header",
         "settings": {
           "color_scheme": "background-1",
+          "logo": "shopify:\/\/shop_images\/Logo-980x1039.png",
           "logo_width": 100,
           "logo_position": "middle-left",
           "menu": "main-menu",
