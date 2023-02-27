@@ -240,8 +240,11 @@
     }
     </script>
 
-    {{ 'flickity.css' | asset_url | stylesheet_tag }}
-    {{ 'flickity.js' | asset_url | script_tag }}
+      {{ 'flickity.css' | asset_url | stylesheet_tag }}
+      {{ 'flickity.js' | asset_url | script_tag }}
+      {% comment %} {{ 'fullscreen.css' | asset_url | script_tag }}
+      {{ 'fullscreen.js' | asset_url | script_tag }} {% endcomment %}
+
   </head>
 
 
@@ -251,6 +254,10 @@
     {% if template != 'index' %}
       <script>
         document.body.classList.remove("theme-bgd");
+
+        // remove main menu from HP
+        var element = document.getElementById("main-menu");
+        element.classList.remove("hp-hide");
       </script>
     {% endif %}
 
@@ -311,7 +318,14 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-2">
-                  <div class="main-nav-container">
+                  <div id="main-menu" class="main-nav-container hp-hide">
+                  <!-- remove main menu from HP -->
+                  {% if template != 'index' %}
+                    <script>
+                      var element = document.getElementById("main-menu");
+                      element.classList.remove("hp-hide");
+                    </script>
+                  {% endif %}
                       {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {%- for link in linklists.main-menu.links -%}

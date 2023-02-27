@@ -630,7 +630,8 @@
 {% if template == 'index' %}
   <!-- OTWD HEADER START-->
   <header class="sticky hp-header">
-    <h1><a href="/" class="hp-title-link">{{ shop.name }}</a></h1>
+    <!--<h1><a href="/" class="hp-title-link">{{ shop.name }}</a></h1>-->
+    <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001">
     <div class="log-container">
         {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
         {%- if shop.customer_accounts_enabled -%}
@@ -684,7 +685,10 @@
       <div class="row justify-content-end">
         {% comment %} <div class="col-lg-2"></div> {% endcomment %}
         <div class="col-lg-10">
-          <h1><a href="/" class="hp-title-link">{{ shop.name }}</a></h1>
+          <!--<h1><a href="/" class="hp-title-link">{{ shop.name }}</h1>-->
+          <a href="/" class="">
+            <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001">
+          </a>
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
             {%- if shop.customer_accounts_enabled -%}

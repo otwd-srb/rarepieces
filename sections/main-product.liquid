@@ -14,6 +14,8 @@
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
 
+
+
   {%- style -%}
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -330,9 +332,9 @@
     </div> {% endcomment %}
       <div class="grid__item product__media-wrapper">
       {% if product.images != null %}
-        <div class="carousel product__image-slider" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0">
+        <div class="carousel product__image-slider" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0" >
           {%- for media in product.media -%}
-          <div class="carousel-cell">
+          <div class="carousel-cell" id="zoom">
             {% if media.media_type == "video" %}
             {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
             {% else %}
@@ -1340,6 +1342,7 @@ document.addEventListener("DOMContentLoaded", function() {
     pageDots: false,
     prevNextButtons: false
   });
+
 </script>
 
 {% schema %}

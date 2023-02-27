@@ -247,8 +247,11 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   display: block;
   position: sticky;
   float: left;
-  top: 100px;
+  top: 120px;
  /*  left: 2rem; */
+}
+.hp-hide {
+  display: none;
 }
 .theme-bgd nav ul li a {
   color: #fff;
@@ -299,7 +302,7 @@ nav ul li a:hover {
 .cta-btn-container {
   /* top: 10rem; */
   position: fixed;
-  top: 70%;
+  top: 80%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -313,15 +316,16 @@ nav ul li a:hover {
   margin-top: 2rem;
   color: var(--bs-gray-900);
   width: 100%;
+  border: 1px solid var(--bs-gray-900);
 }
 .hp-btn:hover,
 .hp-btn:focus {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: var(--bs-gray-900);
+  background-color: var(--bs-gray-900);
+  color: var(--bs-white);
   border: 1px solid var(--bs-gray-900);
 }
 .theme-bgd {
-  background-image: url(../assets/hp-background-1920x1080.jpg);
+  background-image: url(../assets/hp-background-1920x1080_v01.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -348,10 +352,19 @@ header.hp-header {
   max-width: 300px;
   /* margin-top: 4rem; */
   position: fixed;
-  top: 40%;
+  top: 4%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.hp-logo-header {
+  max-width: 100px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 1rem;
+}
+
 .theme-bgd .footer__content-top {
   display: none;
 }
@@ -808,14 +821,14 @@ table td {
 
 
 /*Zoom product img*/
-img.flickity-lazyloaded {
+/*#zoom img.flickity-lazyloaded {
   transition: 0.7s ease all;
   -webkit-transition:0.7s ease all;
   -moz-transition:0.7s ease all;
 }
-img.flickity-lazyloaded:hover {
+#zoom img.flickity-lazyloaded:hover {
   -moz-transform: scale(2.5);
   -webkit-transform: scale(2.5);
   transform: scale(2.5);
   cursor: zoom-in;
-}
+}*/
