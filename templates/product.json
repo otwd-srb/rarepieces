@@ -294,6 +294,25 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "5a1de050-ad46-49d3-bb28-a8d91aa934d5": {
+      "type": "goes-well-with",
+      "blocks": {
+        "3729f2e0-00ff-487c-b35b-c783cd6a7f89": {
+          "type": "related_products",
+          "settings": {
+            "heading": "OTWD Related Products",
+            "heading_font_size": 18,
+            "heading_color": "#121212",
+            "hover_border_color": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "3729f2e0-00ff-487c-b35b-c783cd6a7f89"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -301,6 +320,7 @@
     "image-with-text",
     "multicolumn",
     "product-recommendations",
-    "a7473edc-994a-47c4-a5f8-2e5aa208f099"
+    "a7473edc-994a-47c4-a5f8-2e5aa208f099",
+    "5a1de050-ad46-49d3-bb28-a8d91aa934d5"
   ]
 }
