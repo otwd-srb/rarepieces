@@ -40,6 +40,7 @@
         },
         "df4f1b8a-108e-4011-b19e-4f467ef4dcb1": {
           "type": "complementary",
+          "disabled": true,
           "settings": {
             "block_heading": "Goes well with",
             "make_collapsible_row": false,
@@ -116,6 +117,11 @@
             "text": "Text block",
             "text_style": "body"
           }
+        },
+        "fdce4aeb-8dee-4c01-b14a-201e4d770fb1": {
+          "type": "rating",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -133,7 +139,8 @@
         "collapsible-row-2",
         "collapsible-row-3",
         "share",
-        "b2c6fac9-b087-4765-8d1b-f1a9a3969703"
+        "b2c6fac9-b087-4765-8d1b-f1a9a3969703",
+        "fdce4aeb-8dee-4c01-b14a-201e4d770fb1"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -243,12 +250,57 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "a7473edc-994a-47c4-a5f8-2e5aa208f099": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Talk about your brand<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-0",
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-1",
+        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "product-recommendations"
+    "product-recommendations",
+    "a7473edc-994a-47c4-a5f8-2e5aa208f099"
   ]
 }
