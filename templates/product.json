@@ -236,6 +236,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "GOES WELL WITH",
         "heading_size": "h1",
@@ -249,50 +250,6 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
-      }
-    },
-    "a7473edc-994a-47c4-a5f8-2e5aa208f099": {
-      "type": "rich-text",
-      "blocks": {
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Talk about your brand<\/p>",
-            "heading_size": "h1"
-          }
-        },
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-1": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        },
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-2": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-0",
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-1",
-        "template--17175348248856__a7473edc-994a-47c4-a5f8-2e5aa208f099-16775095795e167b83-2"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-2",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
       }
     },
     "5a1de050-ad46-49d3-bb28-a8d91aa934d5": {
@@ -320,7 +277,6 @@
     "image-with-text",
     "multicolumn",
     "product-recommendations",
-    "a7473edc-994a-47c4-a5f8-2e5aa208f099",
     "5a1de050-ad46-49d3-bb28-a8d91aa934d5"
   ]
 }
