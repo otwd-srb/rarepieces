@@ -40,7 +40,6 @@
         },
         "df4f1b8a-108e-4011-b19e-4f467ef4dcb1": {
           "type": "complementary",
-          "disabled": true,
           "settings": {
             "block_heading": "Goes well with",
             "make_collapsible_row": false,
@@ -120,6 +119,7 @@
         },
         "fdce4aeb-8dee-4c01-b14a-201e4d770fb1": {
           "type": "rating",
+          "disabled": true,
           "settings": {
           }
         }
