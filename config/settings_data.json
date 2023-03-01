@@ -210,13 +210,13 @@
         "settings": {
           "color_scheme": "background-1",
           "logo": "shopify:\/\/shop_images\/Logo-980x1039.png",
-          "logo_width": 100,
+          "logo_width": 80,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "menu_type_desktop": "dropdown",
           "show_line_separator": true,
           "enable_sticky_header": true,
-          "mobile_logo_position": "center",
+          "mobile_logo_position": "left",
           "margin_bottom": 0,
           "padding_top": 20,
           "padding_bottom": 20
