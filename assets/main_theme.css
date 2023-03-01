@@ -316,12 +316,15 @@ nav ul li a:hover {
     /* background-image: url(../assets/mobile-bgd.jpg) !important; */
   }
   .hp-logo-header {
-    width: 60px;
+    width: 40px;
     float: left;
     left: 10% !important;
   }
   .login-sm-dvc {
     display: none;
+  }
+  .hp-header {
+    padding-left: .75rem;
   }
 }
 .hp-btn {
