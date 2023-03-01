@@ -63,6 +63,7 @@ section {
 .togg-container {
   position: absolute;
   right: 1rem;
+  top: 1rem;
 }
 header {
   top: 0;
@@ -105,6 +106,7 @@ header h1 {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
+
 /* footer ul {
   left: 25rem;
 }
@@ -134,57 +136,60 @@ ul.footer-links li.list-inline-item:not(:last-child) {
 }
 
 @media (max-width: 576px) {
-  header {  
-   height: 5rem;
-  }
-  .hp-title-link {
-    float: left;
-    top: 0.6rem;
-    left: 1rem;
-    position: relative;
-    font-size: 1.2rem;
-  }
-  .log-container {
-    position: relative;
-    top: 2rem;
-  }
-  .log-container a {    
-    position: fixed;
-  }
-  .log-container a:last-child {
-    margin-left: 1rem;
-  }
-  .login {
-    left: 3.6rem;
-    font-size: 0.8rem !important;
-    margin: .7rem 0;
-    text-decoration: none;
-  }
-  .login:hover,
-  .login:active {
-    text-decoration: underline;
-    color: var(--bs-gray-600);
-  }
-  .hp-logo {
-    max-width: 50% !important;
-    top: 50% !important;
-  }
-  .footer ul {
-    left: 0;
-    font-size: 0.6rem;
-    margin-top: 1rem;
-    transform: none !important;
-    top: auto !important;
-    position: relative !important;
-  }
-  ul.footer-links li.list-inline-item:not(:last-child) {
-    margin-right: 1rem;
-  }
-  .header__icon, .header__icon--cart .icon {
-  height: 3rem;
-  width: 3rem;
-  padding: 0;
-}
+    header {  
+    height: 5rem;
+    }
+    .hp-title-link {
+      float: left;
+      top: 0.6rem;
+      left: 1rem;
+      position: relative;
+      font-size: 1.2rem;
+    }
+    .log-container {
+      position: relative;
+      top: 2rem;
+    }
+    .log-container a {    
+      position: fixed;
+    }
+    .log-container a:last-child {
+      margin-left: 1rem;
+    }
+    .login {
+      left: 3.6rem;
+      font-size: 0.8rem !important;
+      margin: .7rem 0;
+      text-decoration: none;
+    }
+    .login:hover,
+    .login:active {
+      text-decoration: underline;
+      color: var(--bs-gray-600);
+    }
+    .hp-logo {
+      max-width: 50% !important;
+      top: 50% !important;
+    }
+    .footer ul {
+      left: 0;
+      font-size: 0.6rem;
+      margin-top: 1rem;
+      transform: none !important;
+      top: auto !important;
+      position: relative !important;
+    }
+    ul.footer-links li.list-inline-item:not(:last-child) {
+      margin-right: 1rem;
+    }
+    .header__icon, .header__icon--cart .icon {
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    }
+    .header__icon:not(.header__icon--summary), .header__icon span {
+      display: inline-block;
+    }
 }
 .offcanvas {
   background-color: var(--bs-gray-900);
@@ -302,13 +307,21 @@ nav ul li a:hover {
 .cta-btn-container {
   /* top: 10rem; */
   position: fixed;
-  top: 80%;
+  top: 84%;
   left: 50%;
   transform: translateX(-50%);
 }
 @media (max-width: 576px) {
   .theme-bgd {
-    background-image: url(../assets/mobile-bgd.jpg) !important;
+    /* background-image: url(../assets/mobile-bgd.jpg) !important; */
+  }
+  .hp-logo-header {
+    width: 60px;
+    float: left;
+    left: 10% !important;
+  }
+  .login-sm-dvc {
+    display: none;
   }
 }
 .hp-btn {
@@ -325,8 +338,8 @@ nav ul li a:hover {
   border: 1px solid var(--bs-gray-900);
 }
 .theme-bgd {
-  background-image: url(../assets/hp-background-1920x1080_v01.jpg);
-  background-size: cover;
+  background-image: url(../assets/hp-background-1920x1080_v02.png);
+  /* background-size: cover; */
   background-repeat: no-repeat;
   background-position: 50%;
   background-attachment: fixed;
@@ -358,7 +371,7 @@ header.hp-header {
 }
 
 .hp-logo-header {
-  max-width: 100px;
+  max-width: 80px;
   position: relative;
   left: 50%;
   transform: translate(-50%);

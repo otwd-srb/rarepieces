@@ -635,7 +635,7 @@
     <div class="log-container">
         {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
         {%- if shop.customer_accounts_enabled -%}
-          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login">
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
             {% comment %} {% render 'icon-account' %} {% endcomment %}
             Log-in
             <span class="visually-hidden">
@@ -651,7 +651,7 @@
         {%- endif -%}
 
         {% comment %} <a href="" class=""> <i class="bi bi-bag"></i> </a> {% endcomment %}
-        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset d-none d-sm-block" id="cart-icon-bubble">
           {%- liquid
             if cart == empty
               render 'icon-cart-empty'
@@ -672,6 +672,27 @@
 
     </div>
     <div class="togg-container d-block d-sm-none">
+
+    <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+          {%- liquid
+            if cart == empty
+              render 'icon-cart-empty'
+            else
+              render 'icon-cart'
+            endif
+          -%}
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">{{ cart.item_count }}</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+    </a>
+
+
         <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -679,6 +700,8 @@
   </header>
   <!-- OTWD HEADER HP END-->
 {% else %}
+  
+  
   <!-- OTWD HEADER CP START-->
   <header class="sticky cp-header">
     <div class="container">
@@ -692,7 +715,7 @@
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
             {%- if shop.customer_accounts_enabled -%}
-              <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login">
+              <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
                 {% comment %} {% render 'icon-account' %} {% endcomment %}
                 Log-in
                 <span class="visually-hidden">
@@ -708,7 +731,7 @@
             {%- endif -%}
 
             {% comment %} <a href="" class=""> <i class="bi bi-bag"></i> </a> {% endcomment %}
-            <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+            <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset d-none d-sm-block" id="cart-icon-bubble">
               {%- liquid
                 if cart == empty
                   render 'icon-cart-empty'
@@ -728,6 +751,24 @@
             </a>
           </div>
           <div class="togg-container d-block d-sm-none">
+              <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                    {%- liquid
+                      if cart == empty
+                        render 'icon-cart-empty'
+                      else
+                        render 'icon-cart'
+                      endif
+                    -%}
+                    <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+                    {%- if cart != empty -%}
+                      <div class="cart-count-bubble">
+                        {%- if cart.item_count < 100 -%}
+                          <span aria-hidden="true">{{ cart.item_count }}</span>
+                        {%- endif -%}
+                        <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                      </div>
+                    {%- endif -%}
+              </a>
               <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
               <span class="navbar-toggler-icon"></span>
               </button>
