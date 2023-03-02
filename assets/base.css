@@ -2380,7 +2380,7 @@ input[type='checkbox'] {
 }
 
 .header__icon span {
-  height: 100%;
+  height: auto; /*OTWD:100%*/
 }
 
 .header__icon::after {
