@@ -237,6 +237,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "GOES WELL WITH",
         "heading_size": "h1",
@@ -258,7 +259,7 @@
         "3729f2e0-00ff-487c-b35b-c783cd6a7f89": {
           "type": "related_products",
           "settings": {
-            "heading": "OTWD Related Products",
+            "heading": "GOES WELL WITH",
             "heading_font_size": 18,
             "heading_color": "#121212",
             "hover_border_color": "#121212"
