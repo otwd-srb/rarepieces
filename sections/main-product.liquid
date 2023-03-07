@@ -71,7 +71,7 @@
 
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-
+    <div id="lightbox"></div>
     <!-- OTWD JOTTING product img slider start-->
     {% comment %} <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       <media-gallery
@@ -337,7 +337,7 @@
           <div class="carousel-cell" id="zoom">
             {% if media.media_type == "video" %}
             {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
-            {% else %}
+            {% else %}            
             <img data-flickity-lazyload-srcset="
                                                 {{ media | img_url: '1440x' }} 1440w,
                                                 {{ media | img_url: '1080x' }} 1080w,
@@ -346,6 +346,8 @@
                  sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
+                 id="{{ media.id }}"
+                 class=" zoomD"
                  border="0"
                  data-media-id="{{ media.id }}" />
             {% endif %}
@@ -1250,6 +1252,29 @@
       });
     });
   </script>
+
+<script>
+    window.onload = () => {
+    // (A) GET LIGHTBOX & ALL .ZOOMD IMAGES
+    let all = document.getElementsByClassName("zoomD"),
+        lightbox = document.getElementById("lightbox");
+  
+    // (B) CLICK TO SHOW IMAGE IN LIGHTBOX
+    // * SIMPLY CLONE INTO LIGHTBOX & SHOW
+    if (all.length>0) { for (let i of all) {
+      i.onclick = () => {
+        let clone = i.cloneNode();
+        clone.className = "";
+        lightbox.innerHTML = "";
+        lightbox.appendChild(clone);
+        lightbox.className = "show";
+      };
+    }}
+  
+    // (C) CLICK TO CLOSE LIGHTBOX
+    lightbox.onclick = () => lightbox.className = "";
+  };
+</script>
 
 <!-- OTWD Skloni ostale slike proizvoda posle featured imag  -->
 {% comment %} <script>
