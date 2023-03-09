@@ -505,7 +505,7 @@ header.hp-header {
 .product-img-container {
   position: relative;
   width: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 0px;
 }
 .product-img-container-all {
   position: relative;
