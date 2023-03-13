@@ -902,6 +902,12 @@ a.cart-item__name {
 /* Login*/
 .login .login-info:nth-child(1){display: none;}
 
+/* Contact + Login Forms */
+#ContactForm, #customer_login{
+  width: 600px;
+  margin: 0 auto;
+}
+
 
 /* (A) LIGHTBOX BACKGROUND */
 #lightbox {
