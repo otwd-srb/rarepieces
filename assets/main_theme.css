@@ -912,7 +912,7 @@ a.cart-item__name {
   #ContactForm, #customer_login{
     width: 100%;
   }
-    #ContactForm #selectOption{font-size: .8rem; padding-left: 1.6rem;}
+    #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
 }
 
 
