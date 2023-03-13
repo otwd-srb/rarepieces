@@ -245,7 +245,9 @@
       {% comment %} {{ 'fullscreen.css' | asset_url | script_tag }}
       {{ 'fullscreen.js' | asset_url | script_tag }} {% endcomment %}
 
-  </head>
+  
+  {% render 'shogun-head' %}
+</head>
 
 
 
