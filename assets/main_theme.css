@@ -841,7 +841,7 @@ table td {
 }
 
 /* Single Product */
-.product__image-thumbnail .is-selected{border: 1px solid #212529;}
+.product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
 
 /*Zoom product img*/
 /*#zoom img.flickity-lazyloaded {
