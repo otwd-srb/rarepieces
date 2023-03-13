@@ -738,9 +738,15 @@ slider-component .slider-buttons {
   text-decoration: none;
 }
 .field__label, .customer .field label {
-  font-size: 1.4rem;
-  left: calc(var(--inputs-border-width) + 1.5rem) !important;
+  font-size: 1.4rem;  
 }
+
+@media screen and (max-width: 749px){
+  .field__label, .customer .field label {
+    left: calc(var(--inputs-border-width) + 1.5rem) !important;
+  }
+}
+
 .field__input, .select__select, .customer .field input, .customer select {
   height: auto;
   font-size: 1.4rem;
