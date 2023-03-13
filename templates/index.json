@@ -217,6 +217,7 @@
     },
     "main-page-landing": {
       "type": "main-page-landing",
+      "disabled": true,
       "settings": {
         "button_text": "Shop Now"
       }
