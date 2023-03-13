@@ -33,7 +33,7 @@
     "form2": {
       "type": "wholesale-contact-form",
       "custom_css": [
-        "#ContactForm {width: 500px; margin:0 auto;}"
+        "#ContactForm {width: 600px; margin: 0 auto;}"
       ],
       "settings": {
         "heading": "",
