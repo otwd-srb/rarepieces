@@ -739,7 +739,7 @@ slider-component .slider-buttons {
 }
 .field__label, .customer .field label {
   font-size: 1.4rem;
-  left: calc(var(--inputs-border-width) + 1.5rem);
+  left: calc(var(--inputs-border-width) + 1.5rem) !important;
 }
 .field__input, .select__select, .customer .field input, .customer select {
   height: auto;
