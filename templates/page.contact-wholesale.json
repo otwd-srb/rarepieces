@@ -32,6 +32,9 @@
     },
     "form2": {
       "type": "wholesale-contact-form",
+      "custom_css": [
+
+      ],
       "settings": {
         "heading": "",
         "heading_size": "h1",
