@@ -35,6 +35,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {
           }
         },
@@ -262,7 +263,7 @@
             "heading": "GOES WELL WITH",
             "heading_font_size": 18,
             "heading_color": "#121212",
-            "hover_border_color": "#121212"
+            "hover_border_color": "#121211"
           }
         }
       },
