@@ -908,6 +908,12 @@ a.cart-item__name {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 749px){
+  #ContactForm, #customer_login{
+    width: 100%;
+  }
+}
+
 
 /* (A) LIGHTBOX BACKGROUND */
 #lightbox {
