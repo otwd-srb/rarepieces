@@ -900,7 +900,7 @@ a.cart-item__name {
 }
 
 /* Login*/
-.login div p:nth-child(2){display: none;}
+.login .login-info:nth-child(1){display: none;}
 
 
 /* (A) LIGHTBOX BACKGROUND */
