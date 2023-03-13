@@ -840,6 +840,8 @@ table td {
   display: none;
 }
 
+/* Single Product */
+.flickity-slider is-selected{border: 1px solid #000;}
 
 /*Zoom product img*/
 /*#zoom img.flickity-lazyloaded {
