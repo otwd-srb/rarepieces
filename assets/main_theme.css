@@ -842,7 +842,8 @@ table td {
 
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
-.add-bag-btn{margin-bottom: 0px !important;}
+.product .product-form{margin-bottom: 1rem;}
+  .add-bag-btn{margin-bottom: 0px !important;}
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 
