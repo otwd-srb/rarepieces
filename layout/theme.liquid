@@ -330,18 +330,13 @@
     
     {% section 'otwd-header' %} <!-- OTWD code -->
 
-    <section id="" class="main-section"><!-- OTWD sidebar menu start-->
+    <section id="no-index-pg" class="main-section hp-hide">
       <div class="container">
           <div class="row">
+              <!-- OTWD sidebar menu start-->
               <div class="col-lg-2">
-                  <div id="main-menu" class="main-nav-container hp-hide">
-                  <!-- remove main menu from HP -->
-                  {% if template != 'index' %}
-                    <script>
-                      var element = document.getElementById("main-menu");
-                      element.classList.remove("hp-hide");
-                    </script>
-                  {% endif %}
+                  <div id="main-menu" class="main-nav-container">
+                  
                       {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {%- for link in linklists.main-menu.links -%}
@@ -411,6 +406,9 @@
                   </div>
               </div>
             <div class="col-lg-10">
+              <main role="main">
+                {{ content_for_layout }}
+              </main>
                 {% comment %} <img src="../assets/Logo-980x1039.png" class="img-fluid hp-logo" alt="" > {% endcomment %}
 
                 {% comment %} <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
@@ -419,7 +417,15 @@
                 </div> {% endcomment %}
                   {% comment %} {{ content_for_layout }} {% endcomment %}
 
-                  <main role="main">
+                  
+              
+            </div>
+      </div>
+    </section>
+    
+
+
+    <main id="index-pg" role="main">
                     {% comment %} {% section 'main-page-landing' %} {% endcomment %}
                     {{ content_for_layout }}
 
@@ -478,12 +484,20 @@
                     </div>
                     {% endif %} {% endcomment %}
 
-                  </main>
-              
-            </div>
-      </div>
-    </section>
-    
+                  
+    </main>
+<!-- remove main menu from HP -->
+                  {% if template != 'index' %}
+                    <script>
+                      var contentPage = document.getElementById("no-index-pg");
+                      var homePage = document.getElementById("index-pg");
+
+                      homePage.remove();
+                      contentPage.classList.remove("hp-hide");
+                    </script>
+                  {% endif %}
+
+
     {% comment %} <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main> {% endcomment %}
