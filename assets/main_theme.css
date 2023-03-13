@@ -899,7 +899,8 @@ a.cart-item__name {
   width: auto;
 }
 
-
+/* Login*/
+.login div p:nth-child(2){display: none;}
 
 
 /* (A) LIGHTBOX BACKGROUND */
