@@ -847,6 +847,10 @@ table td {
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 
+@media screen and (max-width: 749px){
+  .product-desc-box{margin-top: 10px;}
+}
+
 /*Zoom product img*/
 /*#zoom img.flickity-lazyloaded {
   transition: 0.7s ease all;
