@@ -900,10 +900,11 @@ a.cart-item__name {
 }
 
 /* Inner pages */
-@media screen and (min-width: 750px)
+@media screen and (min-width: 750px){
   .section-template--18226735350040__main-padding {
     padding-top: 10px !important;
     padding-left: 50px !important;
+  }
 }
 
 /* Login*/
@@ -916,10 +917,8 @@ a.cart-item__name {
 }
 
 @media screen and (max-width: 749px){
-  #ContactForm, #customer_login{
-    width: 100%;
-  }
-    #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
+  #ContactForm, #customer_login{width: 100%;}
+  #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
 }
 
 
