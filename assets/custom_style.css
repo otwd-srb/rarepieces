@@ -5,6 +5,7 @@
 
 /* Collections Page */
 #shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
+.product-img-container img {width: 520px !important;}
 
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
@@ -15,32 +16,6 @@
 
 @media screen and (max-width: 749px){
   .product-desc-box{margin-top: 10px;}
-}
-
-/*Cart page*/
-
-a.cart-item__name,
-.product-option,
-span.price,
-.cart-item__quantity-wrapper {
-  font-size: 1rem;
-  color: var(--bs-gray-900);
-}
-a.cart-item__name:hover,
-a.cart-item__name {
-  font-size: 1rem;
-  color: var(--bs-gray-900);
-}
-
-@media screen and (max-width: 749px) {
-  .cart-item {
-      gap: 0.5rem !important;
-  }
-
-}
-
-.quantity__button {
-  width: auto;
 }
 
 /* Inner pages */
