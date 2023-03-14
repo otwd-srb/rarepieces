@@ -861,7 +861,6 @@ table td {
 }*/
 
 /* General */
-header{position: absolute !important;}
 @media screen and (max-width: 749px){
   main{padding-top: 2rem !important;}
 }
