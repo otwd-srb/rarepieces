@@ -865,6 +865,9 @@ table td {
   main{padding-top: 2rem !important;}
 }
 
+/* Collections Page */
+#shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
+
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
 .product .product-form{margin-bottom: 1rem !important;}
