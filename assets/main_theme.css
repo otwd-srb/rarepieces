@@ -902,8 +902,8 @@ a.cart-item__name {
 /* Inner pages */
 @media screen and (min-width: 750px)
   .section-template--18226735350040__main-padding {
-    padding-top: 10px;
-    padding-left: 50px;
+    padding-top: 10px !important;
+    padding-left: 50px !important;
 }
 
 /* Login*/
