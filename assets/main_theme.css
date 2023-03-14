@@ -921,6 +921,10 @@ a.cart-item__name {
   #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
 }
 
+/* Footer */
+@media screen and (max-width: 749px){
+  .logo-footer{display: none;}
+}
 
 /* (A) LIGHTBOX BACKGROUND */
 #lightbox {
