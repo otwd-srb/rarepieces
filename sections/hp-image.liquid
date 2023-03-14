@@ -1,7 +1,27 @@
+<div class="row">
+  <div class="col-12 col-lg-12 col-xl-12 col-xxl-12">
+    <img src="{{ section.settings.image | image_url: width: 300 }}" onmouseover="newImg(this)" onmouseout="oldImg(this)" class="img-fluid hp-cover-img">
+  </div>
+</div>
+
+
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "t:sections.hp-image.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.hp-image.settings.image.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "t:sections.hp-image.settings.image_2.label"
+      }
+    ]
   }
 {% endschema %}
 
@@ -9,4 +29,12 @@
 {% endstylesheet %}
 
 {% javascript %}
+  <script>
+    function newImg(e){
+      e.src = "{{ section.settings.image | image_url: width: 400 }}"
+    }
+    function oldImg(e){
+      e.src = "{{ section.settings.image_2 | image_url: width: 400 }}"
+    }
+  </script>
 {% endjavascript %}
