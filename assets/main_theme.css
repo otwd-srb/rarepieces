@@ -108,13 +108,7 @@ header h1 {
   text-decoration: underline;
   color: var(--bs-gray-600);
 }
-.hp-cover-img {
-  max-width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 /* footer ul {
   left: 25rem;
 }
@@ -867,6 +861,7 @@ table td {
 }*/
 
 /* General */
+header{position: absolute !important;}
 @media screen and (max-width: 749px){
   main{padding-top: 2rem !important;}
 }
