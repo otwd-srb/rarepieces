@@ -221,7 +221,7 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.css' | asset_url | stylesheet_tag}}
     {{ 'main_theme.css' | asset_url | stylesheet_tag}}
-    {{ 'custom_style.css' | asset_url | stylesheet_tag}}
+    {% comment %} {{ 'custom_style.css' | asset_url | stylesheet_tag}} {% endcomment %}
 
     
     {%- unless settings.type_body_font.system? -%}
