@@ -923,7 +923,7 @@ a.cart-item__name {
 
 /* Footer */
 @media screen and (max-width: 749px){
-  footer{position: relative;}
+  footer{position: relative !important;}
     .logo-footer{display: none;}
 }
 
