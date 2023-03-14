@@ -6,7 +6,7 @@
         "template--17175347659032__6a7ff6f6-3884-4bfb-a1bf-56a9c4fafc60-167879610070a1904d-0": {
           "type": "heading",
           "settings": {
-            "heading": "<p>{{ page.title }}<\/p>",
+            "heading": "<h1>{{ page.title }}<\/h1>",
             "heading_size": "h1"
           }
         }
@@ -19,7 +19,7 @@
         "content_alignment": "center",
         "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 12,
         "padding_bottom": 0
       }
     },
