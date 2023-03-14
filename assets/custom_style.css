@@ -13,6 +13,7 @@
   .add-bag-btn{margin-bottom: 0px !important;}
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
+.related-products .col-6{margin-bottom: 40px;}
 
 @media screen and (max-width: 749px){
   .product-desc-box{margin-top: 10px;}
