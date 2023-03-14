@@ -899,6 +899,13 @@ a.cart-item__name {
   width: auto;
 }
 
+/* Inner pages */
+@media screen and (min-width: 750px)
+  .section-template--18226735350040__main-padding {
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
 /* Login*/
 .login .login-info:nth-child(1){display: none;}
 
