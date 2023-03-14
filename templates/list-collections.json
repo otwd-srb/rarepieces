@@ -25,6 +25,9 @@
     },
     "main": {
       "type": "main-list-collections",
+      "custom_css": [
+
+      ],
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
@@ -32,10 +35,22 @@
         "columns_desktop": 3,
         "columns_mobile": "2"
       }
+    },
+    "cc42777d-5fe7-4a83-98ea-bb79878c6460": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "aecdee7d-1eaf-43cd-9d89-9ed662271239",
-    "main"
+    "main",
+    "cc42777d-5fe7-4a83-98ea-bb79878c6460"
   ]
 }
