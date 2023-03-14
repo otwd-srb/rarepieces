@@ -208,7 +208,7 @@
       "otwd-header": {
         "type": "otwd-header",
         "custom_css": [
-          "header{position: absolute;}"
+          "header {position: absolute !important;}"
         ],
         "settings": {
           "color_scheme": "background-1",
