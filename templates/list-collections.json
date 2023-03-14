@@ -1,15 +1,41 @@
 {
   "sections": {
+    "aecdee7d-1eaf-43cd-9d89-9ed662271239": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17175348052248__aecdee7d-1eaf-43cd-9d89-9ed662271239-1678796913725b72bc-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h1>RP PRODUCTS<\/h1>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "template--17175348052248__aecdee7d-1eaf-43cd-9d89-9ed662271239-1678796913725b72bc-0"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-list-collections",
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
-        "image_ratio": "square"
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "columns_mobile": "2"
       }
     }
   },
   "order": [
+    "aecdee7d-1eaf-43cd-9d89-9ed662271239",
     "main"
   ]
 }
