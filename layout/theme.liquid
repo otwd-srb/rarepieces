@@ -32,7 +32,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
-    {{ content_for_header }}
+    {% include 'globo.filter.script' %}{{ content_for_header }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -613,5 +613,6 @@
     </script> {% endcomment %}
 
 
-  </body>
+  {% include 'globo.filter.action' %}
+	</body>
 </html>
