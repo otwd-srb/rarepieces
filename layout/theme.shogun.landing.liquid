@@ -228,6 +228,7 @@ This file can be re-written at any time.
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.css' | asset_url | stylesheet_tag}}
     {{ 'main_theme.css' | asset_url | stylesheet_tag}}
+    {{ 'custom_style.css' | asset_url | stylesheet_tag}}
 
     
     {%- unless settings.type_body_font.system? -%}
@@ -274,8 +275,11 @@ This file can be re-written at any time.
         element.classList.remove("hp-hide");
       </script>
 <script>
-                      var element = document.getElementById("main-menu");
-                      element.classList.remove("hp-hide");
+                      var contentPage = document.getElementById("no-index-pg");
+                      var homePage = document.getElementById("index-pg");
+
+                      homePage.remove();
+                      contentPage.classList.remove("hp-hide");
                     </script>
 <script>
       window.shopUrl = '{{ request.origin }}';

@@ -1,10 +1,33 @@
 {
   "sections": {
+    "6a7ff6f6-3884-4bfb-a1bf-56a9c4fafc60": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17175347659032__6a7ff6f6-3884-4bfb-a1bf-56a9c4fafc60-167879610070a1904d-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h1>{{ page.title }}<\/h1>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "template--17175347659032__6a7ff6f6-3884-4bfb-a1bf-56a9c4fafc60-167879610070a1904d-0"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 48
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "form": {
@@ -19,6 +42,7 @@
     }
   },
   "order": [
+    "6a7ff6f6-3884-4bfb-a1bf-56a9c4fafc60",
     "main",
     "form"
   ]

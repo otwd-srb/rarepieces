@@ -1,0 +1,53 @@
+/* General */
+@media screen and (max-width: 749px){
+  main{padding-top: 2rem !important;}
+}
+
+/* Collections Page */
+#shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
+.product-img-container img {width: 520px !important;}
+
+/* Single Product */
+.product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
+.product .product-form{margin-bottom: 1rem !important;}
+  .add-bag-btn{margin-bottom: 0px !important;}
+.product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
+  .product__info-container .product__description p{margin-bottom: 5px;}
+.related-products .col-6{margin-bottom: 40px;}
+
+@media screen and (max-width: 749px){
+  .product-desc-box{margin-top: 10px;}
+}
+
+/* Inner pages */
+@media screen and (min-width: 750px){
+  .section-template--18226735350040__main-padding {
+    padding-top: 10px !important;
+    padding-left: 50px !important;
+  }
+}
+
+/* Lookbook */
+@media screen and (min-width: 750px){
+  .shogun-root{padding-left: 50px;}
+}
+
+/* Login*/
+.login .login-info:nth-child(1){display: none;}
+
+/* Contact + Login Forms */
+#ContactForm, #customer_login{
+  width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 749px){
+  #ContactForm, #customer_login{width: 100%;}
+  #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
+}
+
+/* Footer */
+@media screen and (max-width: 749px){
+  footer{position: relative !important;}
+    .logo-footer{display: none;}
+}
