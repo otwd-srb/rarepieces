@@ -3026,7 +3026,7 @@ details-disclosure > details {
 .featured-cards .carousel-cell {
   background: #fff;
   border-radius: 16px;
-  margin: auto;
+  /*margin: auto;*/
   padding: 18px;
   margin: 12px;
   width: calc(32% - 10px);

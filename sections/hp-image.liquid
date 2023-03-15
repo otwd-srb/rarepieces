@@ -29,12 +29,12 @@
 {% endstylesheet %}
 
 {% javascript %}
-  <script>
+  
     function newImg(e){
       e.src = "{{ section.settings.image | image_url: width: 400 }}"
     }
     function oldImg(e){
       e.src = "{{ section.settings.image_2 | image_url: width: 400 }}"
     }
-  </script>
+  
 {% endjavascript %}

@@ -349,12 +349,12 @@ nav ul li a:hover {
   border: 1px solid var(--bs-gray-900);
 }
 .theme-bgd {
-  background-image: url(../assets/hp-background-1920x1080_v02.png);
-  /* background-size: cover; */
+  /*background-image: url(../assets/hp-background-1920x1080_v02.png);
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: 50%;
   background-attachment: fixed;
-  /* height: 81.25vh; */
+  height: 81.25vh; */
 }
 .theme-bgd .main-section {
   padding-top: 6rem;
@@ -377,6 +377,14 @@ header.hp-header {
   /* margin-top: 4rem; */
   position: fixed;
   top: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hp-logo_new {
+  max-width: 250px;
+  /* margin-top: 4rem; */
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
