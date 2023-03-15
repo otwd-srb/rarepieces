@@ -50,4 +50,5 @@
 @media screen and (max-width: 749px){
   footer{position: relative !important;}
     .logo-footer{display: none;}
+    .footer ul {font-size: 0.5rem;}
 }
