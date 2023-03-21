@@ -40,6 +40,7 @@
   width: 600px;
   margin: 0 auto;
 }
+  #ContactForm .field__label{font-size: 16px;}
 
 @media screen and (max-width: 749px){
   #ContactForm, #customer_login{width: 100%;}
