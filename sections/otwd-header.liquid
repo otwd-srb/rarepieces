@@ -106,6 +106,8 @@
   }
 {%- endstyle -%} {% endcomment %}
 
+
+
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -632,7 +634,10 @@
   <header class="sticky hp-header">
     <!--<h1><a href="/" class="hp-title-link">{{ shop.name }}</a></h1>-->
     {% comment %} <img src="{{ 'rp-rarepieces-logo.jpg' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001"> {% endcomment %}
-    <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001">
+
+    <img src="{{ 'rp-rarepieces-logo.jpg' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header d-none d-sm-block" id="hp_img_001">
+    <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header d-block d-sm-none" id="hp_img_001">
+
     <div class="log-container">
         {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
         {%- if shop.customer_accounts_enabled -%}
@@ -712,7 +717,8 @@
           <!--<h1><a href="/" class="hp-title-link">{{ shop.name }}</h1>-->
           <a href="/" class="">
             {% comment %} <img src="{{ 'rp-rarepieces-logo.jpg' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001"> {% endcomment %}
-            <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header" id="hp_img_001">
+            <img src="{{ 'rp-rarepieces-logo.jpg' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header d-none d-sm-block" id="hp_img_001">
+            <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ shop.name }}" class="hp-logo-header d-block d-sm-none" id="hp_img_001">
           </a>
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
@@ -879,6 +885,23 @@
 
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
+
+<!-- OTWD Replace logo based on screen size -->
+<!--<script> 
+      function replaceImage() {
+          var screenWidth = window.innerWidth; // Get the screen width
+          var img = document.getElementById("hp_img_001"); // Get the image element by ID
+          
+          if (screenWidth < 567) { // If screen width is less than 567px
+            img.src = "{{ 'Logo-980x1039.png' | asset_url }}"; // Replace the image source with the new image path
+          } else {
+            img.src = "{{ 'rp-rarepieces-logo.jpg' | asset_url }}"; // Otherwise, replace the image source with the original image path
+          }
+        }
+
+        window.onload = replaceImage; // Call the function on window load
+        window.onresize = replaceImage; // Call the function on window resize
+    </script>-->
 
 <script type="application/ld+json">
   {

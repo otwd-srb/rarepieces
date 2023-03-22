@@ -253,8 +253,8 @@
 
 
 
-  <body class="theme-bgd">
-    <!-- Remove body class from index page -->
+  <body class="{% if template == 'index' %}theme-bgd{% endif %}">
+    <!-- Remove body class from index page 
     {% if template != 'index' %}
       <script>
         document.body.classList.remove("theme-bgd");
@@ -263,7 +263,7 @@
         var element = document.getElementById("main-menu");
         element.classList.remove("hp-hide");
       </script>
-    {% endif %}
+    {% endif %}-->
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
@@ -285,7 +285,7 @@
           <ul class="list-unstyled">
 
             {% for link in linklists.main-menu.links %}
-              {% comment %} <li> <a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
+                {% comment %} <li> <a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
 
                 {% if link.links != blank %}
                   {% comment %} <li><a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
@@ -334,51 +334,12 @@
     
     {% section 'otwd-header' %} <!-- OTWD code -->
 
-    <section id="no-index-pg" class="main-section hp-hide">
+    <section id="no-index-pg" class="main-section">
       <div class="container">
           <div class="row">
               <!-- OTWD sidebar menu start-->
               <div class="col-lg-2">
-                  <div id="main-menu" class="main-nav-container">
-                  
-                      {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
-                        <ul class="list-unstyled">
-                          {%- for link in linklists.main-menu.links -%}
-                          <li><a href="{{ link.url }}">{{ link.title }}</a>
-                            {%- if link.links != blank -%}
-                              <li class='sub-menu'>
-                                <ul class="list-unstyled">
-                                  {%- for childlink in link.links -%}
-                                    <li>
-                                        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                                    </li>
-                                  {%- endfor -%}
-                                </ul>
-                              </li>
-                            {%- endif -%}
-                          </li>
-                          {%- endfor -%}
-                        </ul>
-                      </nav> {% endcomment %}
-
-
-
-                      {% comment %} <nav class="animated bounceInDown main-nav d-none d-sm-block">
-                        <ul class="list-unstyled">
-                          {% for link in linklists.main-menu.links %}
-                            <li><a href="{{ link.url }}">{{ link.title }}</a>
-                              {% if link.links != blank %}
-                                <ul class="list-unstyled">
-                                  {% for childlink in link.links %}
-                                    <li class='sub-menu'><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
-                                  {% endfor %}
-                                </ul>
-                              {% endif %}
-                            </li>
-                          {% endfor %}
-                        </ul>
-                      </nav> {% endcomment %}
-
+                  <div id="main-menu" class="main-nav-container {% if template == 'index'%}hp-hide{% endif%}">
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {% for link in linklists.main-menu.links %}
@@ -404,24 +365,15 @@
                         </ul>
                       </nav>
 
-                      <span style="color: #f00;">{{ template }}</span> <!-- OTWD code --> 
-                      
+                      <span style="color: #f00;">{{ template }}</span> <!-- OTWD code -->
                       
                   </div>
               </div>
             <div class="col-lg-10">
+
               <main role="main">
                 {{ content_for_layout }}
               </main>
-                
-
-                {% comment %} <img src="{{ 'Logo-980x1039.png' | asset_url }}" alt="{{ image.alt }}" class="img-fluid hp-logo">
-                <div class="cta-btn-container">
-                  <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
-                </div> {% endcomment %}
-                  {% comment %} {{ content_for_layout }} {% endcomment %}
-
-                  
               
             </div>
       </div>
@@ -430,81 +382,19 @@
 
 
     <main id="index-pg" role="main">
-                    {% comment %} {% section 'main-page-landing' %} {% endcomment %}
-                    {{ content_for_layout }}
-                    
-
-
-                    {% comment %} {% if template == 'product' %}
-
-                    <div class="modal fade" id="imgContainer" tabindex="-1" aria-labelledby="imgContainerLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                
-                                {% for image in product.images %}
-                                  {% if image != product.featured_image %}
-                                    <img src="{{ image | image_url }}" class="img-fluid modal-content" alt="{{ image.alt }}"  id="{{ image.alt }}">
-                                  {% endif %}
-                                {% endfor %}
-                              
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                      <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner gx-3" role="listbox">
-                            {% for image in product.images %}
-                              {% unless image == product.featured_image %}
-                                <div class="carousel-item">
-                                    <div class="col-md-3 col-12">
-                                        <div class="card">
-                                          <div class="card-img">
-                                            <a href="#imgContainer" role="button" data-bs-toggle="modal" id="{{ image.alt }}">
-                                              <img src="{{ image | img_url: 'medium' }}" data-src="{{ image | img_url: 'large' }}" class="img-fluid modal-img" alt="{{ product.title }}" id="{{ image.alt }}">
-                                            </a>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              {% endunless %}
-                            {% endfor %}
-                              
-                          </div>
-                          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          </a>
-                          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          </a>
-                      </div>
-                    </div>
-                    {% endif %} {% endcomment %}
-
-                  
-    </main>
-<!-- remove main menu from HP -->
-                  {% if template != 'index' %}
-                    <script>
-                      var contentPage = document.getElementById("no-index-pg");
-                      var homePage = document.getElementById("index-pg");
-
-                      homePage.remove();
-                      contentPage.classList.remove("hp-hide");
-                    </script>
-                  {% endif %}
-
-
-    {% comment %} <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
-    </main> {% endcomment %}
+    </main>
+
+<!-- remove main menu from HP -->
+    {% if template != 'index' %}
+      <script>
+        // var contentPage = document.getElementById("no-index-pg");
+        var homePage = document.getElementById("index-pg");
+
+        homePage.remove();
+        contentPage.classList.remove("hp-hide");
+      </script>
+    {% endif %}
 
     {% section 'footer-otwd' %}
 
@@ -512,8 +402,6 @@
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
-
-
 
 
     <!-- JS files -->
@@ -562,7 +450,7 @@
       });
 
 
-        function replaceImage() {
+          /*function replaceImage() {
           var screenWidth = window.innerWidth; // Get the screen width
           var img = document.getElementById("hp_img_001"); // Get the image element by ID
           
@@ -574,7 +462,7 @@
         }
 
         window.onload = replaceImage; // Call the function on window load
-        window.onresize = replaceImage; // Call the function on window resize
+        window.onresize = replaceImage; // Call the function on window resize*/
 
 
     </script>

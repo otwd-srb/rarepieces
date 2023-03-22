@@ -328,6 +328,16 @@ nav ul li a:hover {
   .hp-header {
     padding-left: .7rem;
   }
+  .related-product__image {
+    margin-top: 3rem;
+  }
+}
+.related-product__image {
+  position: relative;
+  left: 50%;  
+}
+.card__heading {
+  text-align: center;
 }
 .hp-btn {
   background-color: rgba(255, 255, 255, 0.4);
@@ -384,11 +394,11 @@ header.hp-header {
 }
 
 .hp-logo-header {
-  max-width: 80px;
+  max-width: 110px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 .theme-bgd .footer__content-top {
@@ -953,7 +963,6 @@ a.cart-item__name {
  
   /* (A3) CENTER IMAGE ON SCREEN */
   display: flex;
-  align-items: center;
   align-items: center;
  
   /* (A4) HIDDEN BY DEFAULT */
