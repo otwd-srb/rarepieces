@@ -63,6 +63,18 @@
           <label class="field__label" for="ContactForm-nachname">Nachname <span aria-hidden="true">*</span></label>
         </div>
 
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="UmstID"
+            type="text"
+            id="ContactForm-nachname"
+            name="contact[UmstID]"
+            aria-required="true"
+            placeholder="{{ 'templates.contact.form.name' | t }}">
+          <label class="field__label" for="ContactForm-nachname">UmstID <span aria-hidden="true">*</span></label>
+        </div>
+
         <div class="field field--with-error">
           <input
             autocomplete="email"
