@@ -41,6 +41,11 @@
   margin: 0 auto;
 }
 
+@media screen and (min-width: 750px){
+  #ContactForm .field__label{font-size: 16px;}
+  #ContactForm #selectOption{font-size: 16px !important;}
+}
+
 @media screen and (max-width: 749px){
   #ContactForm, #customer_login{width: 100%;}
   #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
@@ -50,4 +55,5 @@
 @media screen and (max-width: 749px){
   footer{position: relative !important;}
     .logo-footer{display: none;}
+    .footer ul {font-size: 0.5rem;}
 }
