@@ -367,9 +367,9 @@
                  sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
-                 id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                 id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                  border="0"
-                 data-media-id="{{ media_id }}" />
+                 data-media-id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" />
           </div>
           {%- endfor -%}
           <!--- Coded by jotting.com --->
@@ -625,11 +625,11 @@
                   >
                     {%- for option in product.options_with_values -%}
                       <fieldset class="sizes mt-3">
-                        {% comment %} <legend class="form__label">{{ option.name }}</legend> {% endcomment %}
+                        <legend class="form__label">{{ option.name }}</legend>
                         {%- for value in option.values -%}
                           <input
                             type="radio"
-                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                             name="{{ option.name }}"
                             value="{{ value | escape }}"
                             form="{{ product_form_id }}"
@@ -637,9 +637,9 @@
                               checked
                             {% endif %}
                           >
-                          {% comment %} <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             {{ value }}
-                          </label> {% endcomment %}
+                          </label>
                         {%- endfor -%}
                       </fieldset>
                     {%- endfor -%}
