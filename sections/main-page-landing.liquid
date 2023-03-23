@@ -4,7 +4,7 @@
 
     <div class="logo-and-button-section">
         {% comment %} <img src="{{ 'new-bgd_01.jpg' | asset_url }}" class="img-fluid hp-logo_new" alt="" > {% endcomment %}
-        <img src="{{ section.settings.logo | image_url }}" class="img-fluid hp-logo_new" alt="" >
+        <img src="{{ section.settings.cover_img | image_url }}" class="img-fluid hp-logo_new" alt="" >
         
 
         <div class="cta-btn-container">
@@ -13,7 +13,7 @@
         </div>
 
     </div>
-</div>
+  </div>
 </div>
 
 
@@ -26,8 +26,8 @@
     "settings": [
       {
         "type": "image_picker",
-        "id": "logo",
-        "label": "Logo"
+        "id": "cover_img",
+        "label": "Cover Image"
       },
       {
         "type": "text",
