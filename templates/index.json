@@ -218,7 +218,7 @@
     "main-page-landing": {
       "type": "main-page-landing",
       "settings": {
-        "logo": "shopify:\/\/shop_images\/new-bgd_01.jpg",
+        "cover_img": "shopify:\/\/shop_images\/new-bgd_01.jpg",
         "button_text": "Shop Now"
       }
     },
