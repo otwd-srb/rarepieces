@@ -624,12 +624,12 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- for option in product.options_with_values -%}
-                      <fieldset class="sizes mt-3 select">
+                      <fieldset class="sizes mt-3">
                         <legend class="form__label">{{ option.name }}</legend>
                         {%- for value in option.values -%}
                           <input
                             type="radio"
-                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                             name="{{ option.name }}"
                             value="{{ value | escape }}"
                             form="{{ product_form_id }}"
@@ -637,7 +637,7 @@
                               checked
                             {% endif %}
                           >
-                          <label for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                          <label style="background-image:url({{ value | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             {{ value }}
                           </label>
                         {%- endfor -%}
