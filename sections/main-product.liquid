@@ -367,7 +367,7 @@
                  sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
-                 id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                 id="Option-{{ section.id }}-{{ forloop.index0 }}"
                  border="0"
                  data-media-id="{{ media_id }}" />
           </div>
@@ -629,7 +629,7 @@
                         {%- for value in option.values -%}
                           <input
                             type="radio"
-                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
                             name="{{ option.name }}"
                             value="{{ value | escape }}"
                             form="{{ product_form_id }}"
