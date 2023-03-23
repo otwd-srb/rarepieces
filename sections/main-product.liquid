@@ -637,9 +637,9 @@
                               checked
                             {% endif %}
                           >
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                          {% comment %} <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             {{ value }}
-                          </label>
+                          </label> {% endcomment %}
                         {%- endfor -%}
                       </fieldset>
                     {%- endfor -%}
