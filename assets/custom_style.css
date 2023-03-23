@@ -9,11 +9,13 @@
 
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
+.product__info-container h3{margin-top: 20px;}
 .product .product-form{margin-bottom: 1rem !important;}
   .add-bag-btn{margin-bottom: 0px !important;}
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 .related-products .col-6{margin-bottom: 40px;}
+.related-products h3{font-size: 1.15rem !important;}
 
 @media screen and (max-width: 749px){
   .product-desc-box{margin-top: 10px;}
