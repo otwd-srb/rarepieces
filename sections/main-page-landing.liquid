@@ -3,10 +3,13 @@
   <div class="col-12 col-xs-12 xol-md-12 col-xxl-12">
 
     <div class="logo-and-button-section">
-        <img src="{{ 'new-bgd_01.jpg' | asset_url }}" class="img-fluid hp-logo_new" alt="" >
+        {% comment %} <img src="{{ 'new-bgd_01.jpg' | asset_url }}" class="img-fluid hp-logo_new" alt="" > {% endcomment %}
+        <img src="{{ section.settings.logo | image_url }}" class="img-fluid hp-logo_new" alt="" >
+        
 
         <div class="cta-btn-container">
-            <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a>
+            {% comment %} <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >SHOP NOW</a> {% endcomment %}
+            <a href="/collections" class="btn btn-lg fw-bold hp-btn" role="button" >{{ section.settings.button_text }}</a>
         </div>
 
     </div>
