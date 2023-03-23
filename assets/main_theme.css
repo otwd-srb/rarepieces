@@ -906,10 +906,14 @@ span.price,
   font-size: 1rem;
   color: var(--bs-gray-900);
 }
+.product-option dt {
+  font-weight: normal;
+}
 a.cart-item__name:hover,
 a.cart-item__name {
   font-size: 1rem;
   color: var(--bs-gray-900);
+  font-weight: 700;
 }
 
 @media screen and (max-width: 749px) {
