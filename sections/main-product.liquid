@@ -343,13 +343,13 @@
                                                 {{ media | img_url: '1080x' }} 1080w,
                                                 {{ media | img_url: '720x' }} 767w,
                                                 {{ media | img_url: '480x' }} 480w"
-                 sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
-                 data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
-                 alt="{{ media.alt | escape }}"
-                 id="{{ media.id }}"
-                 class=" zoomD"
-                 border="0"
-                 data-media-id="{{ media.id }}" />
+                sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
+                data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
+                alt="{{ media.alt | escape }}"
+                class=" zoomD"
+                border="0"
+                data-media-id="{{ media.id }}"
+            />
             {% endif %}
           </div>
           {%- endfor -%}
@@ -367,9 +367,8 @@
                  sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
-                 id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                  border="0"
-                 data-media-id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" />
+                 data-media-id="{{ media_id }}" />
           </div>
           {%- endfor -%}
           <!--- Coded by jotting.com --->
