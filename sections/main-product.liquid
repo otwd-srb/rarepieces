@@ -415,13 +415,13 @@
                 <h3>{{ product.title | escape }}</h3>
                 {% assign product_collections_handles = product.collections %}<!-- OTWD lista ostale proizvode iz iste kolekcije -->
                 
-                {% for collection in product_collections_handles %}
+                {% comment %} {% for collection in product_collections_handles %}
                   <ul class="list-inline">
                     {% for product in collection.products %}
                       <li class="list-inline-item"><a href="{{ product.url }}">{{ product.title }}</a></li>
                     {% endfor %}
                   </ul>
-                {% endfor %}
+                {% endfor %} {% endcomment %}
                 
               </div>
             {%- when 'price' -%}
