@@ -358,7 +358,12 @@
         {% if product.images.size > 1 %}
         <div class="carousel product__image-thumbnail">
           {%- for media in product.media -%}
-          <div class="carousel-cell" thumbnail-color="{{ media.alt }}" >
+          <div class="carousel-cell" thumbnail-color="{{ media.alt }}"
+          {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and product.selected_or_first_available_variant.featured_image.alt != blank %}
+            style="display: none;"
+          {% endif %}
+          thumbnail-alt="{{ media.alt }}"
+          >
             <img data-flickity-lazyload-srcset="
                                                 {{ media | img_url: '1440x' }} 1440w,
                                                 {{ media | img_url: '1080x' }} 1080w,
@@ -368,7 +373,7 @@
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
                  border="0"
-                 data-media-id="{{ media_id }}" />
+                 data-media-id="{{ media.id }}" />
           </div>
           {%- endfor -%}
           <!--- Coded by jotting.com --->

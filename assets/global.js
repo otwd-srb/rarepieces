@@ -781,6 +781,7 @@ class VariantSelects extends HTMLElement {
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
+    this.filterImgVariant(); //OTWD
     this.updateVariantStatuses();
 
     if (!this.currentVariant) {
@@ -794,6 +795,21 @@ class VariantSelects extends HTMLElement {
       this.updateShareUrl();
     }
   } //jotting end
+
+  filterImgVariant() { //OTWD
+
+    if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
+      //show tumb for selected color
+      document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = 'none')
+      const currentImgAlt = this.currentVariant.featured_image.alt
+      const thumbnailSelector = `[thumbnail-alt="${currentImgAlt}"]`
+      document.querySelectorAll(thumbnailSelector).forEach(img => img.style.display = 'block')
+    }
+    else {
+      // show all thumb
+      document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = 'block')
+    }    
+  }
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
