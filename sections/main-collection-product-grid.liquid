@@ -141,21 +141,25 @@
 
 {% assign collections_handles = "t-shirt,sweater,hoodie" | split: "," %}
 
-  <div data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items class="row gy-5">
+  <div data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items="" class="row gy-5">
   {%- for product in collection.products -%}
     {% if collections_handles contains collection.handle %}
+
+    {% comment %} {% if product.variant == true %}
+    {% endif %} {% endcomment %}
     
       <div class="col-6 col-xl-6 product-grid">
         <div class="product-box">
           <div class="product-img-container">
             <a href="{{ product.url }}" class="" title="{{ product.title }}">
               <img src="{{ product.featured_image | image_url }}" class="img-fluid" alt="">
-              {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
+              {% comment %} {{ product | image_url: width: 520 | image_tag }} {% endcomment %}
             </a>
           </div>
           <div class="product-desc-box">
             <h3 class="all-product-title">{{ product.title }}</h3>
             <span class="all-product-price"> {{ product.price | money }}</span>
+            {% comment %} <p> {{ product.selected_or_first_available_variant.featured_image.alt }} </p> {% endcomment %}
           </div>
         </div>
       </div>
