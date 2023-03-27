@@ -263,7 +263,7 @@ This file can be re-written at any time.
 
 
   
-<body class="theme-bgd">
+<body class="{% if template == 'index' %}theme-bgd{% endif %}">
   
   
   {{ content_for_layout }}
@@ -276,12 +276,12 @@ This file can be re-written at any time.
         element.classList.remove("hp-hide");
       </script>
 <script>
-                      var contentPage = document.getElementById("no-index-pg");
-                      var homePage = document.getElementById("index-pg");
+        // var contentPage = document.getElementById("no-index-pg");
+        var homePage = document.getElementById("index-pg");
 
-                      homePage.remove();
-                      contentPage.classList.remove("hp-hide");
-                    </script>
+        homePage.remove();
+        contentPage.classList.remove("hp-hide");
+      </script>
 <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
@@ -322,7 +322,7 @@ This file can be re-written at any time.
       });
 
 
-        function replaceImage() {
+          /*function replaceImage() {
           var screenWidth = window.innerWidth; // Get the screen width
           var img = document.getElementById("hp_img_001"); // Get the image element by ID
           
@@ -334,7 +334,7 @@ This file can be re-written at any time.
         }
 
         window.onload = replaceImage; // Call the function on window load
-        window.onresize = replaceImage; // Call the function on window resize
+        window.onresize = replaceImage; // Call the function on window resize*/
 
 
     </script>
