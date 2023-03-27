@@ -338,8 +338,8 @@
       <div class="container">
           <div class="row">
               <!-- OTWD sidebar menu start-->
-              <div class="col-lg-2">
-                  <div id="main-menu" class="main-nav-container {% if template == 'index'%}hp-hide{% endif%}">
+              <div class="col-lg-2 {% if template == 'index'%}hp-hide{% endif%}">
+                  <div id="main-menu" class="main-nav-container">
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {% for link in linklists.main-menu.links %}
@@ -381,20 +381,20 @@
     
 
 
-    <main id="index-pg" role="main">
+    {% comment %} <main id="index-pg">
       {{ content_for_layout }}
-    </main>
+    </main> {% endcomment %}
 
-<!-- remove main menu from HP -->
+<!-- remove main menu from HP 
     {% if template != 'index' %}
       <script>
         // var contentPage = document.getElementById("no-index-pg");
         var homePage = document.getElementById("index-pg");
 
         homePage.remove();
-        contentPage.classList.remove("hp-hide");
+        // contentPage.classList.remove("hp-hide");
       </script>
-    {% endif %}
+    {% endif %}-->
 
     {% section 'footer-otwd' %}
 
@@ -449,7 +449,6 @@
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
 
-
           /*function replaceImage() {
           var screenWidth = window.innerWidth; // Get the screen width
           var img = document.getElementById("hp_img_001"); // Get the image element by ID
@@ -463,7 +462,6 @@
 
         window.onload = replaceImage; // Call the function on window load
         window.onresize = replaceImage; // Call the function on window resize*/
-
 
     </script>
 
@@ -501,6 +499,5 @@
     </script> {% endcomment %}
 
 
-  
-	</body>
+  </body>
 </html>
