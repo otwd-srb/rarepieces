@@ -189,15 +189,17 @@
           {% if variant.option2 == 'Blue_magic' or variant.option2 == 'Light_gray' or variant.option2 == 'Just_black' or variant.option2 == 'Pure_white' %}
             {% if variant.option1 == 'M' %}
           
-          <div class="col-12 col-xl-4">
+          <div class="col-12 col-xl-6">
             <div class="product-box">
-              <div class="">
+              <div class="product-img-container">
                 {% comment %} {{ featured_media | image_url: width: 400 | image_tag }} {% endcomment %}
-                <img src="{{ variant.image.src | img_url: 'medium' }}" alt="{{ variant.title }}" class="img-fluid" style="position: relative; left: 50%; transform: translateX(-50%);" />
+                <a href="{{ product.url }}?variant={{ variant.id }}">
+                  <img src="{{ variant.image.src | img_url: 'large' }}" alt="{{ variant.title }}" class="img-fluid" style="position: relative; left: 50%; transform: translateX(-50%);" />
+                </a>
               </div>
 
               <div class="product-desc-box">
-                <a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.option2 }}</a><br>
+                <a href="{{ product.url }}?variant={{ variant.id }}" class="collection-pg-product-link">{{ variant.option2 }}</a><br>
                 <span class="all-product-price">{{ product.price | money }}</span>
               </div>
               
