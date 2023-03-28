@@ -141,86 +141,33 @@
 
 {% assign collections_handles = "t-shirt,sweater,hoodie" | split: "," %}
 
-  <div data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items="" class="row gy-5">
-  {%- for product in collection.products -%}
+  <div data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items class="row gy-5">
+  {% comment %} {%- for product in collection.products -%}
     {% if collections_handles contains collection.handle %}
-
-
-
-
-
-
-    
-{% comment %} {% for product in collection.products %}
-  {% assign color_active = false %}
-  {% for option in product.options %}
-    {% if option == 'Color' %}
-      {% assign color_active = true %}
-    {% endif %}
-  {% endfor %}
-  {% if product.variants.size > 1 and color_active == true %}
-    {% for option in product.options %}
-      {% if option == 'Color' %}
-        {% assign index = forloop.index0 %}
-        {% assign colorlist = '' %}
-        {% assign color = '' %}
-          {% for variant in product.variants %}
-            {% capture color %}
-              {{ variant.options[index] }}
-            {% endcapture %}
-
-            {% unless colorlist contains color %}
-          <!-- INSERT VARIANT LOOP -->
-          <label class="color-swatch" style="background-image:url({{ value | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-          </label>
-
-
-              {% capture tempList %}
-                {{colorlist | append: color | append: " " }}
-              {% endcapture %}
-              {% assign colorlist = tempList %}
-            {% endunless %}
-          {% endfor %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-  <-- INSERT PRODUCT LOOP -->
-  {% endif %}
-{% endfor %} {% endcomment %}
-
-
-
-
-
-
-
-    {% comment %} {% if product.variant == true %}
-    {% endif %} {% endcomment %}
     
       <div class="col-6 col-xl-6 product-grid">
         <div class="product-box">
           <div class="product-img-container">
             <a href="{{ product.url }}" class="" title="{{ product.title }}">
               <img src="{{ product.featured_image | image_url }}" class="img-fluid" alt="">
-              {% comment %} {{ product | image_url: width: 520 | image_tag }} {% endcomment %}
+              
             </a>
           </div>
           <div class="product-desc-box">
             <h3 class="all-product-title">{{ product.title }}</h3>
             <span class="all-product-price"> {{ product.price | money }}</span>
-            {% comment %} <p> {{ product.selected_or_first_available_variant.featured_image.alt }} </p> {% endcomment %}
           </div>
         </div>
       </div>
 
-    {% elsif collection.handle == 'all' %}
+      {% elsif collection.handle == 'all' %}
     
       <div class="col-6 col-xl-4 col-md-4 col-lg-4 product-grid">
         <div class="product-box">
           <div class="product-img-container-all">
             <a href="{{ product.url }}" class="" title="{{ product.title }}">
               <img src="{{ product.featured_image | image_url }}" class="img-fluid img-all-products" alt="">
-              {% comment %} {{ product | image_url | image_tag }} {% endcomment %}
+             
             </a>
           </div>
           <div class="product-desc-box">
@@ -231,42 +178,44 @@
       </div>
 
     {% endif %}
-  {%- endfor -%}
-</div>
-
-<div><p>
-
-{% comment %} {% for product in collection.products %}
-  {% for variant in product.variants %}
-    <p>{{ variant.title }}</p>
-    <p>{{ variant.price | money }}</p>
-  {% endfor %}
-{% endfor %} {% endcomment %}
-
-{% for product in collection.products %}
-  {% for variant in product.variants %}
-    {% if variant.option1 == true %}
-      style="display: none;" 
-    {% endif %}
-    <a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.title }}</a><br>
-  {% endfor %}
-{% endfor %}
-
-{% comment %} {% for product in collection.products %}
-  {% assign color_options = '' %}
-  {% for variant in product.variants %}
-    {% if variant.option1 != 'Default Title' and variant.option2 == 'Default Title' and variant.option3 == 'Default Title' %}
-      {% capture option_value %}{{ variant.option1 | handleize }}{% endcapture %}
-      {% unless color_options contains option_value %}
-        <a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.option1 }}</a>
-        {% assign color_options = color_options | append: option_value %}
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
-{% endfor %} {% endcomment %}
+  {%- endfor -%} {% endcomment %}
 
 
-</p></div>
+    <div class="row" id="otwd">
+
+      {% for product in collection.products %}
+        {% for variant in product.variants %}
+          
+          {% if variant.option2 == 'Blue_magic' or variant.option2 == 'Light_gray' or variant.option2 == 'Just_black' or variant.option2 == 'Pure_white' %}
+            {% if variant.option1 == 'M' %}
+          
+          <div class="col-12 col-xl-4">
+            <div class="product-box">
+              <div class="">
+                {% comment %} {{ featured_media | image_url: width: 400 | image_tag }} {% endcomment %}
+                <img src="{{ variant.image.src | img_url: 'medium' }}" alt="{{ variant.title }}" class="img-fluid" style="position: relative; left: 50%; transform: translateX(-50%);" />
+              </div>
+
+              <div class="product-desc-box">
+                <a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.option2 }}</a><br>
+                <span class="all-product-price">{{ product.price | money }}</span>
+              </div>
+              
+            </div>
+          </div>
+
+
+          {% endif %}
+          {% endif %}
+
+        {% endfor %}
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+
 
 </div>
 
