@@ -6,6 +6,7 @@
 /* Collections Page */
 #shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
 .product-img-container img {width: 520px !important;}
+.product-desc-box a{text-transform: uppercase;}
 
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
