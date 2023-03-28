@@ -39,7 +39,14 @@
         {% for collection in collections %}
         <div class="col-12 col-lg-4 collection-data">
             <div class="collection-img-container">
-                <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid">
+
+            {% comment %}{% for product in collection.products %}
+              <a href="{{ product.url }}" class="collection-pg-product-link">
+                <img src="{{ product.featured_image | assets_url }}" alt="" id="prd_001x" class="img-fluid">
+              </a>
+            {% endfor %}{% endcomment %}
+
+                 <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid"> 
             </div>
             <div class="hp-coll-desc text-center">
                 <p class="collection-name">{{ collection.title | upcase }}</p>
