@@ -45,16 +45,62 @@
                 <img src="{{ product.featured_image | assets_url }}" alt="" id="prd_001x" class="img-fluid">
               </a>
             {% endfor %}{% endcomment %}
+              {% for product in collection.products %}
+                <a href="{{ product.url }}" class="collection-pg-product-link">
+                  <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid">
+                </a>
+              {% endfor %}
 
-                 <img src="{{ collection.image | image_url }}" alt="" id="prd_001x" class="img-fluid"> 
             </div>
             <div class="hp-coll-desc text-center">
                 <p class="collection-name">{{ collection.title | upcase }}</p>
                 <ul class="list-inline">
                     {% for product in collection.products %}
                       <li class="list-inline-item active">
-                          {% comment %} {% for collection in collections %} {{- collection.title | link_to: collection.url}} {% endfor %} {% endcomment %}
-                          <a href="{{ product.url }}" class="collection-pg-product-link">{{ product.title | upcase }}</a>
+                          {% comment %} {% for collection in collections %} {{- collection.title | link_to: collection.url}} {% endfor %} 
+                          <a href="{{ product.url }}" class="collection-pg-product-link">{{ product.title | upcase }}</a>{% endcomment %}
+
+                          <variant-radios
+                                class="no-js-hidden"
+                                data-section="{{ section.id }}"
+                                data-url="{{ product.url }}"
+                                {{ block.shopify_attributes }}
+                              >
+                                {%- for option in product.options_with_values -%}
+                                  <fieldset class="sizes mt-3" style="{% if option.name == 'Size' %} display: none; {% endif %}">
+                                    
+                                    {%- for value in option.values -%}
+                                      <input
+                                        type="radio"
+                                        id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                        name="{{ option.name }}"
+                                        value="{{ value | escape }}"
+                                        form="{{ product_form_id }}"
+                                        {% if option.selected_value == value %}
+                                          checked="selected"
+                                        {% endif %}
+                                      >
+                                      {% if option.name == "Color" %}
+                                        <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                      </label>
+                                      {% else %}
+                                      <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                        {{ value }}
+                                      </label>
+                                      {% endif %}
+                                      
+                                    {%- endfor -%}
+                                  </fieldset>
+                                {%- endfor -%}
+                                <script type="application/json">
+                                  {{ product.variants | json }}
+                                </script>
+                              </variant-radios>
+
+                          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+
+                          <a href="{{ product.url }}?variant={{ variant.id }}" class="collection-pg-product-link">{{ variant.option2 }}</a><br>
+
                       </li>
                     {% endfor %}
                     <!--<li class="list-inline-item">

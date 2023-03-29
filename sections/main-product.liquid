@@ -642,7 +642,7 @@
                             {% endif %}
                           >
                           {% if option.name == "Color" %}
-                            <label class="color-swatch" style="background-image:url({{ value | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                            <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                           </label>
                           {% else %}
                           <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">

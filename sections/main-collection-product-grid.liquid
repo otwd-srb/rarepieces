@@ -139,7 +139,7 @@
 
 
 
-{% assign collections_handles = "t-shirt,sweater,hoodie" | split: "," %}
+{% comment %} {% assign collections_handles = "t-shirt,sweater,hoodie" | split: "," %} {% endcomment %}
 
   <div data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items class="row gy-5">
   {% comment %} {%- for product in collection.products -%}
@@ -183,32 +183,36 @@
 
     <div class="row" id="otwd">
 
+      {% assign colors = "" | split: ',' %}
+      
       {% for product in collection.products %}
         {% for variant in product.variants %}
           
-          {% if variant.option2 == 'Blue_magic' or variant.option2 == 'Light_gray' or variant.option2 == 'Just_black' or variant.option2 == 'Pure_white' %}
-            {% if variant.option1 == 'M' %}
-          
-          <div class="col-12 col-xl-6">
-            <div class="product-box">
-              <div class="product-img-container">
-                {% comment %} {{ featured_media | image_url: width: 400 | image_tag }} {% endcomment %}
-                <a href="{{ product.url }}?variant={{ variant.id }}">
-                  <img src="{{ variant.image.src | img_url: 'large' }}" alt="{{ variant.title }}" class="img-fluid" style="position: relative; left: 50%; transform: translateX(-50%);" />
-                </a>
-              </div>
+          {% unless colors contains variant.option2 %}
+            {% assign color = variant.option2 | split: ',' %}
+            {% assign colors = colors | concat: color %}
 
-              <div class="product-desc-box">
-                <a href="{{ product.url }}?variant={{ variant.id }}" class="collection-pg-product-link">{{ variant.option2 }}</a><br>
-                <span class="all-product-price">{{ product.price | money }}</span>
+           {% comment %}  {{ colors | json }}
+            {{ variant.option2 }} {% endcomment %}
+            
+            <div class="col-12 col-xl-6">
+              <div class="product-box">
+                <div class="product-img-container">
+                  {% comment %} {{ featured_media | image_url: width: 400 | image_tag }} {% endcomment %}
+                  <a href="{{ product.url }}?variant={{ variant.id }}">
+                    <img src="{{ variant.image.src | img_url: 'large' }}" alt="{{ variant.title }}" class="img-fluid" style="position: relative; left: 50%; transform: translateX(-50%);" />
+                  </a>
+                </div>
+
+                <div class="product-desc-box">
+                  <a href="{{ product.url }}?variant={{ variant.id }}" class="collection-pg-product-link">{{ variant.option2 }}</a><br>
+                  <span class="all-product-price">{{ product.price | money }}</span>
+                </div>
+                
               </div>
-              
             </div>
-          </div>
 
-
-          {% endif %}
-          {% endif %}
+          {% endunless %}
 
         {% endfor %}
       {% endfor %}
