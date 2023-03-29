@@ -63,7 +63,7 @@
   #shopify-section-template--17175347626264__cart-items .underlined-link{font-size: 0.8rem; line-height: 1.7rem;}
   .cart-items thead th{font-size: 0.875rem !important; padding-bottom: 15px !important;}
   .cart-item__image{max-width: 100px !important;}
-  .cart-item__details dl .product-option:nth-last-child dt{display: none !important;}
+  .cart-item__details dl .product-option:nth-child(2) dt{display: none !important;}
   .cart-item__name, .product-option, .cart-item__totals .price{font-size: 14px !important;}
   .cart-item__totals .price{line-height: normal !important;}
   .cart-item__quantity .quantity{padding: 0 10px !important;}
