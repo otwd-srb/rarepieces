@@ -56,7 +56,7 @@
 
 /* Cart */
 @media screen and (min-width: 750px){
-  #shopify-section-template--17175347626264__cart-items .quantity{}
+  #shopify-section-template--17175347626264__cart-items .quantity{padding: 0 15px;}
 }
 
 /* Footer */
