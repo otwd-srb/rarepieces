@@ -66,6 +66,7 @@
   .cart-item__name, .product-option, .cart-item__totals .price{font-size: 14px !important;}
   .cart-item__totals .price{line-height: normal !important;}
   .cart-item__quantity .quantity{padding: 0 10px !important;}
+    .cart-item__quantity .quantity .quantity__button{width: 12px !important;}
   .totals__subtotal, .totals__subtotal-value{font-size: 1rem !important;}
   .totals__subtotal-value{margin-left: 15px !important;}
   .tax-note{font-size: 0.8rem !important; margin-top: 10px !important;}
