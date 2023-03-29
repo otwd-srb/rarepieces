@@ -66,7 +66,7 @@
   .cart-item__details dl .product-option:nth-child(2) dt{display: none !important;}
   .cart-item__name, .product-option, .cart-item__totals .price{font-size: 14px !important;}
   .cart-item__totals .price{line-height: normal !important;}
-  .cart-item__quantity .quantity{padding: 0 10px !important;}
+  .cart-item__quantity .quantity{max-height: 2.5rem !important; padding: 0 10px !important;}
     .cart-item__quantity .quantity .quantity__button{width: 12px !important;}
     .cart-item__quantity .quantity .quantity__input{font-size: 16px !important;}
   .totals__subtotal, .totals__subtotal-value{font-size: 1rem !important;}
