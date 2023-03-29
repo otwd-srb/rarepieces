@@ -54,6 +54,11 @@
   #ContactForm #selectOption{font-size: .8rem !important; padding-left: 1.6rem !important;}
 }
 
+/* Cart */
+@media screen and (min-width: 750px){
+  #shopify-section-template--17175347626264__cart-items .quantity{}
+}
+
 /* Footer */
 @media screen and (max-width: 749px){
   footer{position: relative !important;}
