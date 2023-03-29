@@ -59,7 +59,7 @@
   #shopify-section-template--17175347626264__cart-items .quantity{padding: 0 15px;}
 }
 @media screen and (max-width: 749px){
-  #shopify-section-template--17175347626264__cart-items h1{font-size: 1rem;}
+  #shopify-section-template--17175347626264__cart-items .title{font-size: 1rem;}
   .cart-item__image{max-width: 100px !important;} 
 }
 
