@@ -257,6 +257,9 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   top: 120px;
  /*  left: 2rem; */
 }
+li.submenu_active a {
+  color: red;
+}
 .hp-hide {
   display: none;
 }

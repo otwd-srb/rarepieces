@@ -64,7 +64,6 @@
                           {% unless colors contains variant.option2 %}
                             {% assign color = variant.option2 | split: ',' %}
                             {% assign colors = colors | concat: color %}
-
                             
                               <a href="{{ product.url }}?variant={{ variant.id }}" class="collection-pg-product-link collection-pg-product-color">
                                 <div class="color-swatch"

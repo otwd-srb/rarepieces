@@ -340,26 +340,28 @@
               <!-- OTWD sidebar menu start-->
               <div class="col-lg-2 {% if template == 'index'%}hp-hide{% endif%}">
                   <div id="main-menu" class="main-nav-container">
+                    {% assign current_product = product.handle %}
+                    {% assign current_collection = collection %}
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {% for link in linklists.main-menu.links %}
-                            {% comment %} <li> <a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
-
                               {% if link.links != blank %}
-                                {% comment %} <li><a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
-                                <li><a href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">{{ link.title }}</a>
-                                  <div class="collapse" id="collapseExample">
+                                <li><a href="#collapseExample" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }}</a>
+                                  <div class="collapse {% if current_product %} show {% elsif current_collection %} show {% endif %}" id="collapseExample">
                                     <ul class="list-unstyled">
                                       {% for childlink in link.links %}
-                                        <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                        <li id="otwd-123">
+                                          
+                                            <a href="{{ childlink.url }}" style="{% if product.handle %} color:green; {% elsif collection.id %} color:red; {% endif %}">{{ childlink.title }}</a>
+                                          {% comment %} {{ product.handle }} {% endcomment %}
+                                        </li>
                                       {% endfor %}
                                     </ul>
                                   </div>
                                 </li>
                                 {% else %}
-                                <li><a href="{{ link.url }}">{{ link.title }}</a>
+                                <li><a href="{{ link.url }}" style="">{{ link.title }}</a>
                               {% endif %}
-
                             </li>
                           {% endfor %}
                         </ul>
@@ -462,6 +464,7 @@
 
         window.onload = replaceImage; // Call the function on window load
         window.onresize = replaceImage; // Call the function on window resize*/
+
 
     </script>
 
