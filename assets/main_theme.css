@@ -484,6 +484,9 @@ header.hp-header {
   text-decoration: underline;
   color: var(--bs-gray-900);
 }
+.collection-pg-product-color {
+  display: inline-flex;
+}
 .collection-name {
   text-transform: uppercase;
 }
