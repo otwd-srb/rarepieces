@@ -65,6 +65,7 @@
   .totals__subtotal, .totals__subtotal-value{font-size: 1rem !important;}
   .totals__subtotal-value{margin-left: 15px !important;}
   .tax-note{font-size: 0.8rem !important; margin-top: 10px !important;}
+  .cart__checkout-button{font-size: 1.250rem; width: 90%;}
 }
 
 /* Footer */
