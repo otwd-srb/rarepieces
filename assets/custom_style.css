@@ -3,6 +3,9 @@
   main{padding-top: 2rem !important;}
 }
 
+/* Collections Page */
+.hp-coll-desc .price__container{margin-top: 10px;}
+
 /* Collection Page */
 #shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
 .product-img-container img {width: 520px !important;}
