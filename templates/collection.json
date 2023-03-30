@@ -10,6 +10,7 @@
     },
     "17babc67-ffef-4319-af02-aa14409dd31b": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "template--17175347757336__17babc67-ffef-4319-af02-aa14409dd31b-1678796913725b72bc-0": {
           "type": "heading",
@@ -45,7 +46,7 @@
         "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 0,
+        "padding_top": 12,
         "padding_bottom": 36
       }
     }
