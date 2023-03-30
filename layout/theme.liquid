@@ -354,16 +354,19 @@
                                       
                                       {% for childlink in link.links %}
                                         <li id="otwd-123">
-                                            
+                                            {% if template == 'list-collections' %}
+                                              <a href="{{ childlink.url }}" class="{% if childlink.title == 'All Products' %} active-link {% endif %}">{{ childlink.title }}</a>
+                                              
+                                            {% else %}
                                               <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
-                                            
+                                            {% endif %}
                                           {% comment %} {{ product.handle }} 1<br> 
                                           {{ childlink.title }} 2<br>
                                           {{ childlink.url }} 3<br>
                                           {{ childlink.handle }} 4<br>
-                                          {{ template.name }} 5
-                                            {{ product.title }} <br>
-                                          {{ ccollections.title }} {% endcomment %}
+                                          {{ template.name }} 5 <br>
+                                          {{ product.title }} 6<br>
+                                          {{ ccollections.title }} 7 {% endcomment %}
                                         </li>
 
                                       {% endfor %}
@@ -378,7 +381,7 @@
                         </ul>
                       </nav>
 
-{% comment %}     {% if template == 'list-collections' %}
+    {% comment %} {% if template == 'list-collections' %}
       <div style="display:block;">
          Your content here list-collections
       </div>
