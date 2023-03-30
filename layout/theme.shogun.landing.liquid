@@ -280,7 +280,7 @@ This file can be re-written at any time.
         var homePage = document.getElementById("index-pg");
 
         homePage.remove();
-        contentPage.classList.remove("hp-hide");
+        // contentPage.classList.remove("hp-hide");
       </script>
 <script>
       window.shopUrl = '{{ request.origin }}';
@@ -320,7 +320,6 @@ This file can be re-written at any time.
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
-
 
           /*function replaceImage() {
           var screenWidth = window.innerWidth; // Get the screen width
