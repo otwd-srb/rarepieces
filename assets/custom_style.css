@@ -6,11 +6,23 @@
 /* Collections Page */
 .hp-coll-desc .color-swatch{border-radius: 25px;}
 .hp-coll-desc .price__container{margin-top: 10px;}
+@media screen and (min-width: 750px){
+  #shopify-section-template--17175348052248__aecdee7d-1eaf-43cd-9d89-9ed662271239 h1{display: none;}
+}
 
 /* Collection Page */
 #shopify-section-template--17175348052248__main .section-holder{margin: 2rem auto;}
-.product-img-container img {width: 520px !important;}
-.product-desc-box a{text-transform: uppercase; font-weight: 500;}
+  .product-box{margin-bottom: 2.5rem !important;}
+  .product-img-container{margin-bottom: 1rem !important;}
+    .product-img-container img {width: 520px !important;}
+  .product-desc-box a{text-transform: uppercase; font-weight: 500;}
+@media screen and (max-width: 749px){
+  #shopify-section-template--17175347757336__17babc67-ffef-4319-af02-aa14409dd31b h1{margin-bottom: 2.5rem;}  
+}
+@media screen and (min-width: 750px){
+  #shopify-section-template--17175347757336__17babc67-ffef-4319-af02-aa14409dd31b h1{display: none;}
+}
+
 
 /* Single Product */
 .product__image-thumbnail .is-selected{border: 1px solid #212529; padding: 5px;}
