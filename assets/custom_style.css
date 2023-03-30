@@ -17,7 +17,8 @@
 .product__info-container h3{margin-top: 20px;}
 .product .product-form{margin-bottom: 1rem !important;}
   .add-bag-btn{margin-bottom: 0px !important;}
-.product__info-container .sizes:nth-child(2) .color-swatch{margin-top: 0px !important;}
+.product__info-container .sizes .color-swatch{margin-top: 0px !important;}
+.product__info-container .sizes:nth-child(2) .color-swatch{}
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 .related-products .col-6{margin-bottom: 40px;}
