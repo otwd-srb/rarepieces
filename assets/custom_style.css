@@ -18,7 +18,8 @@
 .product .product-form{margin-bottom: 1rem !important;}
   .add-bag-btn{margin-bottom: 0px !important;}
 .product__info-container .sizes .color-swatch{margin-top: 0px !important;}
-.product__info-container .sizes:nth-child(2) .color-swatch{}
+.product__info-container .sizes:nth-child(2) .color-swatch{width: 40px; height: 40px; border-radius: 25px; border: none;}
+  .product__info-container .sizes:nth-child(2) .color-swatch:before{border-radius: 25px;}
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 .related-products .col-6{margin-bottom: 40px;}
