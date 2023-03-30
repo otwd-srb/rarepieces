@@ -340,7 +340,7 @@
               <!-- OTWD sidebar menu start-->
               <div class="col-lg-2 {% if template == 'index'%}hp-hide{% endif%}">
                   <div id="main-menu" class="main-nav-container">
-                    {% assign current_product = product.handle %}
+                    {% assign current_product = product %}
                     {% assign current_collection = collection %}
                     {% assign all_collections = collections %}
 
@@ -349,19 +349,21 @@
                           {% for link in linklists.main-menu.links %}
                               {% if link.links != blank %}
                                 <li><a href="#collapseExample" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }}</a>
-                                  <div class="collapse {% if current_product %} show {% elsif current_collection %} show {% elsif all_collections %} show {% endif %}" id="collapseExample">
+                                  <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="collapseExample">
                                     <ul class="list-unstyled">
                                       
                                       {% for childlink in link.links %}
                                         <li id="otwd-123">
-
-                                            <a href="{{ childlink.url }}" class="{% if  product.title == childlink.title %} active-link {% elsif collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
-                                          {% comment %} {{ product.handle }} <br>
-                                          {{ childlink.title }}<br>
-                                          {{ childlink.url}}<br>
-                                          {{ childlink.handle }}<br>
-                                          {{ product.title }} {% endcomment %}
-
+                                            
+                                              <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
+                                            
+                                          {% comment %} {{ product.handle }} 1<br> 
+                                          {{ childlink.title }} 2<br>
+                                          {{ childlink.url }} 3<br>
+                                          {{ childlink.handle }} 4<br>
+                                          {{ template.name }} 5
+                                            {{ product.title }} <br>
+                                          {{ ccollections.title }} {% endcomment %}
                                         </li>
 
                                       {% endfor %}
@@ -375,6 +377,16 @@
                           {% endfor %}
                         </ul>
                       </nav>
+
+{% comment %}     {% if template == 'list-collections' %}
+      <div style="display:block;">
+         Your content here list-collections
+      </div>
+    {% else %}
+      <div  style="display:none;">
+        no list collection
+      </div>
+    {% endif %} {% endcomment %}
 
                       <span style="color: #f00;">{{ template }}</span> <!-- OTWD code -->
                       
@@ -459,22 +471,6 @@
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
-
-          /*function replaceImage() {
-          var screenWidth = window.innerWidth; // Get the screen width
-          var img = document.getElementById("hp_img_001"); // Get the image element by ID
-          
-          if (screenWidth < 567) { // If screen width is less than 567px
-            img.src = "{{ 'Logo-980x1039.png' | asset_url }}"; // Replace the image source with the new image path
-          } else {
-            img.src = "{{ 'rp-rarepieces-logo.jpg' | asset_url }}"; // Otherwise, replace the image source with the original image path
-          }
-        }
-
-        window.onload = replaceImage; // Call the function on window load
-        window.onresize = replaceImage; // Call the function on window resize*/
-
-
     </script>
 
     <!-- OTWD Show mobil logo on mobile screens 
