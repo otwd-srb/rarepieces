@@ -257,8 +257,8 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   top: 120px;
  /*  left: 2rem; */
 }
-li.submenu_active a {
-  color: red;
+#otwd-123 a.active-link {
+  font-weight: 700;
 }
 .hp-hide {
   display: none;
@@ -285,7 +285,7 @@ nav ul li a {
 	padding: 0.5rem 0 0.5rem 1rem;	
 	text-decoration: none;
   text-align: left;
-  font-weight: 700;
+  font-weight: normal;
   font-size: 1.2rem;
 	-webkit-transition: 0.2s linear;
 	-moz-transition: 0.2s linear;

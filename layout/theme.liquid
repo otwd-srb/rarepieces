@@ -342,23 +342,26 @@
                   <div id="main-menu" class="main-nav-container">
                     {% assign current_product = product.handle %}
                     {% assign current_collection = collection %}
+                    {% assign all_collections = collections %}
+
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
                           {% for link in linklists.main-menu.links %}
                               {% if link.links != blank %}
                                 <li><a href="#collapseExample" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }}</a>
-                                  <div class="collapse {% if current_product %} show {% elsif current_collection %} show {% endif %}" id="collapseExample">
+                                  <div class="collapse {% if current_product %} show {% elsif current_collection %} show {% elsif all_collections %} show {% endif %}" id="collapseExample">
                                     <ul class="list-unstyled">
                                       
                                       {% for childlink in link.links %}
                                         <li id="otwd-123">
 
-                                            <a href="{{ childlink.url }}" style="{% if  product.title == childlink.title %} color:green; {% elsif collection.title == childlink.title %} color:red; {% endif %}">{{ childlink.title }}</a>
+                                            <a href="{{ childlink.url }}" class="{% if  product.title == childlink.title %} active-link {% elsif collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
                                           {% comment %} {{ product.handle }} <br>
                                           {{ childlink.title }}<br>
                                           {{ childlink.url}}<br>
                                           {{ childlink.handle }}<br>
                                           {{ product.title }} {% endcomment %}
+
                                         </li>
 
                                       {% endfor %}
