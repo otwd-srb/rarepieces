@@ -351,9 +351,8 @@
                                 <li><a href="#collapseExample" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }}</a>
                                   <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="collapseExample">
                                     <ul class="list-unstyled">
-                                      
                                       {% for childlink in link.links %}
-                                        <li id="otwd-123">
+                                        <li>
                                             {% if template == 'list-collections' %}
                                               <a href="{{ childlink.url }}" class="{% if childlink.title == 'All Products' %} active-link {% endif %}">{{ childlink.title }}</a>
                                               
@@ -368,7 +367,6 @@
                                           {{ product.title }} 6<br>
                                           {{ ccollections.title }} 7 {% endcomment %}
                                         </li>
-
                                       {% endfor %}
                                     </ul>
                                   </div>
