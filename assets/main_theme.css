@@ -257,7 +257,7 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   top: 120px;
  /*  left: 2rem; */
 }
-#otwd-123 a.active-link {
+a.active-link {
   font-weight: 700;
 }
 .hp-hide {
