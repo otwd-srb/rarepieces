@@ -101,3 +101,6 @@
     .logo-footer{display: none;}
     .footer ul {font-size: 0.5rem;}
 }
+@media screen and (min-width: 750px){
+  .logo-footer{max-width: 50px !important;}
+}
