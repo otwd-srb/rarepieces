@@ -103,4 +103,5 @@
 }
 @media screen and (min-width: 750px){
   .logo-footer{max-width: 50px !important;}
+  .footer-link{font-size: 14px !important;}
 }
