@@ -35,6 +35,7 @@
 .product__info-container .product__description{font-size: 13px; margin-top: 0px !important;}
   .product__info-container .product__description p{margin-bottom: 5px;}
 .related-products .col-6{margin-bottom: 40px;}
+.related-products-heading{padding-left: 31px}
 .related-products h3{font-size: 1.15rem !important;}
 
 @media screen and (max-width: 749px){
@@ -99,4 +100,8 @@
   footer{position: relative !important;}
     .logo-footer{display: none;}
     .footer ul {font-size: 0.5rem;}
+}
+@media screen and (min-width: 750px){
+  .logo-footer{max-width: 50px !important;}
+  .footer-link{font-size: 14px !important;}
 }
