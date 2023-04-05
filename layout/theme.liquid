@@ -376,7 +376,7 @@
                                                 {% else %}
                                                   <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
                                                 {% endif %}
-                                                <div style="color:red; font-size:10px;">
+                                                {% comment %} <div style="color:red; font-size:10px;">
                                                   {{ childlink.title }} 1 <br>
                                                   {{ ccollection.title }} 2 <br>
                                                   {{ product.title }} 3 <br> 
@@ -391,7 +391,7 @@
                                                   {% for product in collections.products %}
                                                     {{- product.title | link_to: product.url }} 10
                                                   {% endfor %}
-                                                </div>
+                                                </div> {% endcomment %}
                                             </li>
                                           {% endfor %}
                                         </ul>
