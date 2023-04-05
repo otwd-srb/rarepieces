@@ -376,17 +376,22 @@
                                                 {% else %}
                                                   <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
                                                 {% endif %}
-                                                {% comment %} <div style="color:red; font-size:10px;">
-                                                  {{ childlink.title }} 1 <br> 
-                                                  {{ ccollection.title }} 2 <br> 
+                                                <div style="color:red; font-size:10px;">
+                                                  {{ childlink.title }} 1 <br>
+                                                  {{ ccollection.title }} 2 <br>
                                                   {{ product.title }} 3 <br> 
                                                   {{ product.handle | replace: '-',' ' }} 4 <br> 
                                                   {{ childlink.title }} 5<br>
                                                   {{ childlink.url }} 6 <br>
                                                   {{ childlink.handle }} 7 <br>
                                                   {{ template.name }} 8 <br>
-                                                  {{ collections.title }} 9
-                                                </div> {% endcomment %}
+                                                  {{ collections.title }} 9 <br>
+                                                  {{ collections.product }} 10 <br>
+
+                                                  {% for product in collections.products %}
+                                                    {{- product.title | link_to: product.url }} 10
+                                                  {% endfor %}
+                                                </div>
                                             </li>
                                           {% endfor %}
                                         </ul>

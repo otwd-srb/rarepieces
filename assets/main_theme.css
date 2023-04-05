@@ -338,6 +338,11 @@ nav ul li a:hover {
     width: calc(100% / 2);
   }
 }
+@media (min-width: 577px) and (max-width: 1023px) {
+  .logo-and-button-section img.hp-logo_new {
+    width: calc(100% / 8);
+  }
+}
 .related-product__image {
   position: relative;
   left: 50%;  
