@@ -334,6 +334,9 @@ nav ul li a:hover {
   .related-product__image {
     margin-top: 3rem;
   }
+  .logo-and-button-section img.hp-logo_new {
+    width: calc(100% / 2);
+  }
 }
 .related-product__image {
   position: relative;
@@ -388,8 +391,9 @@ header.hp-header {
   transform: translate(-50%, -50%);
 }
 .hp-logo_new {
-  max-width: 250px;
-  /* margin-top: 4rem; */
+  width: calc(100% / 6);
+  /*max-width: 250px;
+   margin-top: 4rem; */
   position: fixed;
   top: 50%;
   left: 50%;
