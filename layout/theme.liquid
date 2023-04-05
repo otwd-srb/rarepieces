@@ -343,6 +343,8 @@
                     {% assign current_product = product %}
                     {% assign current_collection = collection %}
                     {% assign all_collections = collections %}
+                    
+                    
 
                       <nav class="animated bounceInDown main-nav d-none d-sm-block">
                         <ul class="list-unstyled">
@@ -359,13 +361,17 @@
                                             {% else %}
                                               <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
                                             {% endif %}
-                                          {% comment %} {{ product.handle }} 1<br> 
-                                          {{ childlink.title }} 2<br>
-                                          {{ childlink.url }} 3<br>
-                                          {{ childlink.handle }} 4<br>
-                                          {{ template.name }} 5 <br>
-                                          {{ product.title }} 6<br>
-                                          {{ ccollections.title }} 7 {% endcomment %}
+                                            {% comment %} <div style="color:red; font-size:10px;">
+                                              {{ childlink.title }} 1 <br> 
+                                              {{ ccollection.title }} 2 <br> 
+                                              {{ product.title }} 3 <br> 
+                                              {{ product.handle | replace: '-',' ' }} 4 <br> 
+                                              {{ childlink.title }} 5<br>
+                                              {{ childlink.url }} 6 <br>
+                                              {{ childlink.handle }} 7 <br>
+                                              {{ template.name }} 8 <br>
+                                              {{ collections.title }} 9
+                                            </div> {% endcomment %}
                                         </li>
                                       {% endfor %}
                                     </ul>
