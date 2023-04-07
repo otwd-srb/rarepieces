@@ -1,5 +1,5 @@
 /* General */
-#main-menu-container{padding-left: 0px;}
+#main-menu-container{padding-left: 0px !important;}
 @media screen and (max-width: 749px){
   main{padding-top: 2rem !important;}
 }
