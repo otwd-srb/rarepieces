@@ -624,8 +624,9 @@
                   >
                     {%- for option in product.options_with_values -%}
                       <fieldset class="sizes mt-3">
-                        <legend class="form__label">{{ option.name }} {{ option.selected_value }}</legend>
+                        <legend class="form__label {% if option.name == 'Color' %} d-none {% endif %}">{{ option.name }}</legend>
                         {%- for value in option.values -%}
+                        
                           <input
                             type="radio"
                             id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
@@ -635,10 +636,21 @@
                             {% if option.selected_value == value %}
                               checked
                             {% endif %}
+                            {% if option.name == "Color" %}
+                              onchange="document.getElementById('{{ section.id }}-{{ option.position }}-selected').innerHTML = '{{ value }}'"
+                            {% else %}
+                              onchange="document.getElementById('{{ section.id }}-{{ option.position }}-selected').innerHTML = '{{ option.selected_value }}'"
+                            {% endif %}
                           >
                           {% if option.name == "Color" %}
                             <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                          </label>
+                            </label>
+                          
+                            {% comment %}{% if option.selected_value == value %}
+                              <div id="{{ section.id }}-{{ option.position }}-selected">{{ option.selected_value }}</div>
+                            {% endif %}
+                             {{ value }} 1 <br>
+                            {{ option.selected_value }} 2 {% endcomment %}
                           {% else %}
                           <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             {{ value }}
@@ -646,13 +658,18 @@
                           {% endif %}
                           
                         {%- endfor -%}
+
+                        {% if option.selected_value and option.name != "Size" %}
+                          <div id="{{ section.id }}-{{ option.position }}-selected">{{ option.selected_value }}</div>
+                        {% endif %}
+
                       </fieldset>
                     {%- endfor -%}
                     <script type="application/json">
                       {{ product.variants | json }}
                     </script>
                   </variant-radios>
-                {%- else -%}
+                  {%- else -%}
                   <variant-selects
                     class="no-js-hidden"
                     data-section="{{ section.id }}"
@@ -691,7 +708,7 @@
                       {{ product.variants | json }}
                     </script>
                   </variant-selects>
-                {%- endif -%}
+                  {%- endif -%}
               {%- endunless -%}
 
               <noscript class="product-form__noscript-wrapper-{{ section.id }}">
