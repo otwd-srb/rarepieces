@@ -1008,10 +1008,23 @@ a.cart-item__name {
   /* contain | cover | fill | scale-down */
   object-fit: cover;
 }
- 
-/* (C) LIGHTBOX IMAGE - FULLSCREEN ALTERNATIVE *
+
+/* (C) LIGHTBOX IMAGE - FULLSCREEN ALTERNATIVE
 #lightbox img {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}*/
+
+
+.product-popup-modal__opener {
+  margin: 0 !important;
+}
+button.product-popup-modal__button {
+  height: 1rem !important;
+  text-transform: capitalize;
+  font-size: 1.3rem !important;
+}
+.product-popup-modal {
+  background-color: transparent !important;
 }
