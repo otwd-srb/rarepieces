@@ -365,7 +365,7 @@
                             <ul class="list-unstyled">
                               {% for link in linklists.main-menu.links %}
                                   {% if link.links != blank %}
-                                    <li><a href="#collapseExample" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }}</a>
+                                    <li><a href="#collapseExample" id="plus" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }} <i class="bi bi-dash"></i></a>
                                       <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="collapseExample">
                                         <ul class="list-unstyled">
                                           {% for childlink in link.links %}
@@ -402,6 +402,20 @@
                                   {% endif %}
                                 </li>
                               {% endfor %}
+                              <script>
+                                  const plusLink = document.getElementById("plus");
+                                  const biIcon = plusLink.querySelector(".bi");
+
+                                  plusLink.addEventListener("click", function() {
+                                  if (biIcon.classList.contains("bi-dash")) {
+                                      biIcon.classList.remove("bi-dash");
+                                      biIcon.classList.add("bi-plus");
+                                  } else {
+                                      biIcon.classList.remove("bi-plus");
+                                      biIcon.classList.add("bi-dash");
+                                  }
+                                  });
+                              </script>
                             </ul>
                           </nav>
 
