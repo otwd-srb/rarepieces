@@ -336,9 +336,9 @@
           {%- for media in product.media -%}
           <div class="carousel-cell" id="zoom">
             {% if media.media_type == "video" %}
-            {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
+              {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
             {% else %}
-            <img data-flickity-lazyload-srcset="
+              <img data-flickity-lazyload-srcset="
                                                 {{ media | img_url: '1440x' }} 1440w,
                                                 {{ media | img_url: '1080x' }} 1080w,
                                                 {{ media | img_url: '720x' }} 767w,
@@ -368,7 +368,8 @@
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                  alt="{{ media.alt | escape }}"
                  border="0"
-                 data-media-id="{{ media.id }}" />
+                 data-media-id="{{ media.id }}"
+            />
           </div>
           {%- endfor -%}
           <!--- Coded by jotting.com --->
@@ -625,9 +626,9 @@
                     {%- for option in product.options_with_values -%}
                       <fieldset class="sizes mt-3">
                         <legend class="form__label {% if option.name == 'Color' %} d-none {% endif %}">{{ option.name }}</legend>
-                        {%- for value in option.values -%}
                         
-                          <input
+                        {%- for value in option.values -%}
+                            <input
                             type="radio"
                             id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                             name="{{ option.name }}"
@@ -636,32 +637,24 @@
                             {% if option.selected_value == value %}
                               checked
                             {% endif %}
+                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value;">
+                            
                             {% if option.name == "Color" %}
-                              onchange="document.getElementById('{{ section.id }}-{{ option.position }}-selected').innerHTML = '{{ value }}'"
-                            {% else %}
-                              onchange="document.getElementById('{{ section.id }}-{{ option.position }}-selected').innerHTML = '{{ option.selected_value }}'"
-                            {% endif %}
-                          >
-                          {% if option.name == "Color" %}
-                            <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                              <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             </label>
-                          
-                            {% comment %}{% if option.selected_value == value %}
-                              <div id="{{ section.id }}-{{ option.position }}-selected">{{ option.selected_value }}</div>
+                            
+                            {% else %}
+                              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                {{ value }}
+                              </label>
                             {% endif %}
-                             {{ value }} 1 <br>
-                            {{ option.selected_value }} 2 {% endcomment %}
-                          {% else %}
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            {{ value }}
-                          </label>
-                          {% endif %}
-                          
-                        {%- endfor -%}
-
-                        {% if option.selected_value and option.name != "Size" %}
-                          <div id="{{ section.id }}-{{ option.position }}-selected">{{ option.selected_value }}</div>
-                        {% endif %}
+                            
+                          {%- endfor -%}
+                            {% if option.selected_value and option.name != "Size" %}
+                              <div id="{{ section.id }}-{{ option.position }}-selected">
+                                {{ option.selected_value }}
+                              </div>
+                            {% endif %}
 
                       </fieldset>
                     {%- endfor -%}
