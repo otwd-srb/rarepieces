@@ -624,7 +624,7 @@
                   >
                     {%- for option in product.options_with_values -%}
                       <fieldset class="sizes mt-3">
-                        <legend class="form__label">{{ option.name }}</legend>
+                        <legend class="form__label">{{ option.name }} {{ option.selected_value }}</legend>
                         {%- for value in option.values -%}
                           <input
                             type="radio"
