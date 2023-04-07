@@ -276,6 +276,20 @@ This file can be re-written at any time.
         element.classList.remove("hp-hide");
       </script>
 <script>
+                                  const plusLink = document.getElementById("plus");
+                                  const biIcon = plusLink.querySelector(".bi");
+
+                                  plusLink.addEventListener("click", function() {
+                                  if (biIcon.classList.contains("bi-dash")) {
+                                      biIcon.classList.remove("bi-dash");
+                                      biIcon.classList.add("bi-plus");
+                                  } else {
+                                      biIcon.classList.remove("bi-plus");
+                                      biIcon.classList.add("bi-dash");
+                                  }
+                                  });
+                              </script>
+<script>
         // var contentPage = document.getElementById("no-index-pg");
         var homePage = document.getElementById("index-pg");
 
@@ -320,22 +334,6 @@ This file can be re-written at any time.
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
-
-          /*function replaceImage() {
-          var screenWidth = window.innerWidth; // Get the screen width
-          var img = document.getElementById("hp_img_001"); // Get the image element by ID
-          
-          if (screenWidth < 567) { // If screen width is less than 567px
-            img.src = "{{ 'Logo-980x1039.png' | asset_url }}"; // Replace the image source with the new image path
-          } else {
-            img.src = "{{ 'rp-rarepieces-logo.jpg' | asset_url }}"; // Otherwise, replace the image source with the original image path
-          }
-        }
-
-        window.onload = replaceImage; // Call the function on window load
-        window.onresize = replaceImage; // Call the function on window resize*/
-
-
     </script>
 <script>
         $( document ).ready(function() {
