@@ -33,6 +33,13 @@
             "picker_type": "button"
           }
         },
+        "1192084f-5b9e-4d61-a7ab-3ffc6aef7ef6": {
+          "type": "popup",
+          "settings": {
+            "text": "Sizes",
+            "page": "{{ product.metafields.custom.sizes.value }}"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "disabled": true,
@@ -132,6 +139,7 @@
         "caption",
         "price",
         "variant_picker",
+        "1192084f-5b9e-4d61-a7ab-3ffc6aef7ef6",
         "quantity_selector",
         "df4f1b8a-108e-4011-b19e-4f467ef4dcb1",
         "buy_buttons",
