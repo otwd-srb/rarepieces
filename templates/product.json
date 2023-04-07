@@ -124,6 +124,13 @@
           "disabled": true,
           "settings": {
           }
+        },
+        "1192084f-5b9e-4d61-a7ab-3ffc6aef7ef6": {
+          "type": "popup",
+          "settings": {
+            "text": "Sizes",
+            "page": "{{ product.metafields.custom.sizes.value }}"
+          }
         }
       },
       "block_order": [
@@ -142,7 +149,8 @@
         "collapsible-row-3",
         "share",
         "b2c6fac9-b087-4765-8d1b-f1a9a3969703",
-        "fdce4aeb-8dee-4c01-b14a-201e4d770fb1"
+        "fdce4aeb-8dee-4c01-b14a-201e4d770fb1",
+        "1192084f-5b9e-4d61-a7ab-3ffc6aef7ef6"
       ],
       "settings": {
         "enable_sticky_info": true,
