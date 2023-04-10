@@ -271,7 +271,8 @@ a.active-link {
   left: 1rem;
   position: relative;
 }
-nav ul li a {
+nav ul li a,
+.nav-link {
   color: #130c0c;
 }
 .theme-bgd .main-nav,
@@ -1027,4 +1028,31 @@ button.product-popup-modal__button {
 }
 .product-popup-modal {
   background-color: transparent !important;
+}
+
+
+
+.custome {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: relative;
+}
+.custome a.open{
+  color: red;
+  display: flex;
+}
+.custome ul {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  position: relative;
+}
+.custome ul li a {
+  padding-left: 1rem !important;
 }

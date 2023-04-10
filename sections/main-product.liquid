@@ -345,6 +345,7 @@
                                                 {{ media | img_url: '480x' }} 480w"
                 sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                 data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
+                data-id=""
                 alt="{{ media.alt | escape }}"
                 class=" zoomD"
                 border="0"
@@ -366,6 +367,7 @@
                                                 {{ media | img_url: '480x' }} 480w"
                  sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
                  data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
+                 data-id="{{ media.alt }}"
                  alt="{{ media.alt | escape }}"
                  border="0"
                  data-media-id="{{ media.id }}"
@@ -649,7 +651,8 @@
                               </label>
                             {% endif %}
                             
-                          {%- endfor -%}
+                        {%- endfor -%}
+
                             {% if option.selected_value and option.name != "Size" %}
                               <div id="{{ section.id }}-{{ option.position }}-selected">
                                 {{ option.selected_value }}

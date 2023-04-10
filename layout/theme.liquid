@@ -362,11 +362,26 @@
                         {% assign all_collections = collections %}
 
                           <nav class="animated bounceInDown main-nav d-none d-sm-block">
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled navbar-nav">
                               {% for link in linklists.main-menu.links %}
                                   {% if link.links != blank %}
-                                    <li><a href="#collapseExample" id="plus" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="collapseExample">{{ link.title }} <i class="bi bi-dash"></i></a>
-                                      <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="collapseExample">
+                                    <li class="nav-item dropdown custome" id="drop">
+                                      <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                                      <a class="nav-link open" id="plus" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
+                                        <span><i class="bi bi-plus"></i></span>
+                                      </a>
+                                      <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
+                                        {% for childlink in link.links %}
+                                          <li><a class="dropdown-item {% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}" href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                        {% endfor %}
+                                      </ul>
+
+
+                                      {% comment %} <a href="#otwd{{ forloop.index0 }}" id="plus" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="otwd{{ forloop.index0 }}">
+                                        {{ link.title }}
+                                        <i class="bi bi-dash"></i>
+                                      </a>
+                                      <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="otwd{{ forloop.index0 }}">
                                         <ul class="list-unstyled">
                                           {% for childlink in link.links %}
                                             <li>
@@ -376,29 +391,14 @@
                                                 {% else %}
                                                   <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
                                                 {% endif %}
-                                                 {% comment %}<div style="color:red; font-size:10px;">
-                                                  {{ childlink.title }} 1 <br>
-                                                  {{ ccollection.title }} 2 <br>
-                                                  {{ product.title }} 3 <br> 
-                                                  {{ product.handle | replace: '-',' ' }} 4 <br> 
-                                                  {{ childlink.title }} 5<br>
-                                                  {{ childlink.url }} 6 <br>
-                                                  {{ childlink.handle }} 7 <br>
-                                                  {{ template.name }} 8 <br>
-                                                  {{ collections.title }} 9 <br>
-                                                  {{ collections.product }} 10 <br>
-
-                                                  {% for product in collections.products %}
-                                                    {{- product.title | link_to: product.url }} 10
-                                                  {% endfor %}
-                                                </div> {% endcomment %}
                                             </li>
                                           {% endfor %}
                                         </ul>
-                                      </div>
+                                      </div> {% endcomment %}
                                     </li>
+
                                     {% else %}
-                                    <li><a href="{{ link.url }}" style="">{{ link.title }}</a>
+                                    <li class="nav-item" id="no-drop"><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
                                   {% endif %}
                                 </li>
                               {% endfor %}
@@ -407,12 +407,12 @@
                                   const biIcon = plusLink.querySelector(".bi");
 
                                   plusLink.addEventListener("click", function() {
-                                  if (biIcon.classList.contains("bi-dash")) {
-                                      biIcon.classList.remove("bi-dash");
-                                      biIcon.classList.add("bi-plus");
-                                  } else {
+                                  if (biIcon.classList.contains("bi-plus")) {
                                       biIcon.classList.remove("bi-plus");
                                       biIcon.classList.add("bi-dash");
+                                  } else {
+                                      biIcon.classList.remove("bi-dash");
+                                      biIcon.classList.add("bi-plus");
                                   }
                                   });
                               </script>

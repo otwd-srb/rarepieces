@@ -1,5 +1,6 @@
 .rich-text {
   z-index: 1;
+  background-color: transparent;
 }
 
 .rich-text__wrapper {
