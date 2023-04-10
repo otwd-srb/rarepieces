@@ -297,8 +297,13 @@ nav ul li a {
 .theme-bgdnav ul li a:hover {	
 	color: #130c0c;
 }
-nav ul li a:hover {	
+nav ul li a:hover,
+.nav-link:hover,
+.nav-link:focus,
+.dropdown-item:hover,
+.dropdown-item:focus {
 	color: var(--bs-gray-600);
+  background-color: transparent;
 }
 .theme-bgd .sub-menu ul,
 .sub-menu ul {
