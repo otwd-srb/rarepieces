@@ -639,7 +639,7 @@
                             {% if option.selected_value == value %}
                               checked
                             {% endif %}
-                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value; alert(this.value)">
+                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value; hideOther(this.value)">
                             
                             {% if option.name == "Color" %}
                               <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
