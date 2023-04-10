@@ -273,7 +273,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% comment %} {% section 'announcement-bar' %} {% endcomment %}
+    {% section 'announcement-bar' %}
 
     <!-- OTWD MOBILE MENU START-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -282,15 +282,46 @@
       </div>
       <div class="offcanvas-body">
         <nav class="animated bounceInDown main-nav">
-          <ul class="list-unstyled">
+          <ul class="list-unstyled navbar-nav">
+            {% for link in linklists.main-menu.links %}
+                {% if link.links != blank %}
+                  <li class="nav-item dropdown custome" id="drop">
+                    <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                    <a class="nav-link open" id="plus" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
+                      <span><i class="bi bi-plus"></i></span>
+                    </a>
+                    <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
+                      {% for childlink in link.links %}
+                        <li><a class="dropdown-item {% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}" href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li class="nav-item" id="no-drop"><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+            <script>
+                const plusLink = document.getElementById("plus");
+                const biIcon = plusLink.querySelector(".bi");
+
+                plusLink.addEventListener("click", function() {
+                if (biIcon.classList.contains("bi-plus")) {
+                    biIcon.classList.remove("bi-plus");
+                    biIcon.classList.add("bi-dash");
+                } else {
+                    biIcon.classList.remove("bi-dash");
+                    biIcon.classList.add("bi-plus");
+                }
+                });
+            </script>
+          </ul>
+          {% comment %} <ul class="list-unstyled">
 
             {% for link in linklists.main-menu.links %}
-                {% comment %} <li> <a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
-
                 {% if link.links != blank %}
-                  {% comment %} <li><a href="{{ link.url }}">{{ link.title }}</a> {% endcomment %}
-                  <li><a href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">{{ link.title }}</a>
-                    <div class="collapse" id="collapseExample">
+                  <li><a href="#otwd{{ forloop.index0 }}" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">{{ link.title }}</a>
+                    <div class="collapse" id="otwd{{ forloop.index0 }}">
                       <ul class="list-unstyled">
                         {% for childlink in link.links %}
                           <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
@@ -299,15 +330,14 @@
                     </div>
                   </li>
                   {% else %}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a>
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% endif %}
-                  </li>
+                  
                   
             {% endfor %}
                   <li>
                     {%- if shop.customer_accounts_enabled -%}
                       <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login">
-                        {% comment %} {% render 'icon-account' %} {% endcomment %}
                         Log-in
                         <span class="visually-hidden">
                           {%- liquid
@@ -321,7 +351,7 @@
                       </a>
                     {%- endif -%}
                   </li>
-          </ul>
+          </ul> {% endcomment %}
         </nav>
         <p class="ps-4">
             <span class="mobile-menu-soc"><a href="https://www.instagram.com/rarepcs.x/" target="_blank"><i class="bi bi-instagram"></i></a></span>

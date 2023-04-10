@@ -347,7 +347,7 @@
                 data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
                 data-id=""
                 alt="{{ media.alt | escape }}"
-                class=" zoomD"
+                class="zoomD"
                 border="0"
                 data-media-id="{{ media.id }}"
             />
@@ -639,7 +639,7 @@
                             {% if option.selected_value == value %}
                               checked
                             {% endif %}
-                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value;">
+                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value; alert(this.value)">
                             
                             {% if option.name == "Color" %}
                               <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">

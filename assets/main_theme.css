@@ -220,7 +220,7 @@ ul.footer-links li.list-inline-item:not(:last-child) {
 }
 .offcanvas-body nav ul li a {
   padding: 0.5rem 0 0.5rem 1rem !important;
-  margin: 0 4rem 0 1rem;
+  margin: 0 2rem 0 1rem;
   color: #fff;
 }
 .mobile-menu-soc {
@@ -277,8 +277,9 @@ nav ul li a,
 }
 .theme-bgd .main-nav,
 .main-nav {
-  width: max-content;
+  /* width: max-content; */
   text-transform: uppercase;
+  width: auto;
 }
 .theme-bgd nav ul li a,
 nav ul li a {
