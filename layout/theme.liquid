@@ -397,8 +397,8 @@
                                   {% if link.links != blank %}
                                     <li class="nav-item dropdown custome" id="drop">
                                       <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-                                      <a class="nav-link open" id="plus" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
-                                        <span><i class="bi bi-plus"></i></span>
+                                      <a class="nav-link open" id="plus1" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
+                                        <i class="bi "></i>
                                       </a>
                                       <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
                                         {% for childlink in link.links %}
@@ -432,20 +432,7 @@
                                   {% endif %}
                                 </li>
                               {% endfor %}
-                              <script>
-                                  const plusLink = document.getElementById("plus");
-                                  const biIcon = plusLink.querySelector(".bi");
-
-                                  plusLink.addEventListener("click", function() {
-                                  if (biIcon.classList.contains("bi-plus")) {
-                                      biIcon.classList.remove("bi-plus");
-                                      biIcon.classList.add("bi-dash");
-                                  } else {
-                                      biIcon.classList.remove("bi-dash");
-                                      biIcon.classList.add("bi-plus");
-                                  }
-                                  });
-                              </script>
+                              
                             </ul>
                           </nav>
 
@@ -548,19 +535,43 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
     <script>
+
+        const plusLinkk = document.getElementById("plus1");
+        const biIconn = plusLinkk.querySelector(".bi");
+
+        // check if on collection or product page
+        if (window.location.pathname.includes("/collections/") || window.location.pathname.includes("/products/")) {
+          biIconn.classList.add("bi-dash"); // set the icon to dash
+        } else {
+          biIconn.classList.add("bi-plus"); // set the icon to plus
+        }
+
+        plusLinkk.addEventListener("click", function() {
+          if (biIconn.classList.contains("bi-dash")) {
+            biIconn.classList.remove("bi-dash");
+            biIconn.classList.add("bi-plus");
+          } else {
+            biIconn.classList.remove("bi-plus");
+            biIconn.classList.add("bi-dash");
+          }
+        });
+
+    </script>
+    
+{% comment %}     <script>
       $(".sub-menu ul").hide();
       $(".sub-menu a").click(function () {
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
-    </script>
+    </script> {% endcomment %}
 
-            <script>
-              $(document).ready(function(){
-                fcells = flkty.cells.slice();
-                bcells = flktyB.cells.slice();
-            });
-            </script>
+      <script>
+        $(document).ready(function(){
+          fcells = flkty.cells.slice();
+          bcells = flktyB.cells.slice();
+      });
+      </script>
 
     <!-- OTWD Show mobil logo on mobile screens 
     <script>
