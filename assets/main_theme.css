@@ -197,7 +197,7 @@ ul.footer-links li.list-inline-item:not(:last-child) {
   background-color: var(--bs-gray-900);
 }
 .offcanvas-end {
-  width: auto !important;
+  width: 80% !important;
 }
 .offcanvas-header {
   justify-content: end;
@@ -288,7 +288,7 @@ nav ul li a {
 	text-decoration: none;
   text-align: left;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.8rem;
 	-webkit-transition: 0.2s linear;
 	-moz-transition: 0.2s linear;
 	-ms-transition: 0.2s linear;
@@ -1060,4 +1060,12 @@ button.product-popup-modal__button {
 }
 .custome ul li a {
   padding-left: 1rem !important;
+}
+.size-chart-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+legend {
+  width: 40%;
 }

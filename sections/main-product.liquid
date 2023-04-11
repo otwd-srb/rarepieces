@@ -555,7 +555,7 @@
               </div>
               {% endcomment %}
             {%- when 'popup' -%}
-              <modal-opener
+              {% comment %} <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
                 data-modal="#PopupModal-{{ block.id }}"
                 {{ block.shopify_attributes }}
@@ -571,7 +571,7 @@
               </modal-opener>
               <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
                 {{- block.settings.text -}}
-              </a>
+              </a> {% endcomment %}
             {%- when 'share' -%}
               <share-button
                 id="Share-{{ section.id }}"
@@ -627,7 +627,30 @@
                   >
                     {%- for option in product.options_with_values -%}
                       <fieldset class="sizes mt-3">
-                        <legend class="form__label {% if option.name == 'Color' %} d-none {% endif %}">{{ option.name }}</legend>
+
+                        <div class="size-chart-wrap">
+                          <legend class="form__label {% if option.name == 'Color' %} d-none {% endif %}">{{ option.name }}</legend>
+                          <div class="{% if option.name == 'Color' %} d-none {% endif %}">
+                            <modal-opener
+                              class="product-popup-modal__opener no-js-hidden quick-add-hidden"
+                              data-modal="#otwd"
+                              {{ block.shopify_attributes }}
+                            >
+                              <button
+                                id="ProductPopup-{{ block.id }}"
+                                class="product-popup-modal__button link"
+                                type="button"
+                                aria-haspopup="dialog"
+                              >
+                                {{ product.metafields.custom.sizes.value.title }} <span><i class="bi bi-rulers"></i></span>
+                                {% comment %} {{ block.settings.text | default: block.settings.page.title }} {% endcomment %}
+                              </button>
+                            </modal-opener>
+                            <a href="{{ product.metafields.custom.sizes.value.url }}" class="product-popup-modal__button link no-js">
+                              {{ product.metafields.custom.sizes.value.title }}
+                            </a>
+                          </div>
+                        </div>
                         
                         {%- for value in option.values -%}
                             <input
@@ -739,6 +762,7 @@
                   </div>
                 </div>
               </noscript>
+
             {%- when 'buy_buttons' -%}
               <div {{ block.shopify_attributes }}>
                 <product-form class="product-form">
@@ -828,7 +852,8 @@
                 </pickup-availability>
               </div>
 
-              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>              
+            
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
@@ -1211,9 +1236,8 @@
     </div>
   </product-modal>
 
-  {% assign popups = section.blocks | where: "type", "popup" %}
-  {%- for block in popups -%}
-    <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+
+    <modal-dialog id="otwd" class="product-popup-modal" {{ block.shopify_attributes }}>
       <div
         role="dialog"
         aria-label="{{ block.settings.text }}"
@@ -1230,12 +1254,12 @@
           {% render 'icon-close' %}
         </button>
         <div class="product-popup-modal__content-info">
-          <h1 class="h2">{{ block.settings.page.title }}</h1>
-          {{ block.settings.page.content }}
+          <h1 class="h2">{{ product.metafields.custom.sizes.value.title }}</h1>
+          {{ product.metafields.custom.sizes.value.content }}
         </div>
       </div>
     </modal-dialog>
-  {%- endfor -%}
+
 
   {%- if product.media.size > 0 -%}
     <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
