@@ -652,6 +652,12 @@
                           </div>
                         </div>
                         
+                        {% if option.selected_value and option.name != "Size" %}
+                          <div id="{{ section.id }}-{{ option.position }}-selected" class="color-label">
+                            {{ option.selected_value }}
+                          </div>
+                        {% endif %}
+
                         {%- for value in option.values -%}
                             <input
                             type="radio"
@@ -666,21 +672,19 @@
                             
                             {% if option.name == "Color" %}
                               <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            </label>
-                            
+                              </label>
                             {% else %}
                               <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                                 {{ value }}
                               </label>
                             {% endif %}
-                            
                         {%- endfor -%}
 
-                            {% if option.selected_value and option.name != "Size" %}
+                            {% comment %} {% if option.selected_value and option.name != "Size" %}
                               <div id="{{ section.id }}-{{ option.position }}-selected">
                                 {{ option.selected_value }}
                               </div>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
 
                       </fieldset>
                     {%- endfor -%}

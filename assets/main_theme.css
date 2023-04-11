@@ -275,6 +275,9 @@ nav ul li a,
 .nav-link {
   color: #130c0c;
 }
+.nav-link i.bi::before {
+  font-weight: 700 !important;
+}
 .theme-bgd .main-nav,
 .main-nav {
   /* width: max-content; */
@@ -685,7 +688,10 @@ span.price {
 .form-status.form-status-list.form__message {
   margin: 0;
 }
-
+.color-label {
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem ;
+}
 
 
 .spaceholder {
