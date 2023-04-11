@@ -568,9 +568,16 @@
 
       <script>
         $(document).ready(function(){
-          fcells = flkty.cells.slice();
-          bcells = flktyB.cells.slice();
-      });
+                if (typeof flkty != 'undefined' && typeof flktyB != 'undefined') {
+                fcells = flkty.cells.slice();
+                bcells = flktyB.cells.slice();
+
+              var selected = flkty.selectedElement;
+                  if (typeof selected != 'undefined') {
+                    hideOther(selected.childNodes[1].alt);
+                  }
+                }
+            });
       </script>
 
     <!-- OTWD Show mobil logo on mobile screens 
