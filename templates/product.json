@@ -35,6 +35,7 @@
         },
         "1192084f-5b9e-4d61-a7ab-3ffc6aef7ef6": {
           "type": "popup",
+          "disabled": true,
           "settings": {
             "text": "Sizes",
             "page": "{{ product.metafields.custom.sizes.value }}"
