@@ -276,16 +276,30 @@ This file can be re-written at any time.
         element.classList.remove("hp-hide");
       </script>
 <script>
+                const plusLink = document.getElementById("plus");
+                const biIcon = plusLink.querySelector(".bi");
+
+                plusLink.addEventListener("click", function() {
+                if (biIcon.classList.contains("bi-plus")) {
+                    biIcon.classList.remove("bi-plus");
+                    biIcon.classList.add("bi-dash");
+                } else {
+                    biIcon.classList.remove("bi-dash");
+                    biIcon.classList.add("bi-plus");
+                }
+                });
+            </script>
+<script>
                                   const plusLink = document.getElementById("plus");
                                   const biIcon = plusLink.querySelector(".bi");
 
                                   plusLink.addEventListener("click", function() {
-                                  if (biIcon.classList.contains("bi-dash")) {
-                                      biIcon.classList.remove("bi-dash");
-                                      biIcon.classList.add("bi-plus");
-                                  } else {
+                                  if (biIcon.classList.contains("bi-plus")) {
                                       biIcon.classList.remove("bi-plus");
                                       biIcon.classList.add("bi-dash");
+                                  } else {
+                                      biIcon.classList.remove("bi-dash");
+                                      biIcon.classList.add("bi-plus");
                                   }
                                   });
                               </script>
@@ -335,6 +349,12 @@ This file can be re-written at any time.
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
       });
     </script>
+<script>
+              $(document).ready(function(){
+                fcells = flkty.cells.slice();
+                bcells = flktyB.cells.slice();
+            });
+            </script>
 <script>
         $( document ).ready(function() {
           if (window.innerWidth < 576) {

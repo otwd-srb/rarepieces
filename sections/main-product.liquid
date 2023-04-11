@@ -334,7 +334,7 @@
       {% if product.images != null %}
         <div class="carousel product__image-slider" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0" >
           {%- for media in product.media -%}
-          <div class="carousel-cell" id="zoom">
+          <div class="carousel-cell">
             {% if media.media_type == "video" %}
               {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
             {% else %}
@@ -639,7 +639,7 @@
                             {% if option.selected_value == value %}
                               checked
                             {% endif %}
-                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value; alert(this.value)">
+                            onchange="document.querySelector('#{{ section.id }}-{{ option.position }}-selected').textContent = this.value; hideOther(this.value)">
                             
                             {% if option.name == "Color" %}
                               <label class="color-swatch" style="background-image:url({{ value | replace: ' ','_' | append: '.jpg' | file_url }})" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
@@ -2161,3 +2161,59 @@ document.addEventListener("DOMContentLoaded", function() {
   ]
 }
 {% endschema %}
+
+    
+<script>
+
+  
+  function hideOther(name)
+    {
+      name = name.replace(/\s+/g, '-').toLowerCase();
+
+      var $carousel = $('.product__image-slider')
+      var $cells = $carousel.find('.carousel-cell');
+
+      var $carouselB = $('.product__image-thumbnail');
+      var $cellsB = $carouselB.find('.carousel-cell');
+
+      flkty.remove($cells.slice( 0, flkty.cells.length ));
+      flktyB.remove($cellsB.slice(0,flktyB.cells.length));
+      
+      fcells.forEach(function(item,index) {
+        let img = item.element.childNodes[1].alt;
+        if (img == name) {
+         
+          flkty.append(item.element);
+        } else {
+          console.log(img);
+        }
+      });
+     
+      bcells.forEach(function(item,index) {
+        let img = item.element.childNodes[1].alt;
+        if (img == name) {
+         
+          $('.product__image-thumbnail > div > div').append(item.element);
+        } else {
+          console.log(img);
+        }
+      });
+
+    var elemThumbnail = document.querySelector('.carousel.product__image-thumbnail');
+    var flktyC = new Flickity( elemThumbnail, {
+      asNavFor: '.carousel.product__image-slider',
+      contain: true,
+      imagesLoaded: true,
+      lazyLoad: 4,
+      pageDots: false,
+      prevNextButtons: false
+    });
+     
+      flkty.reloadCells();
+      flkty.resize();
+      
+      flktyC.reloadCells();
+      flktyC.resize();
+      
+    }
+</script>
