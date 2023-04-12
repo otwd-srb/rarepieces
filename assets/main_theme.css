@@ -276,7 +276,8 @@ nav ul li a,
   color: #130c0c;
 }
 .nav-link i.bi::before {
-  font-weight: 700 !important;
+  font-weight: 100 !important;
+  font-size: 1.2rem;
 }
 .theme-bgd .main-nav,
 .main-nav {

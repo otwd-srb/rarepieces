@@ -399,6 +399,7 @@
                                       <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
                                       <a class="nav-link open" id="plus1" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
                                         <i class="bi "></i>
+                                        {% comment %} <span>+</span> {% endcomment %}
                                       </a>
                                       <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
                                         {% for childlink in link.links %}
