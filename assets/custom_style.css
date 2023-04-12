@@ -42,7 +42,7 @@
 .related-products-heading{padding-left: 31px}
 .related-products h3{font-size: 1.15rem !important;}
 
-@media screen and (min-width: 750px){
+@media screen and (min-width: 815px){
 .product-popup-modal .product-popup-modal__content{margin-top: 8rem !important;}
   .product-popup-modal .product-popup-modal__content .product-popup-modal__toggle{width: 45px !important; padding: 0.8rem !important;}
   .product-popup-modal .product-popup-modal__content .product-popup-modal__content-info{padding-right: 0px !important;}
