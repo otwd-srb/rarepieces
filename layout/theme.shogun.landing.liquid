@@ -290,20 +290,6 @@ This file can be re-written at any time.
                 });
             </script>
 <script>
-                                  const plusLink = document.getElementById("plus");
-                                  const biIcon = plusLink.querySelector(".bi");
-
-                                  plusLink.addEventListener("click", function() {
-                                  if (biIcon.classList.contains("bi-plus")) {
-                                      biIcon.classList.remove("bi-plus");
-                                      biIcon.classList.add("bi-dash");
-                                  } else {
-                                      biIcon.classList.remove("bi-dash");
-                                      biIcon.classList.add("bi-plus");
-                                  }
-                                  });
-                              </script>
-<script>
         // var contentPage = document.getElementById("no-index-pg");
         var homePage = document.getElementById("index-pg");
 
@@ -343,6 +329,29 @@ This file can be re-written at any time.
 <script src="{{ 'bootstrap.bundle.js' | asset_url }}" defer="defer"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+
+        const plusLinkk = document.getElementById("plus1");
+        const biIconn = plusLinkk.querySelector(".bi");
+
+        // check if on collection or product page
+        if (window.location.pathname.includes("/collections/") || window.location.pathname.includes("/products/")) {
+          biIconn.classList.add("bi-dash"); // set the icon to dash
+        } else {
+          biIconn.classList.add("bi-plus"); // set the icon to plus
+        }
+
+        plusLinkk.addEventListener("click", function() {
+          if (biIconn.classList.contains("bi-dash")) {
+            biIconn.classList.remove("bi-dash");
+            biIconn.classList.add("bi-plus");
+          } else {
+            biIconn.classList.remove("bi-plus");
+            biIconn.classList.add("bi-dash");
+          }
+        });
+
+    </script>
+<script>
       $(".sub-menu ul").hide();
       $(".sub-menu a").click(function () {
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
@@ -350,11 +359,18 @@ This file can be re-written at any time.
       });
     </script>
 <script>
-              $(document).ready(function(){
+        $(document).ready(function(){
+                if (typeof flkty != 'undefined' && typeof flktyB != 'undefined') {
                 fcells = flkty.cells.slice();
                 bcells = flktyB.cells.slice();
+
+              var selected = flkty.selectedElement;
+                  if (typeof selected != 'undefined') {
+                    hideOther(selected.childNodes[1].alt);
+                  }
+                }
             });
-            </script>
+      </script>
 <script>
         $( document ).ready(function() {
           if (window.innerWidth < 576) {
