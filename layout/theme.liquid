@@ -367,96 +367,92 @@
     {% if template == 'index' %}
       <section id="no-index-pg" class="main-section">
           <div class="container">
-              <div class="row">
-                  <div class="col-12 col-xxl-12">
+              
                       <main role="main">
                         {{ content_for_layout }}
                       </main>
-                </div>
-              </div>
+                
           </div>
       </section>
 
     {% else %}
 
-        <section id="no-index-pg" class="main-section">
-          <div class="container">
-              <div class="row">
-                  <!-- OTWD sidebar menu start-->
-                  <div class="col-lg-2 col-md-2" id="main-menu-container">
-                      <div id="main-menu" class="main-nav-container">
-                        {% assign current_product = product %}
-                        {% assign current_collection = collection %}
-                        {% assign all_collections = collections %}
+      <section id="no-index-pg" class="main-section">
+        <div class="container">
+            <div class="row">
+                <!-- OTWD sidebar menu start-->
+                <div class="col-lg-2 col-md-2 otwd-col-md-2" id="main-menu-container">
+                    <div id="main-menu" class="main-nav-container">
+                      {% assign current_product = product %}
+                      {% assign current_collection = collection %}
+                      {% assign all_collections = collections %}
 
-                          <nav class="animated bounceInDown main-nav d-none d-sm-block navbar">
-                            <ul class="list-unstyled navbar-nav">
-                              {% for link in linklists.main-menu.links %}
-                                  {% if link.links != blank %}
-                                    <li class="nav-item dropdown custome" id="drop">
-                                      <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-                                      <a class="nav-link open" id="plus1" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
-                                        <i class="bi "></i>
-                                        {% comment %} <span>+</span> {% endcomment %}
-                                      </a>
-                                      <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
+                        <nav class="animated bounceInDown main-nav d-none otwd-d-md-block navbar">
+                          <ul class="list-unstyled navbar-nav">
+                            {% for link in linklists.main-menu.links %}
+                                {% if link.links != blank %}
+                                  <li class="nav-item dropdown custome" id="drop">
+                                    <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                                    <a class="nav-link open" id="plus1" data-bs-toggle="collapse" href="#otwd{{ forloop.index0 }}" role="button" aria-expanded="false" aria-controls="otwd{{ forloop.index0 }}">
+                                      <i class="bi "></i>
+                                      {% comment %} <span>+</span> {% endcomment %}
+                                    </a>
+                                    <ul class="collapse list-unstyled {% if template == 'collection' or template == 'product' %} show {% endif %}" id="otwd{{ forloop.index0 }}">
+                                      {% for childlink in link.links %}
+                                        <li><a class="dropdown-item {% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}" href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                      {% endfor %}
+                                    </ul>
+
+
+                                    {% comment %} <a href="#otwd{{ forloop.index0 }}" id="plus" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="otwd{{ forloop.index0 }}">
+                                      {{ link.title }}
+                                      <i class="bi bi-dash"></i>
+                                    </a>
+                                    <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="otwd{{ forloop.index0 }}">
+                                      <ul class="list-unstyled">
                                         {% for childlink in link.links %}
-                                          <li><a class="dropdown-item {% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}" href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                          <li>
+                                              {% if template == 'list-collections' %}
+                                                <a href="{{ childlink.url }}" class="{% if childlink.title == 'All Products' %} active-link {% endif %}">{{ childlink.title }}</a>
+                                                
+                                              {% else %}
+                                                <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
+                                              {% endif %}
+                                          </li>
                                         {% endfor %}
                                       </ul>
+                                    </div> {% endcomment %}
+                                  </li>
 
+                                  {% else %}
+                                  <li class="nav-item" id="no-drop"><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                            
+                          </ul>
+                        </nav>
 
-                                      {% comment %} <a href="#otwd{{ forloop.index0 }}" id="plus" role="button" aria-expanded="false" data-bs-toggle="collapse" aria-controls="otwd{{ forloop.index0 }}">
-                                        {{ link.title }}
-                                        <i class="bi bi-dash"></i>
-                                      </a>
-                                      <div class="collapse {% if current_product %} show {% elsif current_collection %}show{% elsif all_collections %}show{% endif %}" id="otwd{{ forloop.index0 }}">
-                                        <ul class="list-unstyled">
-                                          {% for childlink in link.links %}
-                                            <li>
-                                                {% if template == 'list-collections' %}
-                                                  <a href="{{ childlink.url }}" class="{% if childlink.title == 'All Products' %} active-link {% endif %}">{{ childlink.title }}</a>
-                                                  
-                                                {% else %}
-                                                  <a href="{{ childlink.url }}" class="{% if product.title == childlink.title or collection.title == childlink.title %} active-link {% endif %}">{{ childlink.title }}</a>
-                                                {% endif %}
-                                            </li>
-                                          {% endfor %}
-                                        </ul>
-                                      </div> {% endcomment %}
-                                    </li>
-
-                                    {% else %}
-                                    <li class="nav-item" id="no-drop"><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-                                  {% endif %}
-                                </li>
-                              {% endfor %}
-                              
-                            </ul>
-                          </nav>
-
-        {% comment %} {% if template == 'list-collections' %}
-          <div style="display:block;">
-            Your content here list-collections
-          </div>
-        {% else %}
-          <div  style="display:none;">
-            no list collection
-          </div>
-        {% endif %} {% endcomment %}
-                          <!-- <span style="color: #f00;">{{ template }}</span> OTWD code -->
-                          
-                      </div>
-                  </div>
-                <div class="col-lg-10 col-md-10">
-
-                  <main role="main">
-                    {{ content_for_layout }}
-                  </main>
-                  
+      {% comment %} {% if template == 'list-collections' %}
+        <div style="display:block;">
+          Your content here list-collections
+        </div>
+      {% else %}
+        <div  style="display:none;">
+          no list collection
+        </div>
+      {% endif %} {% endcomment %}
+                        <!-- <span style="color: #f00;">{{ template }}</span> OTWD code -->
+                        
+                    </div>
                 </div>
-          </div>
-        </section>
+              <div class="col-lg-10 col-md-12">
+                <main role="main">
+                  {{ content_for_layout }}
+                </main>
+              </div>
+        </div>
+      </section>
 
     {% endif %}
 
