@@ -300,6 +300,7 @@
                   <li class="nav-item" id="no-drop"><a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
                 {% endif %}
               </li>
+              
             {% endfor %}
             <script>
                 const plusLink = document.getElementById("plus");
@@ -315,6 +316,16 @@
                 }
                 });
             </script>
+            <li class="nav-item"><a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="lnav-link">Log-in
+                <span class="visually-hidden">
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.log_in' | t
+                    endif
+                  -%}
+                </span></a></li>
           </ul>
           {% comment %} <ul class="list-unstyled">
 
@@ -367,11 +378,9 @@
     {% if template == 'index' %}
       <section id="no-index-pg" class="main-section">
           <div class="container">
-              
-                      <main role="main">
-                        {{ content_for_layout }}
-                      </main>
-                
+              <main role="main">
+                {{ content_for_layout }}
+              </main>
           </div>
       </section>
 

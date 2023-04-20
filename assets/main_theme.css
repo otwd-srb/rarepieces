@@ -1131,16 +1131,17 @@ legend {
   }
 }
 @media (min-width: 576px) and (max-width: 821px) {
-  .cart-count-bubble {
+/*   .cart-count-bubble {
     left: 1.5rem;
     top: 1.1rem;
-  }
+  } */
   .togg-container {
     top: 1.6rem;
   }
   .header__icon:not(.header__icon--summary),
   .header__icon span {
     right: 1rem;
+    display: inline-block;
   }
   .navbar-toggler {
     right: 0.7rem;
@@ -1151,7 +1152,10 @@ legend {
   }
   .custome a.open {
     margin: 0;
-}
+  }
+  .login-sm-dvc {
+    display: none;
+  }
 
 }
 @media (max-width: 768px) {
