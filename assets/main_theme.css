@@ -1122,7 +1122,7 @@ legend {
 }
 
 
-@media (min-width: 769px) {
+@media (min-width: 821px) {
   .otwd-d-md-block {
     display: block !important;
   }
@@ -1130,7 +1130,7 @@ legend {
     display: none !important;
   }
 }
-@media (min-width: 576px) and (max-width: 769px) {
+@media (min-width: 576px) and (max-width: 821px) {
   .cart-count-bubble {
     left: 1.5rem;
     top: 1.1rem;
