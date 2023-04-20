@@ -1140,7 +1140,6 @@ legend {
   }
   .header__icon:not(.header__icon--summary),
   .header__icon span {
-    right: 1rem;
     display: inline-block;
   }
   .navbar-toggler {
