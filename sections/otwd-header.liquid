@@ -643,7 +643,7 @@
             {%- if shop.customer_accounts_enabled -%}
               <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
                 {% comment %} {% render 'icon-account' %} {% endcomment %}
-                Log-in
+                <!-- Log-in -->
                 <span class="visually-hidden">
                   {%- liquid
                     if customer
