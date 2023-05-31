@@ -1181,4 +1181,6 @@ legend {
   font-size: 1rem;
   text-align: center !important;
 }
-
+tbody.customer-order-data td:last-child {
+  text-align: center !important;
+} 
