@@ -640,21 +640,11 @@
 
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
-            {%- if shop.customer_accounts_enabled -%}
-              <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
-                {% comment %} {% render 'icon-account' %} {% endcomment %}
-                {{ customer.log_in }}
-                <span class="visually-hidden">
-                  {%- liquid
-                    if customer
-                      echo 'customer.account_fallback' | t
-                    else
-                      echo 'customer.log_in' | t
-                    endif
-                  -%}
-                </span>
-              </a>
-            {%- endif -%}
+            {% if customer %}
+              <a href="/account/logout" id="customer_logout_link" class="link focus-inset login login-sm-dvc">Log Oout</a>
+            {% else %}
+              <a href="/account/login" id="customer_login_link" class="link focus-inset login login-sm-dvc">Log Iin</a>
+            {% endif %}
 
             {% comment %} <a href="" class=""> <i class="bi bi-bag"></i> </a> {% endcomment %}
             <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset d-none otwd-d-md-block" id="cart-icon-bubble">
