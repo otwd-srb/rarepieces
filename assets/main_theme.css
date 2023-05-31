@@ -1171,3 +1171,15 @@ legend {
   width: calc(2rem / var(--font-body-scale));
   padding: 4px;
 }
+
+/**** customer account data when login ****/
+.account table td:first-of-type a {
+  box-shadow: none; 
+}
+.customer-order-data {
+  font-size: 1rem;
+  text-align: center !important;
+}
+tbody.customer-order-data td:last-child {
+  text-align: center !important;
+}
