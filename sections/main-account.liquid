@@ -42,7 +42,7 @@
                 <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
               </tr>
             </thead>
-            <tbody role="rowgroup">
+            <tbody class="customer-order-data" role="rowgroup">
               {%- for order in customer.orders -%}
                 <tr role="row">
                   <td
