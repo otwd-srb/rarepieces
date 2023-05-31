@@ -640,7 +640,6 @@
 
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
-
             {% comment %} {%- if shop.customer_accounts_enabled -%}
               <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
                 <!-- {% render 'icon-account' %} -->
@@ -728,7 +727,7 @@
           </a>
           <div class="log-container">
             {% comment %} <a href="#" role="button" class="">Log-in</a> {% endcomment %}
-           {% comment %}  {%- if shop.customer_accounts_enabled -%}
+            {% comment %}  {%- if shop.customer_accounts_enabled -%}
               <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="link focus-inset login login-sm-dvc">
                 <!--{% render 'icon-account' %} -->
                 Log-in
@@ -744,9 +743,9 @@
               </a>
             {%- endif -%} {% endcomment %}
             {% if customer %}
-              <a href="/account/logout" id="customer_logout_link" class="link focus-inset login login-sm-dvc">Log Oout</a>
+              <a href="/account" id="customer_logout_link" class="link focus-inset login login-sm-dvc">Log Out</a>
             {% else %}
-              <a href="/account/login" id="customer_login_link" class="link focus-inset login login-sm-dvc">Log Iin</a>
+              <a href="/account/login" id="customer_login_link" class="link focus-inset login login-sm-dvc">Log In</a>
             {% endif %}
 
             {% comment %} <a href="" class=""> <i class="bi bi-bag"></i> </a> {% endcomment %}
