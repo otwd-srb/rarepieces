@@ -1172,10 +1172,9 @@ legend {
   padding: 4px;
 }
 
-
 /**** customer account data when login ****/
 .account table td:first-of-type a {
-  box-shadow: none; 
+  box-shadow: none !important; 
 }
 .customer-order-data {
   font-size: 1rem;
