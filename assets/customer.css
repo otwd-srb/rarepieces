@@ -416,7 +416,7 @@
 
 @media screen and (min-width: 990px) {
   :is(.account, .order) > div:nth-of-type(2) {
-    display: flex;
+    display: grid; /*flex*/
     margin-top: 5rem;
   }
 }
